@@ -9,7 +9,8 @@ export async function POST(request: Request) {
   try {
     const url = new URL(endpoint); url.searchParams.set("key", secret);
     const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "mastro", name: lead.name, email: lead.email, source: "www.abagenziaweb.it", receivedAt: new Date().toISOString() }) });
-    const result = await response.json().catch(() => null) as { ok?: boolean } | null;
-    if (!response.ok || !result?.ok) throw new Error(); return NextResponse.json({ ok: true });
-  } catch { return NextResponse.json({ error: "Consegna non riuscita" }, { status: 502 }); }
+    const responseBody = await response.text();
+    const result = JSON.parse(responseBody || "null") as { ok?: boolean } | null;
+    if (!response.ok || !result?.ok) throw new Error(`Apps Script returned ${response.status}: ${responseBody.slice(0, 300)}`); return NextResponse.json({ ok: true });
+  } catch (error) { console.error("Google Sheets Metodo Mastro delivery failed", error); return NextResponse.json({ error: "Google Apps Script ha rifiutato la richiesta. Verifica URL webhook e LEAD_SECRET in Vercel." }, { status: 502 }); }
 }
