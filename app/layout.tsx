@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description: "Siti web, automazioni e acquisizione clienti per ristoranti e attività locali che vogliono crescere con un sistema digitale misurabile.",
   openGraph: { type: "website", locale: "it_IT", siteName: "AB Web Agency", title: "AB Web Agency | Crescita digitale per ristoranti", description: "Siti web, automazioni e acquisizione clienti per ristoranti e attività locali." },
   twitter: { card: "summary_large_image", title: "AB Web Agency | Crescita digitale per ristoranti", description: "Siti web, automazioni e acquisizione clienti per ristoranti e attività locali." },
+  icons: { icon: "/brand/abwebagency-logo.png", shortcut: "/brand/abwebagency-logo.png", apple: "/brand/abwebagency-logo.png" },
   robots: { index: true, follow: true },
 };
 
