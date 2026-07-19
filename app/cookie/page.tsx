@@ -1,7 +1,7 @@
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata = { title: "Cookie Policy" };
+export const metadata = { title: "Cookie Policy", robots: { index: false, follow: true } };
 
 export default function Cookie() {
   return <><SiteHeader /><main className="legal shell"><p className="eyebrow">COOKIE POLICY</p><h1>Informativa su cookie e strumenti simili</h1><p className="legal-updated">Ultimo aggiornamento: 19 luglio 2026</p>

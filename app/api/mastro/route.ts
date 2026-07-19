@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   if (!endpoint || !secret) return NextResponse.json({ error: "Configurazione mancante" }, { status: 503 });
   try {
     const url = new URL(endpoint); url.searchParams.set("key", secret);
-    const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "mastro", name: lead.name, email: lead.email, source: "abwebagencies.com", receivedAt: new Date().toISOString() }) });
+    const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "mastro", name: lead.name, email: lead.email, source: "www.abagenziaweb.it", receivedAt: new Date().toISOString() }) });
     const result = await response.json().catch(() => null) as { ok?: boolean } | null;
     if (!response.ok || !result?.ok) throw new Error(); return NextResponse.json({ ok: true });
   } catch { return NextResponse.json({ error: "Consegna non riuscita" }, { status: 502 }); }

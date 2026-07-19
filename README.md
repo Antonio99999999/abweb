@@ -27,7 +27,7 @@ Nel foglio apri **Estensioni → Apps Script**, incolla questo codice e salva:
 
 ```javascript
 const ADMIN_EMAIL = 'ab.agenziaweb@gmail.com';
-const SITE_URL = 'https://abwebagencies.com';
+const SITE_URL = 'https://www.abagenziaweb.it';
 const LOGO_URL = SITE_URL + '/brand/abwebagency-logo.png';
 
 function doPost(e) {
@@ -37,8 +37,8 @@ function doPost(e) {
   const lead = JSON.parse(e.postData.contents);
   const isMastroDownload = lead.kind === 'mastro';
   const row = isMastroDownload
-    ? [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', '', '', 'Download Metodo Mastro', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', lead.source || 'abwebagencies.com']
-    : [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', lead.phone || '', lead.company || '', join(lead.services), lead.pages || '', lead.texts || '', lead.logo || '', join(lead.extras), lead.module || '', lead.seo || '', lead.social || '', lead.socialPlan || '', lead.ai || '', lead.duration || '', lead.estimate || '', lead.minimum || '', lead.maximum || '', lead.tier || '', lead.note || '', lead.source || 'abwebagencies.com'];
+    ? [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', '', '', 'Download Metodo Mastro', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', lead.source || 'www.abagenziaweb.it']
+    : [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', lead.phone || '', lead.company || '', join(lead.services), lead.pages || '', lead.texts || '', lead.logo || '', join(lead.extras), lead.module || '', lead.seo || '', lead.social || '', lead.socialPlan || '', lead.ai || '', lead.duration || '', lead.estimate || '', lead.minimum || '', lead.maximum || '', lead.tier || '', lead.note || '', lead.source || 'www.abagenziaweb.it'];
 
   SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Lead').appendRow(row);
   isMastroDownload ? sendMastroEmails(lead) : sendQuoteEmails(lead);
@@ -83,7 +83,7 @@ function sendMastroEmails(lead) {
   ));
   sendMail(ADMIN_EMAIL, 'Nuovo download · Metodo Mastro', shell(
     'Nuovo contatto acquisito',
-    '<p><strong>' + name + '</strong> ha richiesto il caso studio Metodo Mastro.</p>' + detailRows([['Email', lead.email], ['Fonte', lead.source || 'abwebagencies.com']])
+    '<p><strong>' + name + '</strong> ha richiesto il caso studio Metodo Mastro.</p>' + detailRows([['Email', lead.email], ['Fonte', lead.source || 'www.abagenziaweb.it']])
   ));
 }
 
@@ -97,7 +97,7 @@ function shell(title, content) {
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;margin:auto;background:#ffffff;border-radius:18px;overflow:hidden">' +
     '<tr><td style="background:#0b1f33;padding:28px 34px"><img src="' + LOGO_URL + '" alt="AB Web Agency" width="72" style="display:block;width:72px;height:auto;margin-bottom:20px"><div style="font-size:12px;letter-spacing:1.4px;color:#f18445;text-transform:uppercase">AB Web Agency</div><div style="font-family:Georgia,serif;font-weight:bold;font-size:30px;line-height:1.2;color:#ffffff;margin-top:8px">' + title + '</div></td></tr>' +
     '<tr><td style="padding:32px 34px;font-size:16px;line-height:1.6">' + content + '</td></tr>' +
-    '<tr><td style="padding:20px 34px;background:#f8f4ed;font-size:12px;line-height:1.5;color:#587087">AB Web Agency<br><a href="' + SITE_URL + '" style="color:#587087">abwebagencies.com</a> · <a href="mailto:' + ADMIN_EMAIL + '" style="color:#587087">' + ADMIN_EMAIL + '</a></td></tr>' +
+    '<tr><td style="padding:20px 34px;background:#f8f4ed;font-size:12px;line-height:1.5;color:#587087">AB Web Agency<br><a href="' + SITE_URL + '" style="color:#587087">www.abagenziaweb.it</a> · <a href="mailto:' + ADMIN_EMAIL + '" style="color:#587087">' + ADMIN_EMAIL + '</a></td></tr>' +
     '</table></td></tr></table></body></html>';
 }
 

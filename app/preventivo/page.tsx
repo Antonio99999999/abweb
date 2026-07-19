@@ -1,3 +1,3 @@
 import type { Metadata } from "next"; import { QuoteBuilder } from "@/components/quote-builder"; import { SiteFooter } from "@/components/site-footer"; import { SiteHeader } from "@/components/site-header";
-export const metadata: Metadata = { title: "Calcola il tuo investimento", description: "Ricevi una fascia di investimento per il tuo progetto digitale in pochi minuti." };
+export const metadata: Metadata = { title: "Calcola il tuo investimento", description: "Ricevi una fascia di investimento per il tuo progetto digitale in pochi minuti.", alternates: { canonical: "https://www.abagenziaweb.it/preventivo" } };
 export default function Quote(){return <><SiteHeader/><main className="quote-page"><div className="shell quote-intro"><p className="eyebrow">PROJECT PLANNER</p><p>3 passaggi · 2 minuti · nessun impegno</p></div><QuoteBuilder/></main><SiteFooter/></>}

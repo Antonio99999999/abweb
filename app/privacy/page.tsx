@@ -1,7 +1,7 @@
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata = { title: "Privacy Policy" };
+export const metadata = { title: "Privacy Policy", robots: { index: false, follow: true } };
 
 export default function Privacy() {
   return <><SiteHeader /><main className="legal shell"><p className="eyebrow">PRIVACY POLICY</p><h1>Informativa sul trattamento dei dati personali</h1><p className="legal-updated">Ultimo aggiornamento: 19 luglio 2026</p>

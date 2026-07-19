@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   try {
     const url = new URL(endpoint);
     url.searchParams.set("key", secret);
-    const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...lead, source: "abwebagencies.com", receivedAt: new Date().toISOString() }) });
+    const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ...lead, source: "www.abagenziaweb.it", receivedAt: new Date().toISOString() }) });
     const result = await response.json().catch(() => null) as { ok?: boolean } | null;
     if (!response.ok || !result?.ok) throw new Error(`Apps Script returned ${response.status}`);
     return NextResponse.json({ ok: true });
