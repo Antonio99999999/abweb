@@ -2,11 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") close(); };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
   return <header className="site-header"><div className="shell nav">
     <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={54} height={54} priority /></Link>
     <nav id="mobile-navigation" className={`primary-nav ${open ? "open" : ""}`} aria-label="Navigazione principale">
