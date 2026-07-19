@@ -1,1 +1,5 @@
 .trap-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+.consent{display:grid;grid-template-columns:18px minmax(0,1fr);gap:9px;align-items:start}
+.consent input[type="checkbox"]{width:16px;height:16px;margin:2px 0 0}
+.consent span{min-width:0}
+@media(max-width:800px){.mastro-form .consent{gap:10px;font-size:13px;line-height:1.5}.mastro-form .consent input[type="checkbox"]{margin-top:2px}}
