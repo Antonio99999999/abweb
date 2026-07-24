@@ -1,0 +1,35 @@
+/* Colori e font ripresi dalla home reale di Sedia (paper #f6f3ec, card #fffdf8,
+   line #dedbd2, brand #d95531/#aa3518, green #1f6a4c, lime #dff08b, sidebar #173e33,
+   titoli in serif) per far riconoscere il prodotto anche dentro il sito dell'agenzia. */
+.sedia-feature{background:#f6f3ec}
+.sedia-feature .service-page-grid>span{color:#d95531}
+.sedia-feature h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+.sedia-feature .lead{color:#5b665f}
+.sedia-feature ul{color:#3f4a44}
+.sedia-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:#d95531;color:#fff;font-weight:700;font-size:14px;transition:background .18s ease}
+.sedia-cta:hover{background:#aa3518}
+.sedia-visual{height:250px;border-radius:24px;position:relative;overflow:hidden;background:#173e33;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.sedia-logo{display:flex;align-items:center;gap:10px;color:#fff}
+.sedia-logo-badge{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#dff08b;color:#173e33}
+.sedia-logo-word{font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.sedia-visual small{color:#c9d6cf;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+@media(max-width:800px){.sedia-visual{height:190px}}
+
+/* Pulsante verde nel menu, accanto a Contatti, verso il sito di Sedia. */
+.sedia-nav-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#1f6a4c;color:#fff;font-weight:700;font-size:13px;transition:background .18s ease}
+.sedia-nav-link:hover{background:#154f38;color:#fff}
+.primary-nav a.sedia-nav-link{padding:8px 14px;border-radius:999px;margin:2px 0}
+.primary-nav a.sedia-nav-link:hover{background:#154f38;color:#fff}
+
+/* CTA di Sedia in homepage, prima di "Collaborazioni selezionate". */
+.sedia-home-cta{background:#dff08b}
+.sedia-home-cta-grid{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:64px 0}
+.sedia-home-logo{display:flex;align-items:center;gap:10px}
+.sedia-home-logo-badge{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#173e33;color:#dff08b}
+.sedia-home-logo-word{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:700;color:#173e33}
+.sedia-home-cta h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.03em;font-size:clamp(26px,3vw,38px);line-height:1.15;margin:16px 0 18px;color:#173e33;max-width:640px}
+.sedia-home-cta ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:600px}
+.sedia-home-cta li{padding-left:24px;position:relative;color:#2d3b33;font-size:15px}
+.sedia-home-cta li:before{content:"✓";position:absolute;left:0;color:#173e33;font-weight:800}
+.sedia-home-cta .sedia-cta{flex-shrink:0}
+@media(max-width:800px){.sedia-home-cta-grid{flex-direction:column;align-items:flex-start;padding:44px 0;gap:22px}}

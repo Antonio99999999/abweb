@@ -8,6 +8,7 @@ import "./header.css";
 import "./quote-mobile.css";
 import "./forms.css";
 import "./contacts.css";
+import "./sedia-card.css";
 import { ScrollEffects } from "@/components/scroll-effects";
 
 export const metadata: Metadata = {
