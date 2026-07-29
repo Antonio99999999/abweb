@@ -1,0 +1,10 @@
+<svg width="160" height="44" viewBox="0 0 160 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sedia">
+  <rect width="40" height="40" rx="10" fill="#dff08b"/>
+  <g transform="translate(9,9) scale(0.9167)" fill="none" stroke="#173e33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
+    <path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/>
+    <path d="M5 18v2"/>
+    <path d="M19 18v2"/>
+  </g>
+  <text x="52" y="30" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#173e33">Sedia</text>
+</svg>
