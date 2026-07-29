@@ -1,6 +1,6 @@
-html.motion-ready [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .82s ease,transform .82s cubic-bezier(.22,1,.36,1)}
+html.motion-ready [data-reveal].reveal-pending{opacity:0;transform:translateY(28px);transition:opacity .62s ease,transform .72s cubic-bezier(.22,1,.36,1)}
 html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translateY(0)}
-@media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal]{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){html.motion-ready [data-reveal].reveal-pending{opacity:1;transform:none;transition:none}}
 .scroll-progress{position:fixed;z-index:20;top:79px;left:0;width:100%;height:2px;background:var(--orange);transform:scaleX(var(--scroll-progress,0));transform-origin:left;transition:transform .1s linear;pointer-events:none}
 @media(max-width:800px){.scroll-progress{top:69px}}
 @media(prefers-reduced-motion:reduce){.scroll-progress{transition:none}}

@@ -4,3 +4,4 @@
 @media(max-width:900px){.blog-hero-grid,.editorial-layout{grid-template-columns:1fr}.editorial-toc{display:none}.blog-grid{grid-template-columns:1fr 1fr}.blog-card:first-child{grid-column:span 2}.editorial-cta>.shell{align-items:start;flex-direction:column}.editorial-related .blog-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.blog-hero,.editorial-hero{padding:58px 0}.blog-hero h1,.editorial-hero h1{font-size:43px}.blog-hero-grid{gap:35px}.blog-archive{padding-block:65px}.blog-archive-head{align-items:start;flex-direction:column}.blog-grid{grid-template-columns:1fr}.blog-card:first-child{grid-column:auto}.blog-card-visual{height:155px}.editorial-layout{padding-block:60px}.editorial-body section{padding-bottom:55px}.editorial-lead{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.blog-card{transition:none}.blog-card:hover{transform:none}}
+.editorial-body>section{content-visibility:auto;contain-intrinsic-size:auto 520px}
