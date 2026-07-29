@@ -121,12 +121,12 @@ export default function QuandooSediaArticle() {
             </aside>
 
             <div className="qs-content">
-              <section className="qs-intro">
+              <section className="qs-intro" data-reveal>
                 <p>Non è corretto dire semplicemente che “Quandoo chiude il 30 settembre”. La piattaforma segue una dismissione in più fasi: il 30 settembre termina la possibilità di effettuare nuove prenotazioni; dal 1° ottobre cessano i servizi destinati ai clienti; sito, app e infrastruttura saranno disattivati definitivamente il 31 dicembre 2026.</p>
                 <p>Per un ristorante, la questione non è soltanto scegliere un software alternativo a Quandoo. Significa ricostruire per tempo il percorso completo: sala, disponibilità, widget sul sito, link su Google e social, formazione del personale e verifica del nuovo flusso.</p>
               </section>
 
-              <section id="date" className="qs-section">
+              <section id="date" className="qs-section qs-animate-timeline" data-reveal>
                 <p className="qs-kicker">La timeline ufficiale</p>
                 <h2>Cosa succederà a Quandoo</h2>
                 <p>Quandoo descrive una cessazione pianificata e ordinata. Queste sono le date da usare come riferimento, senza sovrapporre la fine delle prenotazioni alla chiusura definitiva.</p>
@@ -139,7 +139,7 @@ export default function QuandooSediaArticle() {
                 <p className="qs-source">Fonte: <a href={officialSource} target="_blank" rel="noreferrer">“An Important Update on Quandoo Services” — Quandoo <span aria-hidden>↗</span></a></p>
               </section>
 
-              <section id="muoversi-ora" className="qs-section">
+              <section id="muoversi-ora" className="qs-section qs-animate-cards" data-reveal>
                 <p className="qs-kicker">Preparare, non rincorrere</p>
                 <h2>Perché il ristorante deve muoversi ora</h2>
                 <p>Aspettare gli ultimi giorni concentra troppi cambiamenti nello stesso momento. Una transizione preparata consente invece di verificare il nuovo sistema mentre il canale attuale è ancora disponibile.</p>
@@ -153,7 +153,7 @@ export default function QuandooSediaArticle() {
                 </div>
               </section>
 
-              <section className="qs-offer" aria-labelledby="quandoo-offer-title">
+              <section className="qs-offer qs-animate-offer" aria-labelledby="quandoo-offer-title" data-reveal>
                 <div className="qs-offer-badge">Offerta passaggio da Quandoo</div>
                 <div className="qs-offer-grid">
                   <div><p className="qs-kicker">Transizione assistita</p><h2 id="quandoo-offer-title">Passa da Quandoo a Sedia con la sala già pronta.</h2><p>La priorità è entrare nel nuovo sistema senza interruzioni: AB Web Agency ti affianca nella configurazione iniziale della sala, nel controllo del widget e nei test con il personale.</p></div>
@@ -162,7 +162,7 @@ export default function QuandooSediaArticle() {
                 <p className="qs-offer-note">Offerta valida per richieste inviate entro il 30 settembre 2026, riservata ai ristoranti che possono dimostrare di aver utilizzato Quandoo. Non cumulabile con altre promozioni.</p>
               </section>
 
-              <section id="sedia" className="qs-section">
+              <section id="sedia" className="qs-section qs-animate-features" data-reveal>
                 <p className="qs-kicker">Il lavoro della sala, in un unico posto</p>
                 <h2>Sedia è progettato intorno alla sala reale del ristorante</h2>
                 <p>Quando arriva una prenotazione, il team può visualizzarla nel calendario, associarla al tavolo più adatto e controllare la disponibilità del servizio. La mappa grafica riproduce la sala del locale: i tavoli possono essere trascinati, ridimensionati, configurati nelle capienze e combinati per gruppi numerosi.</p>
@@ -174,12 +174,12 @@ export default function QuandooSediaArticle() {
                 </div>
               </section>
 
-              <section className="qs-operational">
+              <section className="qs-operational" data-reveal>
                 <div><p className="qs-kicker">Non una semplice demo grafica</p><h2>Un gestionale già operativo</h2></div>
                 <p>Sedia è già un gestionale operativo: il progetto include flussi utilizzabili per prenotazioni, tavoli, disponibilità, clienti, widget e report. Alcune funzioni variano in base al piano; l’importazione massiva da altri strumenti è ancora in valutazione e non viene presentata come disponibile.</p>
               </section>
 
-              <section id="confronto" className="qs-section">
+              <section id="confronto" className="qs-section qs-animate-table" data-reveal>
                 <p className="qs-kicker">Confronto trasparente</p>
                 <h2>Sedia e Quandoo: cosa cambia per il ristorante</h2>
                 <p>Il confronto si limita a informazioni verificabili. Le caratteristiche di Quandoo riportate qui provengono dalla comunicazione ufficiale sulla cessazione; per Sedia, dal prodotto e dai piani pubblicati.</p>
@@ -200,13 +200,13 @@ export default function QuandooSediaArticle() {
                 <p className="qs-table-note">I prezzi indicati sono quelli rilevati nel prodotto Sedia al 29 luglio 2026. L’offerta Quandoo applica il 10% di sconto al piano scelto per i primi 12 mesi, secondo le condizioni riportate in questa pagina.</p>
               </section>
 
-              <section id="come-funziona" className="qs-section">
+              <section id="come-funziona" className="qs-section" data-reveal>
                 <p className="qs-kicker">Nella pratica</p>
                 <h2>Una giornata di servizio con Sedia</h2>
                 <p>Le prenotazioni online entrano nel gestionale insieme a quelle inserite manualmente dal personale. Prima del servizio, il team controlla disponibilità e richieste; sulla mappa assegna i tavoli e valuta eventuali combinazioni. Dopo la visita, storico, note ed eventuali no-show restano collegati al cliente.</p>
               </section>
 
-              <section id="passaggio" className="qs-section">
+              <section id="passaggio" className="qs-section qs-animate-steps" data-reveal>
                 <p className="qs-kicker">Passaggio guidato</p>
                 <h2>Come avviene il passaggio a Sedia</h2>
                 <ol className="qs-steps">
@@ -218,7 +218,7 @@ export default function QuandooSediaArticle() {
                 <aside className="qs-honesty"><strong>Nota sulla migrazione dei dati</strong><p>Sedia non dispone oggi di un’importazione massiva automatica da Quandoo. AB Web Agency può aiutarti a verificare i dati disponibili e a pianificare il passaggio, senza promettere trasferimenti non supportati dal prodotto.</p></aside>
               </section>
 
-              <section id="faq" className="qs-section qs-faq">
+              <section id="faq" className="qs-section qs-faq" data-reveal>
                 <p className="qs-kicker">Domande frequenti</p>
                 <h2>Le risposte prima di scegliere</h2>
                 <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden>+</span></summary><p>{answer}</p></details>)}</div>
@@ -226,7 +226,7 @@ export default function QuandooSediaArticle() {
             </div>
           </div>
 
-          <section className="qs-final">
+          <section className="qs-final" data-reveal>
             <div className="shell">
               <div className="qs-final-main"><p className="qs-kicker">Il momento giusto è prima della scadenza</p><h2>Non aspettare il 30 settembre per cambiare gestionale</h2><p>Configura oggi Sedia e verifica il nuovo sistema prima che Quandoo interrompa le prenotazioni.</p><div className="qs-actions"><a className="button qs-final-primary" href={sediaHref}>Aggiungi il tuo ristorante a Sedia <span aria-hidden>→</span></a><a className="button qs-final-secondary" href={demoHref}>Richiedi una dimostrazione</a></div></div>
               <div className="qs-final-offer"><span className="qs-offer-badge">Offerta passaggio da Quandoo</span><h3>Sala configurata, passaggio seguito da vicino.</h3><p>Configurazione iniziale gratuita e 10% di sconto sul gestionale per i primi 12 mesi.</p><a className="button qs-offer-button" href={offerHref}>Richiedi l’offerta Quandoo <span aria-hidden>→</span></a><small>Richieste entro il 30/09/2026 · prova dell’utilizzo di Quandoo richiesta · non cumulabile.</small></div>
