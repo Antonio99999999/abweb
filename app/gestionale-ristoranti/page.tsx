@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SediaIcon } from "@/components/sedia-icon";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
 
@@ -80,8 +81,11 @@ export default function GestionaleRistoranti() {
           <h1>Il gestionale di prenotazione costruito sulla sala reale del tuo ristorante.</h1>
           <p>Sedia è il prodotto sviluppato da AB Web Agency per chi è stanco di un&apos;agenda generica: mappa dei tavoli, prenotazioni, widget per il sito e rubrica clienti in un unico ambiente.</p>
           <div className="hero-actions" style={{ marginTop: 32 }}>
-            <a className="sedia-cta" href={demoHref}>Richiedi una dimostrazione <span aria-hidden>→</span></a>
-            <a className="text-link" href={SEDIA_URL} target="_blank" rel="noreferrer">Vai all&apos;app di Sedia <span aria-hidden>↗</span></a>
+            <a className="sedia-app-cta" href={SEDIA_URL} target="_blank" rel="noreferrer">
+              <span className="sedia-app-cta-icon" aria-hidden><SediaIcon size={17} /></span>
+              Vai all&apos;app di Sedia <span aria-hidden>↗</span>
+            </a>
+            <a className="button button-secondary" href={demoHref}>Richiedi una dimostrazione</a>
           </div>
         </section>
 
@@ -142,9 +146,13 @@ export default function GestionaleRistoranti() {
             <p className="eyebrow">PROVA SEDIA</p>
             <h2>Configura la sala del tuo ristorante e verifica il sistema.</h2>
             <div className="hero-actions" style={{ justifyContent: "center", marginTop: 24 }}>
+              <a className="sedia-app-cta" href={SEDIA_URL} target="_blank" rel="noreferrer">
+                <span className="sedia-app-cta-icon" aria-hidden><SediaIcon size={17} /></span>
+                Vai all&apos;app di Sedia <span aria-hidden>↗</span>
+              </a>
               <a className="button button-light" href={demoHref}>Richiedi una dimostrazione <span aria-hidden>→</span></a>
-              <Link className="text-link" href="/servizi#gestionale">Sedia tra i servizi di AB Web Agency <span aria-hidden>→</span></Link>
             </div>
+            <Link className="text-link" href="/servizi#gestionale" style={{ display: "inline-block", marginTop: 18 }}>Sedia tra i servizi di AB Web Agency <span aria-hidden>→</span></Link>
           </div>
         </section>
       </main>

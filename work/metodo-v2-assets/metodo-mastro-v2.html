@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Metodo Mastro · Benvenuti al Sud</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #dfe6ec; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; }
+  h1, h2, h3, .serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+
+  :root {
+    --ink: #14293D; --navy: #0B1F33; --blue: #D7E9F8; --sky: #8DBBDB;
+    --orange: #F18445; --orange-deep: #D9691F; --cream: #F8F4ED; --fog: #EDF4F8;
+    --white: #FFFFFF; --muted: #587087; --line: #D4E0E8;
+  }
+
+  .page {
+    width: 210mm; height: 297mm; position: relative; overflow: hidden;
+    background: var(--white); page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  @media screen {
+    body { padding: 24px 0 60px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .page { box-shadow: 0 10px 40px rgba(11,31,51,.25); }
+  }
+
+  .pad { position: absolute; left: 15mm; right: 15mm; }
+  .kicker { color: var(--orange-deep); font-size: 9.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+  .kicker.on-dark { color: #FFA36B; }
+  .h1 { font-size: 25px; line-height: 1.16; color: var(--ink); letter-spacing: -.01em; }
+  .h1.on-dark { color: var(--white); }
+  .intro { font-size: 10px; line-height: 1.55; color: var(--muted); max-width: 148mm; }
+  .intro.on-dark { color: var(--blue); }
+
+  .footer { position: absolute; left: 15mm; right: 15mm; bottom: 9mm; display: flex; justify-content: space-between;
+    border-top: .6px solid var(--line); padding-top: 6px; font-size: 7.3px; color: var(--muted); }
+  .footer.on-dark { border-top-color: rgba(255,255,255,.22); color: #9FB4C6; }
+
+  .card {
+    border-radius: 12px; padding: 13px 15px; box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: center; text-align: center;
+  }
+  .card-kicker { color: var(--orange-deep); font-size: 8px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .on-dark .card-kicker { color: #FFA36B; }
+  .card p { font-size: 9px; line-height: 1.42; color: var(--ink); }
+  .card.tint-blue { background: var(--blue); }
+  .card.tint-cream { background: var(--cream); }
+  .card.tint-fog { background: var(--fog); }
+  .card.tint-white { background: var(--white); border: 1px solid var(--line); }
+
+  /* Custom full-width highlight panels (navy/fog/cream call-outs that aren't .card) */
+  .panel { border-radius: 12px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+  .panel p, .panel .h1 { margin-left: auto; margin-right: auto; }
+
+  .grid { display: grid; gap: 8px; }
+  .num { color: var(--orange); font-size: 11px; font-weight: 700; }
+
+  .img-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-contain { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+  .pill { display: inline-flex; align-items: center; justify-content: center; background: var(--orange); color: var(--navy);
+    font-family: Georgia, serif; font-weight: 700; font-size: 11px; letter-spacing: .03em; border-radius: 999px; padding: 15px 26px; }
+
+  /* ---------- Page 1: Cover ---------- */
+  .cover { display: flex; }
+  .cover-left { width: 66%; height: 100%; background: var(--navy); position: relative; padding: 20mm 14mm 14mm 15mm; display: flex; flex-direction: column; }
+  .cover-right { width: 34%; height: 100%; position: relative; }
+  .cover-right::before { content:""; position:absolute; left:-3px; top:0; bottom:0; width:5px; background: var(--orange); z-index:2; }
+  .cover-left .h1 { font-size: 40px; margin-top: 16px; }
+  .cover-left .h2 { font-size: 21px; color: var(--blue); margin-top: 26px; line-height: 1.22; max-width: 92mm; }
+  .cover-left .intro { margin-top: 16px; max-width: 88mm; }
+  .cover-left .pill { position: absolute; left: 15mm; bottom: 18mm; }
+
+  /* ---------- Standard section header ---------- */
+  .section-head { position: absolute; left: 15mm; top: 15mm; right: 15mm; }
+  .section-head .h1 { margin-top: 9px; }
+  .section-head .intro { margin-top: 10px; }
+
+  /* ---------- Table (page: Prenotazioni) ---------- */
+  table.compare { width: 100%; border-collapse: collapse; }
+  table.compare th { text-align: left; font-family: Georgia, serif; font-size: 9.5px; color: var(--ink); padding: 9px 10px; border-bottom: 1px solid #BED2E0; }
+  table.compare td { font-size: 8.7px; color: var(--muted); padding: 9px 10px; border-bottom: 1px solid #BED2E0; }
+  table.compare tr:last-child td { border-bottom: none; }
+
+  /* ---------- Results bars ---------- */
+  .bar-row { margin-top: 16px; }
+  .bar-row .bar-label { display:flex; justify-content: space-between; align-items:baseline; }
+  .bar-row .bar-name { font-family: Georgia, serif; font-size: 11px; color: var(--ink); }
+  .bar-track { height: 8px; background: #D3E3ED; border-radius: 5px; margin-top: 7px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 5px; }
+
+  .goal-item {
+    background: var(--white); border: 1px solid #D8E2E8; border-radius: 8px; padding: 9px 11px; margin-bottom: 8px;
+    box-sizing: border-box; text-align: center;
+  }
+  .goal-item b { display: block; font-family: Georgia, serif; font-size: 9.3px; color: var(--orange-deep); }
+  .goal-item span { font-size: 7.8px; color: var(--muted); display: block; margin-top: 3px; }
+
+  .stage {
+    border-radius: 12px; padding: 14px; box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: center; text-align: center;
+  }
+  .stage .term { font-size: 8px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--orange-deep); }
+  .stage h3 { font-family: Georgia, serif; font-size: 13px; color: var(--ink); margin-top: 8px; }
+  .stage p { font-size: 8.6px; color: var(--ink); line-height: 1.4; margin-top: 8px; }
+
+  .torn-frame { position:relative; border-radius: 12px; overflow:hidden; }
+  .badge-dot { display:inline-block; width:5px;height:5px;border-radius:50%; margin-right:6px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page cover">
+  <div class="cover-left">
+    <div class="kicker on-dark">Caso studio · Ristorazione</div>
+    <div class="h1 serif on-dark">Benvenuti al Sud</div>
+    <div class="h2 serif">Un locale riconoscibile,<br/>anche online.</div>
+    <div class="intro on-dark">Come abbiamo dato forma digitale a un ristorante che vive di ritmo, ospitalità e piatti che meritano di essere scelti — e come contenuti, SEO e un sistema di prenotazione proprietario lavorano oggi insieme.</div>
+    <div class="pill">IL METODO MASTRO</div>
+    <div class="footer on-dark" style="position:absolute;left:15mm;right:14mm;bottom:8mm;">
+      <span>AB Web Agency · Metodo Mastro</span><span>01 / 13</span>
+    </div>
+  </div>
+  <div class="cover-right">
+    <img class="img-cover" src="sala-vetrina.jpg" alt="" />
+  </div>
+</div>
+
+<!-- PAGE 2 — 01 Punto di partenza -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">01 / Il punto di partenza</div>
+    <div class="h1 serif">Un ristorante pieno di vita, una presenza digitale da riallineare.</div>
+    <div class="intro">L'obiettivo non era rendere il locale più patinato. Era renderlo più fedele a ciò che succede ogni giorno tra sala, cucina e accoglienza.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; height:60mm; border-radius:12px; overflow:hidden;">
+    <img class="img-cover" src="sala-editoriale.jpg" alt="Sala del ristorante Benvenuti al Sud" style="width:100%;height:100%;" />
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm;">
+    <div class="card tint-blue" style="min-height:33mm;"><span class="card-kicker">La sfida</span><p>Far percepire online la qualità dell'esperienza reale, senza perdere calore o semplicità.</p></div>
+  </div>
+  <div class="pad" style="top:116mm; left:97mm; width:49mm;">
+    <div class="card tint-cream" style="min-height:23mm;"><span class="card-kicker">Il criterio</span><p>Ogni scelta doveva essere utile all'ospite e sostenibile per chi lavora nel locale.</p></div>
+  </div>
+  <div class="pad" style="top:149mm; left:15mm; right:15mm; display:flex; gap:6mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Identità</span><p>Un'immagine coerente, capace di raccontare carattere e quotidianità.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">Operatività</span><p>Strumenti più chiari per prenotazioni, turni e proposta vini.</p></div>
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Relazione</span><p>Meno passaggi intermedi, più contatto diretto con gli ospiti.</p></div>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>02 / 13</span></div>
+</div>
+
+<!-- PAGE 3 — 02 Strategia -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">02 / Strategia</div>
+    <div class="h1 serif">Prima la realtà del locale. Poi il design.</div>
+    <div class="intro">Un sistema coordinato: sito, contenuti, SEO e strumenti interni lavorano insieme per rendere il servizio più semplice e l'identità più nitida.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; height:64mm; border-radius:12px; overflow:hidden; background:var(--cream);">
+    <img class="img-contain" src="turni-mockup.png" alt="" style="padding:6mm;" />
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm; min-height:64mm; display:flex; flex-direction:column; gap:5mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">01 · Rendere riconoscibile</span><p>Colori, materiali e tono visivo per un locale contemporaneo, accogliente e concreto.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">02 · Rendere accessibile</span><p>Informazioni, menu e prenotazione pensati per chi deve scegliere in pochi secondi.</p></div>
+  </div>
+  <div class="pad" style="top:149mm; left:15mm; right:15mm; display:flex; gap:6mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">03 · Rendere diretto</span><p>Meno dipendenza dai portali, più dati e contatti che restano al ristorante.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">04 · Rendere gestibile</span><p>Strumenti pensati per alleggerire i passaggi ripetitivi dello staff.</p></div>
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">05 · Farsi trovare</span><p>Contenuti ed SEO per intercettare chi cerca un locale come questo, non solo chi lo conosce già.</p></div>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>03 / 13</span></div>
+</div>
+
+<!-- PAGE 4 — 03 Il sito -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">03 / Il sito</div>
+    <div class="h1 serif">Un sito che orienta, non che trattiene.</div>
+    <div class="intro">L'architettura mette in primo piano il locale, i piatti e le azioni che contano: conoscere la proposta, scegliere e prenotare.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; height:52mm; border-radius:12px; overflow:hidden;">
+    <img class="img-cover" src="pizza.webp" alt="" style="width:100%;height:100%; background:var(--cream);" />
+  </div>
+  <div class="pad" style="top:133mm; left:15mm; width:78mm; min-height:11mm; border:1px solid var(--line); border-radius:8px; display:flex; align-items:center; padding:0 4mm;">
+    <p style="font-size:8px; color:var(--muted); line-height:1.35;">Una fotografia del prodotto: calda, immediata, senza artifici.</p>
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm; display:flex; flex-direction:column; gap:5mm;">
+    <div class="card tint-blue" style="min-height:33mm;"><span class="card-kicker">Struttura</span><p>Homepage essenziale, percorsi chiari e pagine dedicate a menu, prenotazioni, storia e contatti.</p></div>
+    <div class="card tint-cream" style="min-height:28mm;"><span class="card-kicker">Comunicazione</span><p>Un linguaggio vicino a chi corre tra i tavoli: preciso, ospitale, mai costruito.</p></div>
+  </div>
+  <div class="pad panel" style="top:149mm; left:15mm; right:15mm; min-height:29mm; background:var(--fog); padding:8mm 9mm;">
+    <span class="card-kicker" style="margin-bottom:4mm;">Principio di progetto</span>
+    <div class="h1 serif" style="font-size:15px;">Ogni schermata deve aiutare qualcuno a decidere.</div>
+    <p style="margin-top:5mm; max-width:150mm;">Per l'ospite significa trovare subito ciò che cerca. Per il team significa ricevere richieste più chiare e meno frammentate.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>04 / 13</span></div>
+</div>
+
+<!-- PAGE 5 — 04 Menu -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">04 / Menu</div>
+    <div class="h1 serif">Quattro lingue, una lettura semplice.</div>
+    <div class="intro">Il menu è diventato uno strumento di orientamento: leggibile da mobile, ordinato, costruito per valorizzare i piatti forti senza affaticare chi consulta.</div>
+  </div>
+  <div class="pad panel" style="top:79mm; left:15mm; width:78mm; min-height:68mm; background:var(--cream); padding:9mm;">
+    <span class="card-kicker">Menu digitale</span>
+    <div class="h1 serif" style="font-size:16px; margin-top:4mm;">Italiano · English<br/>Français · Deutsch</div>
+    <p style="margin-top:6mm; max-width:60mm;">Una struttura uniforme per ospiti italiani e internazionali, con sezioni facili da scorrere e informazioni sempre aggiornabili.</p>
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm; height:68mm; border-radius:12px; overflow:hidden;">
+    <img class="img-cover" src="pizza.webp" style="width:100%;height:100%; background:var(--cream);" />
+  </div>
+  <div class="pad" style="top:154mm; left:15mm; right:15mm; display:flex; gap:6mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Gerarchia</span><p>Antipasti, pizze, cucina e bevande in un ordine che rende naturale la scelta.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">Accessibilità</span><p>Testo leggibile, contrasto curato, file facili da aprire anche al tavolo.</p></div>
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Valore</span><p>I piatti identitari hanno più spazio, più contesto, una presenza memorabile.</p></div>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>05 / 13</span></div>
+</div>
+
+<!-- PAGE 6 — 05 Prenotazioni (con TheFork) -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">05 / Prenotazioni</div>
+    <div class="h1 serif">Meno commissioni ricorrenti, più controllo sulla relazione.</div>
+    <div class="intro">Piattaforme come TheFork possono dare visibilità iniziale, ma quando restano l'unico canale mediano ogni prenotazione, riducono margini e allontanano il locale dal proprio ospite.</div>
+  </div>
+  <div class="pad" style="top:60mm; left:15mm; right:15mm; min-height:58mm; background:var(--fog); border-radius:12px; padding:8mm 9mm; box-sizing:border-box;">
+    <span class="card-kicker">Dal portale esterno al canale proprietario</span>
+    <table class="compare" style="margin-top:4mm;">
+      <tr><th>Aspetto</th><th>Piattaforme come TheFork</th><th>Canale diretto</th></tr>
+      <tr><td>Rapporto con l'ospite</td><td>Mediato dal portale</td><td>Diretto, dati al locale</td></tr>
+      <tr><td>Costo per coperto</td><td>Commissione ricorrente</td><td>Più accessibile</td></tr>
+      <tr><td>Continuità</td><td>Dipende dalle regole del portale</td><td>Decide il ristorante</td></tr>
+    </table>
+  </div>
+  <div class="pad" style="top:124mm; left:15mm; right:15mm; display:flex; gap:6mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Scelta</span><p>Abbandonare del tutto piattaforme come TheFork e concentrare le prenotazioni su un canale proprietario collegato al sito, per raccogliere le richieste senza intermediari.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">Effetto osservato</span><p>Le prenotazioni dirette sono cresciute (+35% nel periodo osservato, vedi pag. 11): è uno dei segnali più coerenti con l'abbandono dei portali esterni.</p></div>
+  </div>
+  <div class="pad" style="top:196mm; left:15mm; right:15mm; min-height:16mm; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; padding:6mm 8mm; box-sizing:border-box;">
+    <p style="font-size:8.3px; color:var(--muted); line-height:1.4;">Il dato non isola un'unica causa: sito, canale diretto e contenuti (pag. 07) lavorano insieme. Resta comunque il segnale più diretto del cambio di canale.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>06 / 13</span></div>
+</div>
+
+<!-- PAGE 7 — 06 SEO e contenuti (NUOVA) -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">06 / SEO e contenuti</div>
+    <div class="h1 serif">Farsi trovare prima ancora di farsi scegliere.</div>
+    <div class="intro">Un sito veloce e ben strutturato è la base. Il passo successivo è comparire quando qualcuno, a Torino, cerca davvero un posto come questo.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; display:flex; flex-direction:column; gap:5mm;">
+    <div class="card tint-blue" style="min-height:40mm;"><span class="card-kicker">Fondamenta tecniche</span><p>Pagine veloci, titoli e descrizioni pensati per Google, dati strutturati e un sito costruito per essere letto bene sia da chi visita sia dai motori di ricerca.</p></div>
+    <div class="card tint-cream" style="min-height:40mm;"><span class="card-kicker">Contenuti che restano utili</span><p>Sul blog di AB Web Agency pubblichiamo guide pratiche per la ristorazione — dal sito che converte alla gestione delle prenotazioni — pensate per chi cerca risposte concrete, non solo per un ristorante alla volta.</p></div>
+  </div>
+  <div class="pad panel" style="top:79mm; left:97mm; width:49mm; min-height:98mm; background:var(--navy); padding:9mm;">
+    <span class="card-kicker" style="color:#FFA36B;">Perché conta</span>
+    <div class="h1 serif on-dark" style="font-size:14px; margin-top:4mm; line-height:1.25;">Chi arriva da una ricerca è già interessato.</div>
+    <p style="color:var(--blue); margin-top:6mm; font-size:8.6px; line-height:1.5;">Chi cerca "pizza napoletana a Torino" ha già deciso cosa vuole. È traffico che si somma a quello dei portali, non lo sostituisce.</p>
+  </div>
+  <div class="pad" style="top:184mm; left:15mm; right:15mm; min-height:18mm; border:1px solid var(--line); border-radius:10px; display:flex; align-items:center; padding:6mm 8mm; box-sizing:border-box;">
+    <p style="font-size:8.3px; color:var(--muted); line-height:1.4;">La visibilità online dichiarata a pag. 11 (+45%) somma più leve: sito, contenuti, SEO locale e presenza social. Non isoliamo il singolo contributo di ciascuna.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>07 / 13</span></div>
+</div>
+
+<!-- PAGE 8 — 07 Strumenti -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">07 / Strumenti</div>
+    <div class="h1 serif">I dettagli operativi meritano un'interfaccia chiara.</div>
+    <div class="intro">Dietro l'esperienza dell'ospite ci sono molte decisioni quotidiane: due strumenti semplici per ridurre dispersioni e rendere le informazioni consultabili.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; height:64mm; background:var(--cream); border-radius:12px; overflow:hidden;">
+    <img class="img-contain" src="vini-mockup.png" style="padding:6mm;" />
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm;">
+    <div class="card tint-blue" style="min-height:64mm;"><span class="card-kicker">Wine manager</span><p>Una guida digitale alla proposta vini: più chiara per il team, più pronta a sostenere suggerimenti coerenti al tavolo.</p></div>
+  </div>
+  <div class="pad" style="top:149mm; left:15mm; width:78mm; height:41mm; background:var(--cream); border-radius:12px; overflow:hidden;">
+    <img class="img-contain" src="turni-mockup.png" style="padding:5mm;" />
+  </div>
+  <div class="pad" style="top:149mm; left:97mm; width:49mm;">
+    <div class="card tint-cream" style="min-height:41mm;"><span class="card-kicker">Shift manager</span><p>Turni e presenze leggibili in un unico spazio. Meno messaggi sparsi, più tempo dedicato alla sala.</p></div>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>08 / 13</span></div>
+</div>
+
+<!-- PAGE 9 — 08 Dieci anni -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">08 / Dieci anni</div>
+    <div class="h1 serif">Un anniversario trasformato in un progetto di relazione.</div>
+    <div class="intro">I dieci anni del locale sono diventati un'occasione per ringraziare chi lo frequenta e produrre contenuti che non sembrassero una campagna qualsiasi.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:98mm; height:68mm; border-radius:12px; overflow:hidden; background:#c9963f;">
+    <img class="img-contain" src="merch.jpg" style="width:100%;height:100%;object-fit:cover;" />
+  </div>
+  <div class="pad" style="top:79mm; left:119mm; width:56mm; display:flex; flex-direction:column; gap:5mm;">
+    <div class="card tint-blue" style="min-height:33mm;"><span class="card-kicker">Box regalo</span><p>Una selezione di articoli brandizzati per dare forma fisica al legame con il locale.</p></div>
+    <div class="card tint-cream" style="min-height:30mm;"><span class="card-kicker">Video social</span><p>Un contenuto dedicato per raccontare il traguardo con volti, sala e memoria.</p></div>
+  </div>
+  <div class="pad" style="top:154mm; left:15mm; right:15mm; display:flex; gap:6mm;">
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Ricorrenza</span><p>Un momento riconoscibile, non una promozione generica.</p></div>
+    <div class="card tint-cream" style="flex:1;"><span class="card-kicker">Comunità</span><p>Gli ospiti entrano nel racconto e diventano parte della celebrazione.</p></div>
+    <div class="card tint-blue" style="flex:1;"><span class="card-kicker">Continuità</span><p>Materiali e contenuti restano utili anche dopo l'evento.</p></div>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>09 / 13</span></div>
+</div>
+
+<!-- PAGE 10 — 09 Comunicazione -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">09 / Comunicazione</div>
+    <div class="h1 serif">Mostrarsi per quello che si è, con metodo.</div>
+    <div class="intro">La comunicazione ha smesso di inseguire formule generiche e ha iniziato a restituire l'identità del locale: un posto vivo, curato e consapevole del proprio mestiere.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:78mm; height:60mm; border-radius:12px; overflow:hidden;">
+    <img class="img-cover" src="sala-editoriale.jpg" style="width:100%;height:100%;" />
+  </div>
+  <div class="pad" style="top:79mm; left:97mm; width:49mm; display:flex; flex-direction:column; gap:5mm;">
+    <div class="card tint-blue" style="min-height:28mm;"><span class="card-kicker">Tono</span><p>Diretto, ospitale e concreto. Le parole raccontano il servizio senza trasformarlo in una posa.</p></div>
+    <div class="card tint-cream" style="min-height:26mm;"><span class="card-kicker">Immagine</span><p>Piatti, persone e spazi scelti per far riconoscere il locale, non per inseguire un'estetica anonima.</p></div>
+  </div>
+  <div class="pad panel" style="top:149mm; left:15mm; right:15mm; min-height:29mm; background:var(--navy); padding:8mm 9mm;">
+    <div class="h1 serif on-dark" style="font-size:15px;">La credibilità non si aggiunge: si rende visibile.</div>
+    <p style="color:var(--blue); margin-top:5mm; max-width:150mm;">Un sistema coerente — sito, contenuti e canale diretto — permette al ristorante di mostrarsi per ciò che è davvero, ogni giorno.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>10 / 13</span></div>
+</div>
+
+<!-- PAGE 11 — 10 Risultati e obiettivi -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">10 / Risultati e obiettivi</div>
+    <div class="h1 serif">Una crescita più leggibile, per il team e per il locale.</div>
+    <div class="intro">I segnali raccolti nel progetto descrivono una direzione: più visibilità, più richieste dirette e meno tempo sottratto alla gestione.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; width:98mm; min-height:92mm; background:var(--fog); border-radius:12px; padding:9mm; box-sizing:border-box;">
+    <span class="card-kicker">Indicatori del progetto</span>
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-name">Visibilità online</span><span class="num" style="color:var(--orange);">+45%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--orange);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-name">Prenotazioni dirette</span><span class="num" style="color:var(--sky);">+35%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--sky);"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span class="bar-name">Tempo di gestione</span><span class="num" style="color:#6C99B9;">−30%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:60%;background:#6C99B9;"></div></div>
+    </div>
+    <p style="margin-top:10mm; font-size:7.6px; color:var(--muted);">Valori di sintesi dichiarati nel caso studio: non costituiscono una promessa di risultato per altri progetti.</p>
+  </div>
+  <div class="pad" style="top:79mm; left:119mm; width:56mm; min-height:92mm; background:var(--cream); border-radius:12px; padding:9mm; box-sizing:border-box;">
+    <span class="card-kicker">Obiettivi del sistema</span>
+    <div class="goal-item"><b>Più richieste dirette</b><span>Ridurre l'intermediazione dei portali.</span></div>
+    <div class="goal-item"><b>Margini più protetti</b><span>Limitare le commissioni ricorrenti.</span></div>
+    <div class="goal-item"><b>Visibilità costante</b><span>Contenuti ed SEO che lavorano nel tempo.</span></div>
+    <div class="goal-item"><b>Servizio più fluido</b><span>Liberare tempo al team.</span></div>
+  </div>
+  <div class="pad panel" style="top:180mm; left:15mm; right:15mm; min-height:24mm; background:var(--navy); padding:6mm 9mm;">
+    <p class="serif" style="color:var(--blue); font-size:12px; line-height:1.4;">La crescita è utile quando resta leggibile: per il cliente, per il team e per chi prende le decisioni nel locale.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>11 / 13</span></div>
+</div>
+
+<!-- PAGE 12 — 11 Continuità -->
+<div class="page">
+  <div class="section-head">
+    <div class="kicker">11 / Continuità</div>
+    <div class="h1 serif">Un sistema che può crescere in novanta giorni.</div>
+    <div class="intro">Il valore non sta solo nel lancio, ma nella capacità di aggiornare, misurare e migliorare con costanza, senza complicare il lavoro di chi gestisce il ristorante.</div>
+  </div>
+  <div class="pad" style="top:79mm; left:15mm; right:15mm; min-height:56mm; display:flex; gap:5mm;">
+    <div class="stage" style="flex:1; background:var(--blue);"><span class="term">Giorni 1–30</span><h3>Fondamenta</h3><p>Sito, menu, prenotazione diretta e asset di comunicazione.</p></div>
+    <div class="stage" style="flex:1; background:var(--cream);"><span class="term">Giorni 31–60</span><h3>Ottimizzazione</h3><p>SEO, contenuti e miglioramento dei percorsi di prenotazione.</p></div>
+    <div class="stage" style="flex:1; background:var(--blue);"><span class="term">Giorni 61–90</span><h3>Relazione</h3><p>Campagne mirate, ricorrenze e fidelizzazione degli ospiti.</p></div>
+  </div>
+  <div class="pad panel" style="top:145mm; left:15mm; right:15mm; min-height:26mm; background:var(--fog); padding:9mm;">
+    <div class="h1 serif" style="font-size:15px;">Un progetto premium deve essere facile da mantenere.</div>
+    <p style="margin-top:5mm; max-width:150mm;">Per questo ogni componente è pensato per essere aggiornato senza perdere coerenza o rallentare l'operatività.</p>
+  </div>
+  <div class="footer"><span>AB Web Agency · Metodo Mastro</span><span>12 / 13</span></div>
+</div>
+
+<!-- PAGE 13 — Back cover -->
+<div class="page" style="background:var(--navy);">
+  <div class="pad" style="top:15mm; left:15mm;"><div class="kicker on-dark">Metodo Mastro</div></div>
+  <div class="pad" style="top:26mm; left:15mm; width:110mm;">
+    <div class="h1 serif on-dark" style="font-size:28px;">Ogni locale ha una storia. Merita un sistema che la sappia raccontare — e far trovare.</div>
+  </div>
+  <div class="pad" style="top:78mm; left:15mm; width:110mm;">
+    <p class="intro on-dark">Se vuoi capire come rendere più chiara la tua presenza digitale, più diretta la relazione con gli ospiti, più semplice la gestione quotidiana e più costante la tua visibilità online, parliamone.</p>
+  </div>
+  <div class="pad" style="top:110mm; left:15mm;"><div class="pill">RICHIEDI UNA CONSULENZA</div></div>
+  <div class="pad" style="top:126mm; left:15mm;"><p style="color:var(--blue); font-size:9.5px;">ab.agenziaweb@gmail.com · abagenziaweb.it</p></div>
+  <div class="pad" style="top:0; right:0; left:auto; width:75mm; height:100%; overflow:hidden;">
+    <img class="img-cover" src="sala-vetrina.jpg" style="width:100%;height:100%;" />
+  </div>
+  <div class="footer on-dark"><span>AB Web Agency · Metodo Mastro</span><span>13 / 13</span></div>
+</div>
+
+</body>
+</html>
