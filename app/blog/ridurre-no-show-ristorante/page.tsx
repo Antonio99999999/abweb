@@ -8,7 +8,22 @@ export const metadata: Metadata = {
   title: "Come ridurre i no-show al ristorante",
   description: "Strategie pratiche per ridurre no-show e cancellazioni: conferme, promemoria, regole, storico clienti e organizzazione della sala.",
   alternates: { canonical },
-  openGraph: { type: "article", title: "Come ridurre i no-show al ristorante", description: "Un metodo equilibrato per proteggere la sala senza peggiorare l’esperienza.", url: canonical, publishedTime: "2026-07-29" },
+  openGraph: {
+    type: "article",
+    locale: "it_IT",
+    title: "Come ridurre i no-show al ristorante | AB Web Agency",
+    description: "Un metodo equilibrato per proteggere la sala senza peggiorare l’esperienza.",
+    url: canonical,
+    publishedTime: "2026-07-29T09:00:00+02:00",
+    authors: ["AB Web Agency"],
+    images: [{ url: `${canonical}/opengraph-image`, width: 1200, height: 630, alt: "Come ridurre i no-show al ristorante senza irrigidire l'esperienza" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Come ridurre i no-show al ristorante | AB Web Agency",
+    description: "Un metodo equilibrato per proteggere la sala senza peggiorare l’esperienza.",
+    images: [`${canonical}/opengraph-image`],
+  },
 };
 
 export default function NoShowArticle() {

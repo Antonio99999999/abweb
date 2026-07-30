@@ -8,7 +8,22 @@ export const metadata: Metadata = {
   title: "Prenotazioni ristorante da Google: guida pratica",
   description: "Come aggiungere e controllare il link di prenotazione del ristorante su Google Search e Maps, scegliere il link preferito ed evitare percorsi interrotti.",
   alternates: { canonical },
-  openGraph: { type: "article", title: "Prenotazioni ristorante da Google: guida pratica", description: "Dal Profilo dell’attività al widget: costruisci un percorso di prenotazione chiaro.", url: canonical, publishedTime: "2026-07-29" },
+  openGraph: {
+    type: "article",
+    locale: "it_IT",
+    title: "Prenotazioni ristorante da Google: guida pratica | AB Web Agency",
+    description: "Dal Profilo dell’attività al widget: costruisci un percorso di prenotazione chiaro.",
+    url: canonical,
+    publishedTime: "2026-07-29T09:00:00+02:00",
+    authors: ["AB Web Agency"],
+    images: [{ url: `${canonical}/opengraph-image`, width: 1200, height: 630, alt: "Prenotazioni ristorante da Google: guida a link e profilo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prenotazioni ristorante da Google: guida pratica | AB Web Agency",
+    description: "Dal Profilo dell’attività al widget: costruisci un percorso di prenotazione chiaro.",
+    images: [`${canonical}/opengraph-image`],
+  },
 };
 
 export default function GoogleBookingsArticle() {

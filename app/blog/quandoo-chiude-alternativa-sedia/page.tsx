@@ -82,11 +82,21 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.abagenziaweb.it/" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.abagenziaweb.it/blog" },
+    { "@type": "ListItem", position: 3, name: "Alternativa a Quandoo", item: canonical },
+  ],
+};
+
 export default function QuandooSediaArticle() {
   return (
     <>
       <SiteHeader />
-      <main className="qs-page">
+      <main id="main-content" className="qs-page">
         <nav className="shell qs-breadcrumbs" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden>/</span><span>Blog</span><span aria-hidden>/</span><span aria-current="page">Alternativa a Quandoo</span>
         </nav>
@@ -238,6 +248,7 @@ export default function QuandooSediaArticle() {
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </>
   );
 }

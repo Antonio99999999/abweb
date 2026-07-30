@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "AB Web Agency · Sistemi digitali per hospitality";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -15,7 +14,7 @@ export default function OpenGraphImage() {
     <div style={{ position: "absolute", right: "258px", top: "237px", width: "16px", height: "16px", borderRadius: "999px", background: "#9ac7e3", boxShadow: "0 0 0 9px rgba(154,199,227,.13)" }} />
     <div style={{ position: "absolute", right: "134px", top: "339px", width: "17px", height: "17px", borderRadius: "999px", background: "#ff9b61", boxShadow: "0 0 0 10px rgba(249,115,22,.13)" }} />
     <div style={{ position: "absolute", right: "326px", bottom: "124px", width: "12px", height: "12px", borderRadius: "999px", background: "#c7e7dc" }} />
-    <div style={{ display: "flex", flexDirection: "column", zIndex: 1, maxWidth: "760px" }}>
+    <div style={{ display: "flex", flexDirection: "column", maxWidth: "760px" }}>
       <div style={{ display: "flex", alignItems: "center", color: "#ffad78", fontSize: "24px", fontWeight: 800, letterSpacing: "3px" }}><span style={{ display: "flex", width: "30px", height: "30px", borderRadius: "9px", marginRight: "14px", background: "#f97316", color: "#12233d", justifyContent: "center", alignItems: "center", fontSize: "18px" }}>AB</span>WEB AGENCY</div>
       <div style={{ display: "flex", fontSize: "74px", fontWeight: 800, letterSpacing: "-4px", lineHeight: 1.04, marginTop: "44px" }}>Sistemi digitali<br />per farsi scegliere.</div>
       <div style={{ display: "flex", color: "#c8d6e8", fontSize: "29px", marginTop: "30px" }}>Strategia · Design · Tecnologia</div>

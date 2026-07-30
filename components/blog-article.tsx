@@ -16,21 +16,31 @@ export function BlogArticle({
   const related = blogPosts.filter((post) => post.slug !== currentSlug).slice(0, 3);
   const subject = encodeURIComponent(`Richiesta dal blog: ${title}`);
   const canonical = `https://www.abagenziaweb.it/blog/${currentSlug}`;
+  const publishedISO = blogPosts.find((post) => post.slug === currentSlug)?.published ?? "2026-07-29";
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     description: intro,
-    datePublished: "2026-07-29",
-    dateModified: "2026-07-29",
+    datePublished: publishedISO,
+    dateModified: publishedISO,
     inLanguage: "it-IT",
     mainEntityOfPage: canonical,
     author: { "@type": "Organization", name: "AB Web Agency", url: "https://www.abagenziaweb.it" },
     publisher: { "@type": "Organization", name: "AB Web Agency", url: "https://www.abagenziaweb.it" },
   };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.abagenziaweb.it/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.abagenziaweb.it/blog" },
+      { "@type": "ListItem", position: 3, name: category, item: canonical },
+    ],
+  };
   return <>
     <SiteHeader />
-    <main className="editorial-page">
+    <main id="main-content" className="editorial-page">
       <nav className="shell editorial-breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/blog">Blog</Link><span>/</span><span aria-current="page">{category}</span></nav>
       <article>
         <header className="editorial-hero"><div className="shell editorial-hero-inner"><p className="eyebrow">{category}</p><h1>{title}</h1><p className="editorial-lead">{intro}</p><div className="editorial-meta"><time dateTime="2026-07-29">{date}</time><span>·</span><span>{readingTime} di lettura</span></div></div></header>
@@ -47,6 +57,7 @@ export function BlogArticle({
     </main>
     <SiteFooter />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
   </>;
 }
 

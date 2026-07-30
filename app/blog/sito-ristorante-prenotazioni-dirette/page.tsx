@@ -8,7 +8,22 @@ export const metadata: Metadata = {
   title: "Sito per ristorante che genera prenotazioni",
   description: "Come progettare un sito per ristorante che accompagna dalla ricerca alla prenotazione: contenuti, menu, mobile, CTA, widget e misurazione.",
   alternates: { canonical },
-  openGraph: { type: "article", title: "Sito per ristorante: come trasformarlo in un canale di prenotazione", description: "Una guida pratica a contenuti, struttura e percorso di prenotazione.", url: canonical, publishedTime: "2026-07-29" },
+  openGraph: {
+    type: "article",
+    locale: "it_IT",
+    title: "Sito per ristorante: come trasformarlo in un canale di prenotazione | AB Web Agency",
+    description: "Una guida pratica a contenuti, struttura e percorso di prenotazione.",
+    url: canonical,
+    publishedTime: "2026-07-29T09:00:00+02:00",
+    authors: ["AB Web Agency"],
+    images: [{ url: `${canonical}/opengraph-image`, width: 1200, height: 630, alt: "Sito per ristorante: come trasformarlo in un canale di prenotazione" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sito per ristorante: come trasformarlo in un canale di prenotazione | AB Web Agency",
+    description: "Una guida pratica a contenuti, struttura e percorso di prenotazione.",
+    images: [`${canonical}/opengraph-image`],
+  },
 };
 
 export default function RestaurantWebsiteArticle() {
