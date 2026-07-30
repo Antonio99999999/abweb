@@ -2,12 +2,13 @@
    line #dedbd2, brand #d95531/#aa3518, green #1f6a4c, lime #dff08b, sidebar #173e33,
    titoli in serif) per far riconoscere il prodotto anche dentro il sito dell'agenzia. */
 .sedia-feature{background:#f6f3ec}
-.sedia-feature .service-page-grid>span{color:#d95531}
+.sedia-feature .service-page-grid>span{color:#aa3518}
 .sedia-feature h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.02em}
 .sedia-feature .lead{color:#5b665f}
 .sedia-feature ul{color:#3f4a44}
-.sedia-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:#d95531;color:#fff;font-weight:700;font-size:14px;transition:background .18s ease}
-.sedia-cta:hover{background:#aa3518}
+.sedia-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:#aa3518;color:#fff;font-weight:700;font-size:14px;transition:background .18s ease}
+.sedia-cta:hover{background:#8a2a12}
+.sedia-article-link{display:block;margin-top:16px}
 .sedia-visual{height:250px;border-radius:24px;position:relative;overflow:hidden;background:#173e33;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
 .sedia-logo{display:flex;align-items:center;gap:10px;color:#fff}
 .sedia-logo-badge{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#dff08b;color:#173e33}

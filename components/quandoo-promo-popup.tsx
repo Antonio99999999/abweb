@@ -1,13 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const STORAGE_KEY = "ab-quandoo-promo-seen";
 
 export function QuandooPromoPopup() {
   const [open, setOpen] = useState(false);
   const closeButton = useRef<HTMLButtonElement>(null);
+
+  const dismiss = useCallback(() => {
+    window.sessionStorage.setItem(STORAGE_KEY, "true");
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     if (window.sessionStorage.getItem(STORAGE_KEY)) return;
@@ -23,12 +28,7 @@ export function QuandooPromoPopup() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  const dismiss = () => {
-    window.sessionStorage.setItem(STORAGE_KEY, "true");
-    setOpen(false);
-  };
+  }, [open, dismiss]);
 
   if (!open) return null;
 

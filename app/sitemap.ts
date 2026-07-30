@@ -7,6 +7,7 @@ import { blogPosts } from "@/lib/blog";
 const staticPages: { route: string; lastModified: string }[] = [
   { route: "", lastModified: "2026-07-29" },
   { route: "/servizi", lastModified: "2026-07-24" },
+  { route: "/gestionale-ristoranti", lastModified: "2026-07-30" },
   { route: "/metodo-mastro", lastModified: "2026-07-19" },
   { route: "/preventivo", lastModified: "2026-07-19" },
   { route: "/contatti", lastModified: "2026-07-19" },
