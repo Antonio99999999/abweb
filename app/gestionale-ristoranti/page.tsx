@@ -139,17 +139,19 @@ export default function GestionaleRistoranti() {
             <p className="eyebrow">NEL DETTAGLIO</p>
             <h2>Il lavoro di sala, un passaggio alla volta.</h2>
           </div>
-          {detailFeatures.map((f, i) => (
-            <div className={`feature-video-row${i % 2 === 1 ? " is-reverse" : ""}`} key={f.title}>
-              <div className="feature-video-copy">
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
+          <div className="feature-video-list">
+            {detailFeatures.map((f) => (
+              <div className="feature-video-row" key={f.title}>
+                <div className="feature-video-media">
+                  <SediaVideo mp4={f.mp4} webm={f.webm} poster={f.poster} caption={f.caption} />
+                </div>
+                <div className="feature-video-copy">
+                  <h3>{f.title}</h3>
+                  <p>{f.text}</p>
+                </div>
               </div>
-              <div className="feature-video-media">
-                <SediaVideo mp4={f.mp4} webm={f.webm} poster={f.poster} caption={f.caption} />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
 
         <section className="section section-navy">

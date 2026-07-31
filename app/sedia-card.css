@@ -39,12 +39,19 @@
 .sedia-video{display:block;width:100%;height:auto;border-radius:16px;background:var(--bg)}
 .sedia-video-caption{margin:18px 4px 0;color:var(--muted);font-size:13px;line-height:1.5}
 
-/* Righe testo+video alternate, per mostrare funzioni puntuali (notifiche, cliente
-   preferito, lista d'attesa, widget) accanto alla loro clip. */
-.feature-video-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:72px}
-.feature-video-row:first-child{margin-top:0}
-.feature-video-row .feature-video-media{order:2}
-.feature-video-row.is-reverse .feature-video-media{order:0}
+/* Elenco di funzioni puntuali (notifiche, cliente preferito, lista d'attesa), ciascuna
+   con la propria clip. Sotto agli 801px: video sopra, testo sotto, una voce alla volta
+   (il layout mobile "di riferimento"). Da 801px in su: le tre affiancate in una griglia,
+   con il video ridotto (mantiene la proporzione: .sedia-video usa height:auto) e la sua
+   didascalia subito sotto. */
+.feature-video-list{display:grid;gap:56px;margin-top:48px}
+.feature-video-row{display:grid;gap:24px}
 .feature-video-copy h3{margin:0 0 14px;font-size:26px;letter-spacing:-.03em;line-height:1.15}
 .feature-video-copy p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
-@media(max-width:800px){.feature-video-row{grid-template-columns:1fr;gap:28px}.feature-video-row .feature-video-media{order:0!important}}
+@media(min-width:801px){
+  .feature-video-list{grid-template-columns:repeat(3,1fr);gap:28px}
+  .feature-video-row{gap:16px}
+  .feature-video-row .sedia-video-frame{padding:12px}
+  .feature-video-copy h3{font-size:18px;margin-bottom:8px}
+  .feature-video-copy p{font-size:13.5px;line-height:1.55}
+}
