@@ -3,9 +3,10 @@
    dal tema attivo, esattamente come le sezioni "agency". */
 
 /* Hero: due CTA di pari peso (entrambe .button). Il secondo pulsante forza data-theme="sedia"
-   sul proprio nodo cosi' l'accento e' terracotta anche se il resto dell'hero resta agency. */
-.button-sedia-accent{background:var(--accent-strong);border-color:var(--accent-strong)}
-.button-sedia-accent:hover{background:color-mix(in srgb,var(--ink-inverse) 15%,var(--accent-strong))}
+   sul proprio nodo cosi' l'accento e' quello di Sedia anche se il resto dell'hero resta agency.
+   Verde per coerenza con .sedia-app-cta/.sedia-cta/.sedia-nav-link altrove nel sito. */
+.button-sedia-accent{background:var(--accent-alt);border-color:var(--accent-alt)}
+.button-sedia-accent:hover{background:color-mix(in srgb,var(--ink-inverse) 15%,var(--accent-alt))}
 
 /* Sezione 2 — il bivio: due card di pari dimensione, ciascuna con il proprio data-theme. */
 .crossroad-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;align-items:stretch}

@@ -6,8 +6,8 @@
 .sedia-feature .service-page-grid>span{color:var(--accent-strong)}
 .sedia-feature .lead{color:var(--muted)}
 .sedia-feature ul{color:var(--muted)}
-.sedia-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:var(--accent-strong);color:var(--ink-inverse);font-weight:700;font-size:14px;transition:background .18s ease}
-.sedia-cta:hover{background:color-mix(in srgb,black 18%,var(--accent-strong))}
+.sedia-cta{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;background:var(--accent-alt);color:var(--ink-inverse);font-weight:700;font-size:14px;transition:background .18s ease}
+.sedia-cta:hover{background:color-mix(in srgb,black 18%,var(--accent-alt))}
 .sedia-article-link{display:block;margin-top:16px}
 .sedia-visual{height:250px;border-radius:24px;position:relative;overflow:hidden;background:var(--accent-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
 .sedia-logo{display:flex;align-items:center;gap:10px;color:var(--ink-inverse)}
@@ -18,11 +18,12 @@
 
 /* Pulsante nel menu, accanto a Contatti, verso il sito di Sedia. Header resta sempre in tema
    agency (vedi data-theme="agency" su site-header.tsx), ma questo link forza data-theme="sedia"
-   su se stesso cosi' l'accento e' terracotta anche dentro un header agency. */
-.sedia-nav-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--accent-strong);color:var(--ink-inverse);font-weight:700;font-size:13px;transition:background .18s ease}
-.sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-strong));color:var(--ink-inverse)}
+   su se stesso cosi' l'accento e' quello di Sedia anche dentro un header agency. Verde per
+   restare coerente con .sedia-app-cta e .sedia-cta altrove nel sito. */
+.sedia-nav-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--accent-alt);color:var(--ink-inverse);font-weight:700;font-size:13px;transition:background .18s ease}
+.sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-alt));color:var(--ink-inverse)}
 .primary-nav a.sedia-nav-link{padding:8px 14px;border-radius:999px;margin:2px 0}
-.primary-nav a.sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-strong));color:var(--ink-inverse)}
+.primary-nav a.sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-alt));color:var(--ink-inverse)}
 
 /* CTA principale verso l'app di Sedia (conversione reale, non solo scoperta del prodotto):
    stessa palette del pulsante Sedia in nav, ma piu' grande, per restare il pulsante
