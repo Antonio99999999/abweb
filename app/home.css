@@ -26,7 +26,7 @@
 /* Sezione 4 — Sedia: layout a due colonne riusando .case-proof/.case-proof-copy (testo +
    checklist) e un mockup statico della mappa sala in attesa del video (Fase 4, bloccata). */
 .sedia-showcase{background:var(--bg);padding:0 0 96px}
-.sedia-showcase-lead{height:64px;margin-bottom:40px;background:var(--bg);border-bottom:2px solid var(--accent-deep)}
+.sedia-showcase-lead{margin:48px auto 40px;border-top:1px solid var(--accent-deep)}
 .sedia-preview-frame{padding:20px;border-radius:calc(var(--radius) + 6px);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
 .sedia-preview-floor{position:relative;height:260px;border-radius:16px;overflow:hidden;background:linear-gradient(color-mix(in srgb,var(--accent-alt) 8%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent-alt) 8%,transparent) 1px,transparent 1px),var(--bg);background-size:26px 26px}
 .sedia-preview-table{position:absolute;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:2px solid var(--accent-alt);background:var(--surface);color:var(--accent-deep);font-size:12px;font-weight:800;box-shadow:0 5px 13px color-mix(in srgb,var(--accent-deep) 12%,transparent)}
