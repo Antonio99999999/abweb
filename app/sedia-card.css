@@ -33,15 +33,18 @@
 .sedia-app-cta-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--accent-highlight);color:var(--accent-deep);flex-shrink:0}
 @media(max-width:800px){.sedia-app-cta{padding:15px 24px;font-size:15px}}
 
-/* CTA di Sedia in homepage, prima di "Collaborazioni selezionate". */
-.sedia-home-cta{background:var(--accent-highlight)}
-.sedia-home-cta-grid{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:64px 0}
-.sedia-home-logo{display:flex;align-items:center;gap:10px}
-.sedia-home-logo-badge{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--accent-deep);color:var(--accent-highlight)}
-.sedia-home-logo-word{font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--accent-deep)}
-.sedia-home-cta h2{font-family:var(--font-heading);letter-spacing:-.03em;font-size:clamp(26px,3vw,38px);line-height:1.15;margin:16px 0 18px;color:var(--accent-deep);max-width:640px}
-.sedia-home-cta ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;max-width:600px}
-.sedia-home-cta li{padding-left:24px;position:relative;color:var(--ink);font-size:15px}
-.sedia-home-cta li:before{content:"✓";position:absolute;left:0;color:var(--accent-deep);font-weight:800}
-.sedia-home-cta .sedia-cta{flex-shrink:0}
-@media(max-width:800px){.sedia-home-cta-grid{flex-direction:column;align-items:flex-start;padding:44px 0;gap:22px}}
+/* <SediaVideo>: cornice/mockup del video di prodotto (Fase 4), riusata su home e sulle
+   pagine /gestionale-ristoranti/*. */
+.sedia-video-frame{margin:0;padding:20px;border-radius:calc(var(--radius) + 6px);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
+.sedia-video{display:block;width:100%;height:auto;border-radius:16px;background:var(--bg)}
+.sedia-video-caption{margin:18px 4px 0;color:var(--muted);font-size:13px;line-height:1.5}
+
+/* Righe testo+video alternate, per mostrare funzioni puntuali (notifiche, cliente
+   preferito, lista d'attesa, widget) accanto alla loro clip. */
+.feature-video-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:72px}
+.feature-video-row:first-child{margin-top:0}
+.feature-video-row .feature-video-media{order:2}
+.feature-video-row.is-reverse .feature-video-media{order:0}
+.feature-video-copy h3{margin:0 0 14px;font-size:26px;letter-spacing:-.03em;line-height:1.15}
+.feature-video-copy p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+@media(max-width:800px){.feature-video-row{grid-template-columns:1fr;gap:28px}.feature-video-row .feature-video-media{order:0!important}}

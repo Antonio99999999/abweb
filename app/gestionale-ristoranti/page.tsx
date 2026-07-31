@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SediaIcon } from "@/components/sedia-icon";
+import { SediaVideo } from "@/components/sedia-video";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
 
@@ -40,6 +41,33 @@ const features = [
   { num: "02", title: "Mappa reale della sala", text: "La sala del locale viene riprodotta con un editor visuale: tavoli trascinabili e ridimensionabili, capienze e combinazioni per i gruppi numerosi." },
   { num: "03", title: "Rubrica clienti", text: "Storico delle visite, note, preferenze e consensi restano collegati al cliente, senza dipendere dalla memoria di chi risponde al telefono." },
   { num: "04", title: "Widget diretto sul sito", text: "Colori, testi, logo, lingua e regole sono personalizzabili. Il widget si integra nel sito del ristorante e non prevede commissioni per singola prenotazione." },
+];
+
+const detailFeatures = [
+  {
+    title: "Sai subito quando arriva una prenotazione",
+    text: "La campanella nell'header segnala ogni nuova prenotazione non appena arriva, con nome del cliente, data, orario e coperti: non serve ricontrollare manualmente il calendario durante il servizio.",
+    mp4: "/video/sedia/sedia-notifiche-prenotazioni.mp4",
+    webm: "/video/sedia/sedia-notifiche-prenotazioni.webm",
+    poster: "/video/sedia/sedia-notifiche-prenotazioni-poster.jpg",
+    caption: "Una nuova prenotazione arriva: la campanella lo segnala subito allo staff.",
+  },
+  {
+    title: "Segna i clienti importanti",
+    text: "Un clic nella scheda cliente lo segna come importante: la stellina resta visibile nella rubrica, a colpo d'occhio, per chi risponde al telefono o accoglie in sala.",
+    mp4: "/video/sedia/sedia-cliente-preferito.mp4",
+    webm: "/video/sedia/sedia-cliente-preferito.webm",
+    poster: "/video/sedia/sedia-cliente-preferito-poster.jpg",
+    caption: "Un cliente segnato come importante resta riconoscibile nella rubrica.",
+  },
+  {
+    title: "Le cancellazioni non sono un tavolo perso",
+    text: "Quando un cliente cancella, il tavolo liberato può essere riassegnato subito a chi era in lista d'attesa, senza perdere il posto in sala.",
+    mp4: "/video/sedia/sedia-lista-attesa.mp4",
+    webm: "/video/sedia/sedia-lista-attesa.webm",
+    poster: "/video/sedia/sedia-lista-attesa-poster.jpg",
+    caption: "Il tavolo liberato da una cancellazione viene riassegnato a chi era in lista d'attesa.",
+  },
 ];
 
 const faqItems: [string, string][] = [
@@ -104,6 +132,24 @@ export default function GestionaleRistoranti() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="section shell">
+          <div className="section-intro">
+            <p className="eyebrow">NEL DETTAGLIO</p>
+            <h2>Il lavoro di sala, un passaggio alla volta.</h2>
+          </div>
+          {detailFeatures.map((f, i) => (
+            <div className={`feature-video-row${i % 2 === 1 ? " is-reverse" : ""}`} key={f.title}>
+              <div className="feature-video-copy">
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </div>
+              <div className="feature-video-media">
+                <SediaVideo mp4={f.mp4} webm={f.webm} poster={f.poster} caption={f.caption} />
+              </div>
+            </div>
+          ))}
         </section>
 
         <section className="section section-navy">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SediaIcon } from "@/components/sedia-icon";
+import { SediaVideo } from "@/components/sedia-video";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
@@ -55,6 +56,19 @@ export default function WidgetPrenotazioni() {
               <article key={p.num}><span>{p.num}</span><h3>{p.title}</h3><p>{p.text}</p></article>
             ))}
           </div>
+        </section>
+
+        <section className="section shell case-proof">
+          <div className="case-proof-copy">
+            <p className="eyebrow">COSA VEDE IL CLIENTE</p>
+            <h2>Tre passaggi, poi la conferma.</h2>
+            <ul>
+              <li>Quando: data e orario disponibili</li>
+              <li>I tuoi dati: nome, contatti, coperti</li>
+              <li>Riepilogo e conferma immediata</li>
+            </ul>
+          </div>
+          <SediaVideo mp4="/video/sedia/sedia-widget-prenotazione.mp4" webm="/video/sedia/sedia-widget-prenotazione.webm" poster="/video/sedia/sedia-widget-prenotazione-poster.jpg" caption="Il percorso di prenotazione visto dal cliente: tre passaggi e una conferma immediata." />
         </section>
 
         <section className="section shell">
