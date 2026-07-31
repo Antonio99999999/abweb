@@ -4,12 +4,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SediaIcon } from "@/components/sedia-icon";
 import { QuandooPromoPopup } from "@/components/quandoo-promo-popup";
-import { BlogCard } from "@/components/blog-article";
-import { blogPosts } from "@/lib/blog";
 import { BUSINESS } from "@/lib/business";
 import { caseStudies } from "@/lib/case-studies";
 import "./home-promo-popup.css";
-import "./blog/blog.css";
 import "./home.css";
 
 const schema = { "@context": "https://schema.org", "@type": "ProfessionalService", name: BUSINESS.name, url: BUSINESS.url, email: BUSINESS.email, logo: BUSINESS.logo, description: BUSINESS.description, areaServed: BUSINESS.areaServed, address: BUSINESS.address, founder: BUSINESS.founder, sameAs: BUSINESS.sameAs };
@@ -39,7 +36,5 @@ export default function HomePage() { return <><SiteHeader /><QuandooPromoPopup /
 
   <section className="section shell faq"><div className="section-intro"><p className="eyebrow">PRIMA DI INIZIARE</p><h2>Le domande che meritano una risposta chiara.</h2></div><div>{homeFaq.map(([q, a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
 
-  <section className="section shell editorial-related" data-reveal><p className="eyebrow">DAL BLOG</p><h2>Idee pratiche per far lavorare meglio sito e prenotazioni.</h2><div className="blog-grid">{blogPosts.slice(0, 3).map((post) => <BlogCard key={post.slug} post={post} />)}</div><Link className="text-link" href="/blog">Vai a tutti gli articoli <span aria-hidden>→</span></Link></section>
-
-  <section className="final-cta"><div className="shell"><p className="eyebrow">IL PROSSIMO PASSO</p><h2>Raccontaci dove vuoi arrivare.<br />Diamo forma al percorso.</h2><Link className="button button-light" href="/preventivo">Calcola il tuo investimento <span aria-hidden>→</span></Link></div></section>
+  <section className="final-cta"><div className="shell"><p className="eyebrow">ESPLORA IL SITO</p><h2>C&apos;è ancora molto da scoprire.</h2><Link className="button button-light" href="/servizi">Scopri tutti i nostri servizi <span aria-hidden>→</span></Link></div></section>
 </main><SiteFooter /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></> }
