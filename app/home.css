@@ -23,10 +23,6 @@
 .case-teaser{margin-top:48px;padding-top:36px;border-top:1px solid var(--border)}
 .case-teaser p:not(.eyebrow){max-width:640px;color:var(--muted);font-size:16px;line-height:1.6;margin:0 0 14px}
 
-/* Fascia di transizione verso il mondo Sedia (Fase 1: .theme-transition), alta quanto basta
-   per leggersi come una soglia, non un taglio. */
-.home-seam{height:64px}
-
 /* Sezione 4 — Sedia: layout a due colonne riusando .case-proof/.case-proof-copy (testo +
    checklist) e un mockup statico della mappa sala in attesa del video (Fase 4, bloccata). */
 .sedia-showcase{background:var(--bg);padding:0 0 96px}

@@ -38,9 +38,3 @@
 }
 
 h1, h2, h3 { font-family: var(--font-heading); }
-
-/* Fascia di transizione tra un mondo e l'altro (Fase 2): sfuma dal pannello scuro
-   agency al fondo carta di Sedia invece di un taglio netto navy/paper. */
-.theme-transition {
-  background: linear-gradient(180deg, var(--accent-deep) 0%, color-mix(in srgb, var(--accent-deep) 32%, var(--bg)) 100%);
-}
