@@ -1,0 +1,40 @@
+/* Nuova home a 7 sezioni (Fase 2). Solo variabili semantiche: le sezioni "sedia" ricevono
+   data-theme="sedia" nel markup e qui sotto ereditano bg/surface/border/ink/muted/accent
+   dal tema attivo, esattamente come le sezioni "agency". */
+
+/* Hero: due CTA di pari peso (entrambe .button). Il secondo pulsante forza data-theme="sedia"
+   sul proprio nodo cosi' l'accento e' terracotta anche se il resto dell'hero resta agency. */
+.button-sedia-accent{background:var(--accent-strong);border-color:var(--accent-strong)}
+.button-sedia-accent:hover{background:color-mix(in srgb,var(--ink-inverse) 15%,var(--accent-strong))}
+
+/* Sezione 2 — il bivio: due card di pari dimensione, ciascuna con il proprio data-theme. */
+.crossroad-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;align-items:stretch}
+.crossroad-card{display:flex;flex-direction:column;padding:40px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow-soft)}
+.crossroad-card h3{margin:14px 0 0;font-size:28px;letter-spacing:-.03em;line-height:1.1}
+.crossroad-lead{color:var(--muted);font-size:16px;line-height:1.55;margin:16px 0 0}
+.crossroad-meta{display:grid;gap:16px;margin:28px 0 32px;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.crossroad-meta dt{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-strong);margin:0 0 4px}
+.crossroad-meta dd{margin:0;color:var(--ink);font-size:15px;line-height:1.5}
+.crossroad-card .button{margin-top:auto;align-self:flex-start}
+@media(max-width:800px){.crossroad-grid{grid-template-columns:1fr}}
+
+/* Sezione 3 — prova sociale: caso studio compatto sotto la griglia clienti esistente. */
+.case-teaser{margin-top:48px;padding-top:36px;border-top:1px solid var(--border)}
+.case-teaser p:not(.eyebrow){max-width:640px;color:var(--muted);font-size:16px;line-height:1.6;margin:0 0 14px}
+
+/* Fascia di transizione verso il mondo Sedia (Fase 1: .theme-transition), alta quanto basta
+   per leggersi come una soglia, non un taglio. */
+.home-seam{height:64px}
+
+/* Sezione 4 — Sedia: layout a due colonne riusando .case-proof/.case-proof-copy (testo +
+   checklist) e un mockup statico della mappa sala in attesa del video (Fase 4, bloccata). */
+.sedia-showcase{background:var(--bg);padding:0 0 96px}
+.sedia-preview-frame{padding:20px;border-radius:calc(var(--radius) + 6px);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
+.sedia-preview-floor{position:relative;height:260px;border-radius:16px;overflow:hidden;background:linear-gradient(color-mix(in srgb,var(--accent-alt) 8%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent-alt) 8%,transparent) 1px,transparent 1px),var(--bg);background-size:26px 26px}
+.sedia-preview-table{position:absolute;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:2px solid var(--accent-alt);background:var(--surface);color:var(--accent-deep);font-size:12px;font-weight:800;box-shadow:0 5px 13px color-mix(in srgb,var(--accent-deep) 12%,transparent)}
+.sedia-preview-table.is-booked{background:var(--accent-highlight)}
+.sedia-preview-caption{margin:18px 4px 0;color:var(--muted);font-size:13px;line-height:1.5}
+@media(max-width:800px){.sedia-preview-floor{height:210px}}
+
+/* Sezione 5 — siti per ristoranti: checklist riusando lo stile .case-proof-copy. */
+.siti-section ul{margin:26px 0 0}
