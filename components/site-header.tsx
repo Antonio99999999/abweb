@@ -16,8 +16,7 @@ export function SiteHeader() {
   return <header className="site-header" data-theme="agency"><div className="shell nav">
     <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={54} height={54} priority /></Link>
     <nav id="mobile-navigation" className={`primary-nav ${open ? "open" : ""}`} aria-label="Navigazione principale">
-      <Link href="/servizi" onClick={close}>Servizi</Link><Link href="/metodo-mastro" onClick={close}>Metodo Mastro</Link><Link href="/blog" onClick={close}>Blog</Link><Link href="/contatti" onClick={close}>Contatti</Link>
-      <Link className="sedia-nav-link" href="/gestionale-ristoranti" onClick={close}><SediaIcon size={15}/> Sedia</Link>
+      <Link href="/siti-web-ristoranti" onClick={close}>Siti</Link><Link className="sedia-nav-link" data-theme="sedia" href="/gestionale-ristoranti" onClick={close}><SediaIcon size={15}/> Sedia</Link><Link href="/blog" onClick={close}>Blog</Link><Link href="/contatti" onClick={close}>Contatti</Link>
       <Link className="mobile-quote" href="/preventivo" onClick={close}>Calcola il tuo investimento <span aria-hidden>↗</span></Link>
     </nav>
     <Link className="button button-small nav-quote" href="/preventivo">Calcola il tuo investimento <span aria-hidden>↗</span></Link>

@@ -10,17 +10,21 @@ const metrics = [
 
 export function CaseMetrics({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [values, setValues] = useState(() => metrics.map(() => 0));
+  // I valori finali sono già quelli renderizzati lato server: nessun flash di "+0%" prima
+  // che il JS parta o per chi non esegue JavaScript. L'animazione, quando riparte da qui,
+  // riparte visivamente da zero solo dopo che l'elemento entra nel viewport.
+  const [values, setValues] = useState(() => metrics.map((metric) => metric.value));
   const [played, setPlayed] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
     const animate = () => {
       if (played) return;
       setPlayed(true);
-      if (reduced) { setValues(metrics.map((metric) => metric.value)); return; }
+      setValues(metrics.map(() => 0));
       const start = performance.now();
       const duration = 1800;
       const frame = (now: number) => {
