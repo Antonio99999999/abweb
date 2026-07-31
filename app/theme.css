@@ -2,7 +2,8 @@
    [data-theme="agency"|"sedia"] su un antenato. Agency riprende 1:1 i valori storici di
    globals.css (:root) cosi' da non alterare visivamente il sito esistente; Sedia riprende
    1:1 la palette gia' in uso in quandoo-sedia.css / sedia-card.css (verificata anche contro
-   brand/README.md del progetto video Sedia, che dichiara di copiarla da questo stesso repo). */
+   brand/README.md del progetto video Sedia, che dichiara di copiarla da questo stesso repo).
+   Nota: commit di verifica del deploy, nessun cambiamento visivo. */
 :root, [data-theme="agency"] {
   --bg: #fff;
   --surface: #f6f8fb;
