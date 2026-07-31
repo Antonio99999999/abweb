@@ -42,23 +42,18 @@
 .sedia-video-frame{margin:0;padding:20px;border-radius:calc(var(--radius) + 6px);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
 .sedia-video-wrap{position:relative}
 .sedia-video{display:block;width:100%;height:auto;border-radius:16px;background:var(--bg)}
-.sedia-video-caption{position:absolute;left:10px;right:10px;bottom:10px;margin:0;padding:12px 16px;border-radius:calc(var(--radius) - 6px);background:color-mix(in srgb,var(--surface) 86%,transparent);border:1px solid color-mix(in srgb,var(--border) 65%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--ink);font-size:12.5px;line-height:1.45;box-shadow:0 8px 22px rgba(11,18,32,.14)}
+.sedia-video-caption{position:absolute;left:10px;right:10px;bottom:10px;margin:0;padding:12px 16px;border-radius:calc(var(--radius) - 6px);background:color-mix(in srgb,var(--surface) 86%,transparent);border:1px solid color-mix(in srgb,var(--border) 65%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--ink);font-size:11px;line-height:1.45;box-shadow:0 8px 22px rgba(11,18,32,.14)}
+.sedia-video-caption-title{display:block;margin:0 0 4px;font-size:1.15em;font-weight:800;letter-spacing:-.01em}
 
-/* Elenco di funzioni puntuali (notifiche, cliente preferito, lista d'attesa), ciascuna
-   con la propria clip. Sotto agli 801px: video sopra, titolo+descrizione sotto, una voce
-   alla volta (il layout mobile "di riferimento"). Da 801px in su: le tre affiancate in una
-   griglia, con il video ridotto (mantiene la proporzione: .sedia-video usa height:auto). La
-   didascalia della clip resta sempre sovrapposta al video stesso (vedi .sedia-video-caption),
-   non conta come riga separata: qui sotto c'e' solo la spaziatura tra video e titolo/testo. */
-.feature-video-list{display:grid;gap:56px;margin-top:48px}
-.feature-video-row{display:grid;gap:24px}
-.feature-video-copy h3{margin:0 0 14px;font-size:26px;letter-spacing:-.03em;line-height:1.15}
-.feature-video-copy p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+/* Elenco di funzioni puntuali (notifiche, cliente preferito, lista d'attesa): titolo e
+   descrizione intera stanno nella card overlay del video stesso (title+caption di
+   <SediaVideo>), non in un blocco di testo separato sotto — per non ripetere lo stesso
+   contenuto due volte. Caratteri ridotti rispetto alla card "semplice" (.sedia-video-caption
+   di base) perche' qui il testo e' molto piu' lungo. Sotto agli 801px: una voce sotto
+   l'altra (layout mobile "di riferimento"). Da 801px in su: le tre affiancate in griglia. */
+.feature-video-list{display:grid;gap:32px;margin-top:48px}
+.feature-video-item .sedia-video-caption{padding:11px 14px;font-size:10px;line-height:1.4}
 @media(min-width:801px){
-  .feature-video-list{grid-template-columns:repeat(3,1fr);gap:28px}
-  .feature-video-row{gap:16px}
-  .feature-video-row .sedia-video-frame{padding:12px}
-  .feature-video-row .sedia-video-caption{left:8px;right:8px;bottom:8px;padding:9px 12px;font-size:11px;line-height:1.4}
-  .feature-video-copy h3{font-size:18px;margin-bottom:8px}
-  .feature-video-copy p{font-size:13.5px;line-height:1.55}
+  .feature-video-list{grid-template-columns:repeat(3,1fr)}
+  .feature-video-item.sedia-video-frame{padding:12px}
 }

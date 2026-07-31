@@ -7,12 +7,14 @@ export function SediaVideo({
   webm,
   poster,
   caption,
+  title,
   className = "",
 }: {
   mp4: string;
   webm: string;
   poster: string;
   caption: string;
+  title?: string;
   className?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -39,7 +41,10 @@ export function SediaVideo({
           <source src={webm} type="video/webm" />
           <source src={mp4} type="video/mp4" />
         </video>
-        <figcaption className="sedia-video-caption">{caption}</figcaption>
+        <figcaption className="sedia-video-caption">
+          {title && <strong className="sedia-video-caption-title">{title}</strong>}
+          {caption}
+        </figcaption>
       </div>
     </figure>
   );

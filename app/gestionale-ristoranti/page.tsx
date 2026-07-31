@@ -50,7 +50,6 @@ const detailFeatures = [
     mp4: "/video/sedia/sedia-notifiche-prenotazioni.mp4",
     webm: "/video/sedia/sedia-notifiche-prenotazioni.webm",
     poster: "/video/sedia/sedia-notifiche-prenotazioni-poster.jpg",
-    caption: "Una nuova prenotazione arriva: la campanella lo segnala subito allo staff.",
   },
   {
     title: "Segna i clienti importanti",
@@ -58,7 +57,6 @@ const detailFeatures = [
     mp4: "/video/sedia/sedia-cliente-preferito.mp4",
     webm: "/video/sedia/sedia-cliente-preferito.webm",
     poster: "/video/sedia/sedia-cliente-preferito-poster.jpg",
-    caption: "Un cliente segnato come importante resta riconoscibile nella rubrica.",
   },
   {
     title: "Le cancellazioni non sono un tavolo perso",
@@ -66,7 +64,6 @@ const detailFeatures = [
     mp4: "/video/sedia/sedia-lista-attesa.mp4",
     webm: "/video/sedia/sedia-lista-attesa.webm",
     poster: "/video/sedia/sedia-lista-attesa-poster.jpg",
-    caption: "Il tavolo liberato da una cancellazione viene riassegnato a chi era in lista d'attesa.",
   },
 ];
 
@@ -141,15 +138,7 @@ export default function GestionaleRistoranti() {
           </div>
           <div className="feature-video-list">
             {detailFeatures.map((f) => (
-              <div className="feature-video-row" key={f.title}>
-                <div className="feature-video-media">
-                  <SediaVideo mp4={f.mp4} webm={f.webm} poster={f.poster} caption={f.caption} />
-                </div>
-                <div className="feature-video-copy">
-                  <h3>{f.title}</h3>
-                  <p>{f.text}</p>
-                </div>
-              </div>
+              <SediaVideo key={f.title} className="feature-video-item" mp4={f.mp4} webm={f.webm} poster={f.poster} title={f.title} caption={f.text} />
             ))}
           </div>
         </section>
