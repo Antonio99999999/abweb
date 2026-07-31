@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./theme.css";
 import "./client-showcase.css";
 import "./motion.css";
 import "./scroll-reveal.css";
@@ -39,5 +40,5 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="it"><body><a className="skip-link" href="#main-content">Salta al contenuto</a><ScrollEffects />{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /></body></html>;
+  return <html lang="it" data-theme="agency"><body><a className="skip-link" href="#main-content">Salta al contenuto</a><ScrollEffects />{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /></body></html>;
 }

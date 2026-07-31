@@ -75,7 +75,7 @@ export default function GestionaleRistoranti() {
   return (
     <>
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" data-theme="sedia">
         <section className="page-hero shell">
           <p className="eyebrow">SEDIA · GESTIONALE PER RISTORANTI</p>
           <h1>Il gestionale di prenotazione costruito sulla sala reale del tuo ristorante.</h1>
@@ -111,7 +111,7 @@ export default function GestionaleRistoranti() {
             <div className="section-intro light">
               <p className="eyebrow">PER CHI È</p>
               <h2>Pensato per ristoranti che vogliono gestire la sala, non solo un calendario.</h2>
-              <p style={{ color: "#c8d6e8", marginTop: 20, maxWidth: 640 }}>Sedia è pensato per ristoranti, pizzerie e locali che vogliono ridurre le commissioni per prenotazione, integrare il widget nel proprio sito e mantenere clienti, tavoli e disponibilità in un solo posto, con l&apos;attivazione seguita direttamente da AB Web Agency.</p>
+              <p style={{ color: "var(--muted-inverse)", marginTop: 20, maxWidth: 640 }}>Sedia è pensato per ristoranti, pizzerie e locali che vogliono ridurre le commissioni per prenotazione, integrare il widget nel proprio sito e mantenere clienti, tavoli e disponibilità in un solo posto, con l&apos;attivazione seguita direttamente da AB Web Agency.</p>
             </div>
           </div>
         </section>

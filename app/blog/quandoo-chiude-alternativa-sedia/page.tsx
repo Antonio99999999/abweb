@@ -97,7 +97,7 @@ export default function QuandooSediaArticle() {
   return (
     <>
       <SiteHeader />
-      <main id="main-content" className="qs-page">
+      <main id="main-content" className="qs-page" data-theme="sedia">
         <nav className="shell qs-breadcrumbs" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden>/</span><span>Blog</span><span aria-hidden>/</span><span aria-current="page">Alternativa a Quandoo</span>
         </nav>
@@ -237,7 +237,7 @@ export default function QuandooSediaArticle() {
             </div>
           </div>
 
-          <section className="qs-final" data-reveal>
+          <section className="qs-final" data-theme="agency" data-reveal>
             <div className="shell">
               <div className="qs-final-main"><p className="qs-kicker">Il momento giusto è prima della scadenza</p><h2>Non aspettare il 30 settembre per cambiare gestionale</h2><p>Configura oggi Sedia e verifica il nuovo sistema prima che Quandoo interrompa le prenotazioni.</p><div className="qs-actions"><a className="button qs-final-primary" href={sediaHref}>Aggiungi il tuo ristorante a Sedia <span aria-hidden>→</span></a><a className="button qs-final-secondary" href={demoHref}>Richiedi una dimostrazione</a></div><Link className="qs-text-link" href="/servizi#gestionale">Sedia tra i servizi di AB Web Agency <span aria-hidden>→</span></Link></div>
               <div className="qs-final-offer"><span className="qs-offer-badge">Offerta passaggio da Quandoo</span><h3>Sala configurata, passaggio seguito da vicino.</h3><p>Configurazione iniziale gratuita e 10% di sconto sul gestionale per i primi 12 mesi.</p><a className="button qs-offer-button" href={offerHref}>Richiedi l’offerta Quandoo <span aria-hidden>→</span></a><small>Richieste entro il 30/09/2026 · prova dell’utilizzo di Quandoo richiesta · non cumulabile.</small></div>

@@ -13,7 +13,7 @@ export function SiteHeader() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
-  return <header className="site-header"><div className="shell nav">
+  return <header className="site-header" data-theme="agency"><div className="shell nav">
     <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={54} height={54} priority /></Link>
     <nav id="mobile-navigation" className={`primary-nav ${open ? "open" : ""}`} aria-label="Navigazione principale">
       <Link href="/servizi" onClick={close}>Servizi</Link><Link href="/metodo-mastro" onClick={close}>Metodo Mastro</Link><Link href="/blog" onClick={close}>Blog</Link><Link href="/contatti" onClick={close}>Contatti</Link>

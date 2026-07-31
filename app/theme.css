@@ -1,0 +1,46 @@
+/* Sistema a due palette (Fase 1). Variabili semantiche che cambiano valore in base a
+   [data-theme="agency"|"sedia"] su un antenato. Agency riprende 1:1 i valori storici di
+   globals.css (:root) cosi' da non alterare visivamente il sito esistente; Sedia riprende
+   1:1 la palette gia' in uso in quandoo-sedia.css / sedia-card.css (verificata anche contro
+   brand/README.md del progetto video Sedia, che dichiara di copiarla da questo stesso repo). */
+:root, [data-theme="agency"] {
+  --bg: #fff;
+  --surface: #f6f8fb;
+  --border: #dce3ec;
+  --ink: #0b1220;
+  --ink-inverse: #fff;
+  --muted: #5f6c7d;
+  --muted-inverse: #c8d6e8;
+  --accent: #f97316;
+  --accent-strong: #b84e09;
+  --accent-deep: #12233d;
+  --accent-alt: #14b8a6;
+  --accent-highlight: #ffedd5;
+  --font-heading: Arial, Helvetica, sans-serif;
+  --shadow-soft: 0 14px 38px rgba(11, 18, 32, .09);
+}
+
+[data-theme="sedia"] {
+  --bg: #f6f3ec;
+  --surface: #fffdf8;
+  --border: #dedbd2;
+  --ink: #18211c;
+  --ink-inverse: #fffdf8;
+  --muted: #657068;
+  --muted-inverse: #cddbd4;
+  --accent: #d95531;
+  --accent-strong: #aa3518;
+  --accent-deep: #173e33;
+  --accent-alt: #1f6a4c;
+  --accent-highlight: #dff08b;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --shadow-soft: 0 18px 45px rgba(23, 62, 51, .14);
+}
+
+h1, h2, h3 { font-family: var(--font-heading); }
+
+/* Fascia di transizione tra un mondo e l'altro (Fase 2): sfuma dal pannello scuro
+   agency al fondo carta di Sedia invece di un taglio netto navy/paper. */
+.theme-transition {
+  background: linear-gradient(180deg, var(--accent-deep) 0%, color-mix(in srgb, var(--accent-deep) 32%, var(--bg)) 100%);
+}
