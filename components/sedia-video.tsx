@@ -34,11 +34,13 @@ export function SediaVideo({
 
   return (
     <figure className={`sedia-video-frame ${className}`}>
-      <video ref={videoRef} className="sedia-video" muted playsInline loop preload="none" poster={poster}>
-        <source src={webm} type="video/webm" />
-        <source src={mp4} type="video/mp4" />
-      </video>
-      <figcaption className="sedia-video-caption">{caption}</figcaption>
+      <div className="sedia-video-wrap">
+        <video ref={videoRef} className="sedia-video" muted playsInline loop preload="none" poster={poster}>
+          <source src={webm} type="video/webm" />
+          <source src={mp4} type="video/mp4" />
+        </video>
+        <figcaption className="sedia-video-caption">{caption}</figcaption>
+      </div>
     </figure>
   );
 }
