@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { CaseMetrics } from "@/components/case-metrics";
@@ -63,8 +62,10 @@ export default function BenvenutiAlSudCaseStudy() {
           <h1>{study.client}</h1>
           <p>{study.summary}</p>
           {study.images[0] && (
-            <div style={{ marginTop: 40, maxWidth: 360 }}>
-              <Image src={study.images[0].src} alt={study.images[0].alt} width={360} height={170} sizes="(max-width: 800px) 90vw, 360px" />
+            <div style={{ marginTop: 40, maxWidth: 220 }}>
+              {/* SVG: next/image non serve SVG per default (dangerouslyAllowSVG disattivato di proposito), img semplice */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={study.images[0].src} alt={study.images[0].alt} width={360} height={360} style={{ width: "100%", height: "auto" }} loading="lazy" />
             </div>
           )}
         </section>

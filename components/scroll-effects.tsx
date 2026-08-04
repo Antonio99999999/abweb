@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export function ScrollEffects() {
+  const pathname = usePathname();
+  const [bar, setBar] = useState({ value: 0, visible: false });
+  const creepTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const hideTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const isFirstPathname = useRef(true);
+
   useEffect(() => {
     let frame = 0;
     const updateProgress = () => {
@@ -65,5 +72,44 @@ export function ScrollEffects() {
     };
   }, []);
 
-  return <div className="scroll-progress" aria-hidden />;
+  // Barra di caricamento tra una pagina e l'altra: da' un riscontro immediato al click su un
+  // link interno, invece di lasciare la pagina "morta" finche' la prossima non e' pronta.
+  // Next.js App Router non espone un evento di navigazione nativo: intercettiamo il click per
+  // avviarla e la chiudiamo quando il pathname cambia davvero (fine della navigazione).
+  useEffect(() => {
+    const clearTimers = () => {
+      if (creepTimeout.current) clearTimeout(creepTimeout.current);
+      if (hideTimeout.current) clearTimeout(hideTimeout.current);
+    };
+    const onClick = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const anchor = (event.target as HTMLElement | null)?.closest("a");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || anchor.hasAttribute("download")) return;
+      if (anchor.target && anchor.target !== "_self") return;
+      let url: URL;
+      try { url = new URL(href, window.location.href); } catch { return; }
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return;
+      clearTimers();
+      setBar({ value: 20, visible: true });
+      creepTimeout.current = setTimeout(() => setBar((b) => (b.visible ? { value: 74, visible: true } : b)), 90);
+    };
+    document.addEventListener("click", onClick);
+    return () => { document.removeEventListener("click", onClick); clearTimers(); };
+  }, []);
+
+  useEffect(() => {
+    if (isFirstPathname.current) { isFirstPathname.current = false; return; }
+    if (creepTimeout.current) clearTimeout(creepTimeout.current);
+    setBar((b) => (b.visible ? { value: 100, visible: true } : b));
+    hideTimeout.current = setTimeout(() => setBar({ value: 0, visible: false }), 280);
+    return () => { if (hideTimeout.current) clearTimeout(hideTimeout.current); };
+  }, [pathname]);
+
+  return <>
+    <div className={`route-loading-bar${bar.visible ? " is-visible" : ""}`} aria-hidden style={{ width: `${bar.value}%` }} />
+    <div className="scroll-progress" aria-hidden />
+  </>;
 }

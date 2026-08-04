@@ -20,10 +20,18 @@
    agency (vedi data-theme="agency" su site-header.tsx), ma questo link forza data-theme="sedia"
    su se stesso cosi' l'accento e' quello di Sedia anche dentro un header agency. Verde per
    restare coerente con .sedia-app-cta e .sedia-cta altrove nel sito. */
-.sedia-nav-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--accent-alt);color:var(--ink-inverse);font-weight:700;font-size:13px;transition:background .18s ease}
+.sedia-nav-link{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--accent-alt);color:var(--ink-inverse);font-weight:700;font-size:13px;transition:background .18s ease,box-shadow .3s ease}
 .sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-alt));color:var(--ink-inverse)}
 .primary-nav a.sedia-nav-link{padding:8px 14px;border-radius:999px;margin:2px 0}
 .primary-nav a.sedia-nav-link:hover{background:color-mix(in srgb,black 18%,var(--accent-alt));color:var(--ink-inverse)}
+
+/* Alone verde quando sei dentro le pagine di Sedia. Non riusa il bagliore arancione degli altri
+   link di menu (.nav-glow in header.css): il pulsante Sedia e' gia' un pill pieno con palette
+   propria, farci scorrere sotto lo stesso arancione mescolerebbe le due palette che agency e
+   Sedia usano deliberatamente per distinguersi. */
+.sedia-nav-link.is-active{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-alt) 30%,transparent),0 0 20px 3px color-mix(in srgb,var(--accent-alt) 55%,transparent);animation:sedia-pulse .6s ease-out}
+@keyframes sedia-pulse{from{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent-alt) 55%,transparent)}to{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-alt) 30%,transparent),0 0 20px 3px color-mix(in srgb,var(--accent-alt) 55%,transparent)}}
+@media(prefers-reduced-motion:reduce){.sedia-nav-link.is-active{animation:none}}
 
 /* CTA principale verso l'app di Sedia (conversione reale, non solo scoperta del prodotto):
    stessa palette del pulsante Sedia in nav, ma piu' grande, per restare il pulsante

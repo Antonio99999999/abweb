@@ -61,7 +61,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "−30%", label: "tempo di gestione" },
     ],
     resultsDisclaimer: "Dati dichiarati nel caso studio: non costituiscono una promessa di risultato.",
-    images: [{ src: "/clients/benvenuti-al-sud.png", alt: "Benvenuti al Sud" }],
+    images: [{ src: "/clients/benvenuti-al-sud.svg", alt: "Benvenuti al Sud" }],
     relatedServiceIds: ["siti", "automazioni"],
     relatedArticleSlugs: ["ridurre-no-show-ristorante", "sito-ristorante-prenotazioni-dirette"],
     ctaHref: "/metodo-mastro",

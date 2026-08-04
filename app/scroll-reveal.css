@@ -4,3 +4,8 @@ html.motion-ready [data-reveal].is-revealed{opacity:1;transform:translateY(0)}
 .scroll-progress{position:fixed;z-index:20;top:79px;left:0;width:100%;height:2px;background:var(--orange);transform:scaleX(var(--scroll-progress,0));transform-origin:left;transition:transform .1s linear;pointer-events:none}
 @media(max-width:800px){.scroll-progress{top:69px}}
 @media(prefers-reduced-motion:reduce){.scroll-progress{transition:none}}
+
+/* Barra di caricamento tra le pagine (vedi ScrollEffects): sopra a tutto, header incluso. */
+.route-loading-bar{position:fixed;z-index:50;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),#ffb787);border-radius:0 3px 3px 0;opacity:0;box-shadow:0 0 10px rgba(249,115,22,.55);transition:width .5s cubic-bezier(.1,.7,.3,1),opacity .25s ease;pointer-events:none}
+.route-loading-bar.is-visible{opacity:1}
+@media(prefers-reduced-motion:reduce){.route-loading-bar{transition:opacity .15s ease}}
