@@ -94,7 +94,8 @@ export function SiteHeader() {
   }, [pathname, moveGlowTo]);
 
   return <header className={`site-header${scrolled ? " is-scrolled" : ""}`} data-theme="agency"><div className="shell nav">
-    <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={54} height={54} priority /></Link>
+    <span className="nav-scroll-glow" aria-hidden />
+    <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={246} height={284} priority /></Link>
     <nav ref={navRef} id="mobile-navigation" className={`primary-nav ${open ? "open" : ""}`} aria-label="Navigazione principale">
       <span className={`nav-glow${glow.visible ? " is-visible" : ""}`} aria-hidden style={{ transform: `translate(${glow.left}px,-50%)`, width: glow.width }} />
       {navItems.map((item) => {

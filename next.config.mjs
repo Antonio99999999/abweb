@@ -1,9 +1,14 @@
+const isDev = process.env.NODE_ENV !== "production";
+
 const csp = [
   "default-src 'self'",
   // 'unsafe-inline' resta necessario per gli script JSON-LD inline (dati strutturati) e per gli
   // stili inline usati da alcuni componenti (es. barra di progresso). Non ci sono script di terze
-  // parti, contenuti utente renderizzati come HTML o eval: il rischio XSS reale è basso.
-  "script-src 'self' 'unsafe-inline'",
+  // parti, contenuti utente renderizzati come HTML o eval in produzione: il rischio XSS reale è
+  // basso. 'unsafe-eval' viene aggiunta solo in sviluppo perché React la usa internamente per
+  // ricostruire gli stack trace di debug (Fast Refresh) — mai in produzione, quindi qui resta
+  // fuori dalla build reale servita agli utenti.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self'",

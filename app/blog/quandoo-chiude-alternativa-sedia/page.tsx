@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { AuthorBio } from "@/components/blog-article";
+import { ArticleProgress } from "@/components/article-progress";
 import { BUSINESS } from "@/lib/business";
 import { AUTHOR } from "@/lib/author";
 import "../blog.css";
@@ -128,6 +129,7 @@ export default function QuandooSediaArticle() {
             </div>
           </header>
 
+          <ArticleProgress articleSelector=".qs-content" tocSelector=".qs-toc" />
           <div className="shell qs-layout">
             <aside className="qs-toc" aria-label="Indice dell’articolo">
               <p>In questo articolo</p>

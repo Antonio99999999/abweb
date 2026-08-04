@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { blogPosts } from "@/lib/blog";
 import { AUTHOR } from "@/lib/author";
 import { articleSchema } from "@/lib/schema";
+import { ArticleProgress } from "@/components/article-progress";
 
 type Section = { id: string; title: string; content: ReactNode };
 type Source = { label: string; url: string; note: string };
@@ -35,6 +36,7 @@ export function BlogArticle({
       <nav className="shell editorial-breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/blog">Blog</Link><span>/</span><span aria-current="page">{category}</span></nav>
       <article>
         <header className="editorial-hero"><div className="shell editorial-hero-inner"><p className="eyebrow">{category}</p><h1>{title}</h1><p className="editorial-lead">{intro}</p><div className="editorial-meta"><time dateTime={publishedISO}>{date}</time><span>·</span><span>{readingTime} di lettura</span></div></div></header>
+        <ArticleProgress articleSelector=".editorial-body" tocSelector=".editorial-toc" />
         <div className="shell editorial-layout">
           <aside className="editorial-toc"><p>In questo articolo</p>{sections.map((section) => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</aside>
           <div className="editorial-body">

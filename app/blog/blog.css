@@ -11,3 +11,11 @@
 .author-bio-role{margin:4px 0 0;color:var(--orange-ink);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .author-bio-text{margin:10px 0 12px;color:var(--muted);font-size:14px;line-height:1.6;max-width:560px}
 @media(max-width:620px){.author-bio{flex-direction:column;gap:14px;padding:22px}}
+
+/* Avanzamento di lettura sul bordo del summary (.editorial-toc/.qs-toc hanno gia' position:sticky,
+   valido come contesto di posizionamento per lo pseudo-elemento). Cresce dall'alto verso il
+   basso via --article-progress (impostata da ArticleProgress in base allo scroll nel solo
+   corpo dell'articolo), stesso linguaggio arancione/luminoso del bagliore in navbar. */
+.editorial-toc:before,.qs-toc:before{content:"";position:absolute;left:-1px;top:0;width:2px;height:100%;background:var(--orange);border-radius:2px;transform-origin:top;transform:scaleY(var(--article-progress,0));opacity:.9;box-shadow:0 0 8px 1px color-mix(in srgb,var(--orange) 55%,transparent);transition:transform .12s linear}
+.editorial-toc a.is-active,.qs-toc a.is-active{color:var(--orange-ink);font-weight:800}
+@media(prefers-reduced-motion:reduce){.editorial-toc:before,.qs-toc:before{transition:none}}

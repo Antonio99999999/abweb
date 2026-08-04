@@ -10,6 +10,10 @@ export function ScrollEffects() {
   const hideTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const isFirstPathname = useRef(true);
 
+  // --scroll-progress non pilota piu' una barra qui: da quando l'indicatore e' stato integrato
+  // nell'ombra della navbar (vedi .nav-scroll-glow in header.css), questa variabile globale sul
+  // <html> resta l'unica fonte del valore, letta via CSS da quel componente. Va mantenuta anche
+  // se questo file non renderizza piu' nulla che la usi direttamente.
   useEffect(() => {
     let frame = 0;
     const updateProgress = () => {
@@ -108,8 +112,5 @@ export function ScrollEffects() {
     return () => { if (hideTimeout.current) clearTimeout(hideTimeout.current); };
   }, [pathname]);
 
-  return <>
-    <div className={`route-loading-bar${bar.visible ? " is-visible" : ""}`} aria-hidden style={{ width: `${bar.value}%` }} />
-    <div className="scroll-progress" aria-hidden />
-  </>;
+  return <div className={`route-loading-bar${bar.visible ? " is-visible" : ""}`} aria-hidden style={{ width: `${bar.value}%` }} />;
 }
