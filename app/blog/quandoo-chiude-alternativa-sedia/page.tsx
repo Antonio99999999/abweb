@@ -129,7 +129,7 @@ export default function QuandooSediaArticle() {
             </div>
           </header>
 
-          <ArticleProgress articleSelector=".qs-content" tocSelector=".qs-toc" />
+          <ArticleProgress tocSelector=".qs-toc" />
           <div className="shell qs-layout">
             <aside className="qs-toc" aria-label="Indice dell’articolo">
               <p>In questo articolo</p>
