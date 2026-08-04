@@ -135,6 +135,7 @@ export default function BenvenutiAlSudCaseStudy() {
               {study.relatedServiceIds.map((id) => (
                 <Link key={id} className="text-link" href={serviceHref[id] ?? "/servizi"} style={{ display: "inline-block", marginRight: 20 }}>{serviceLabel[id] ?? id} <span aria-hidden>→</span></Link>
               ))}
+              {study.location === "Torino" && <Link className="text-link" href="/siti-web-ristoranti-torino" style={{ display: "inline-block" }}>Siti per ristoranti a Torino <span aria-hidden>→</span></Link>}
             </div>
           </div>
         </section>

@@ -114,6 +114,17 @@ export default function SitiWebRistoranti() {
           </div>
         </section>
 
+        <section className="section shell">
+          <div className="section-intro">
+            <p className="eyebrow">SEI A TORINO?</p>
+            <h2>Scopri la pagina dedicata ai ristoranti di Torino</h2>
+          </div>
+          <div className="hero-actions" style={{ marginTop: 20 }}>
+            <Link className="text-link" href="/siti-web-ristoranti-torino">Siti per ristoranti a Torino <span aria-hidden>→</span></Link>
+            <Link className="text-link" href="/casi-studio">Guarda i casi studio <span aria-hidden>→</span></Link>
+          </div>
+        </section>
+
         <section className="final-cta">
           <div className="shell">
             <p className="eyebrow">IL PROSSIMO PASSO</p>

@@ -45,6 +45,7 @@ export default function SediaPrezzi() {
           <p className="eyebrow">SEDIA · PREZZI</p>
           <h1>Piani semplici, senza commissioni per prenotazione</h1>
           <p>Tre piani, da 45 a 120 € al mese: la differenza riguarda il numero di sale e tavoli e il livello di supporto nella configurazione iniziale, non le funzioni di base.</p>
+          <p className="pricing-note" style={{ marginTop: 12 }}>Prezzi finali: IVA non applicata (regime forfettario, art. 1 commi 54-89 L. 190/2014).</p>
         </section>
 
         <section className="section shell">

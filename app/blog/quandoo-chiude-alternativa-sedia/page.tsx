@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { AuthorBio } from "@/components/blog-article";
 import { BUSINESS } from "@/lib/business";
+import { AUTHOR } from "@/lib/author";
+import "../blog.css";
 import "./quandoo-sedia.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/quandoo-chiude-alternativa-sedia";
@@ -69,7 +72,7 @@ const articleSchema = {
   dateModified: "2026-07-29",
   inLanguage: "it-IT",
   mainEntityOfPage: canonical,
-  author: { "@type": "Organization", name: BUSINESS.name, url: BUSINESS.url },
+  author: { "@type": "Person", name: AUTHOR.name, url: AUTHOR.url },
   publisher: { "@type": "Organization", name: BUSINESS.name, url: BUSINESS.url, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
 };
 
@@ -234,6 +237,7 @@ export default function QuandooSediaArticle() {
                 <h2>Le risposte prima di scegliere</h2>
                 <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden>+</span></summary><p>{answer}</p></details>)}</div>
               </section>
+              <AuthorBio />
             </div>
           </div>
 

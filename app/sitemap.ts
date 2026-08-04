@@ -6,21 +6,23 @@ import { blogPosts } from "@/lib/blog";
 // davvero i contenuti di quella pagina: non usare la data odierna a ogni deploy.
 const staticPages: { route: string; lastModified: string }[] = [
   { route: "", lastModified: "2026-07-31" },
-  { route: "/servizi", lastModified: "2026-07-31" },
-  { route: "/siti-web-ristoranti", lastModified: "2026-07-31" },
+  { route: "/servizi", lastModified: "2026-08-04" },
+  { route: "/siti-web-ristoranti", lastModified: "2026-08-04" },
+  { route: "/siti-web-ristoranti-torino", lastModified: "2026-08-04" },
   { route: "/automazioni-ristoranti", lastModified: "2026-07-31" },
   { route: "/seo-locale-ristoranti", lastModified: "2026-07-31" },
   { route: "/casi-studio", lastModified: "2026-07-31" },
-  { route: "/casi-studio/benvenuti-al-sud", lastModified: "2026-07-31" },
-  { route: "/gestionale-ristoranti", lastModified: "2026-07-31" },
+  { route: "/casi-studio/benvenuti-al-sud", lastModified: "2026-08-04" },
+  { route: "/gestionale-ristoranti", lastModified: "2026-08-04" },
   { route: "/gestionale-ristoranti/prezzi", lastModified: "2026-07-31" },
   { route: "/gestionale-ristoranti/widget-prenotazioni", lastModified: "2026-07-31" },
   { route: "/gestionale-ristoranti/alternativa-thefork", lastModified: "2026-07-31" },
+  { route: "/chi-siamo", lastModified: "2026-08-04" },
   { route: "/faq", lastModified: "2026-07-31" },
   { route: "/metodo-mastro", lastModified: "2026-07-19" },
   { route: "/preventivo", lastModified: "2026-07-19" },
   { route: "/contatti", lastModified: "2026-07-31" },
-  { route: "/blog", lastModified: "2026-07-29" },
+  { route: "/blog", lastModified: "2026-08-04" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

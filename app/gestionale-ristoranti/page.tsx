@@ -6,10 +6,11 @@ import { SediaIcon } from "@/components/sedia-icon";
 import { SediaVideo } from "@/components/sedia-video";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
+import { faqPageSchema, softwareApplicationSchema } from "@/lib/schema";
 
 const canonical = "https://www.abagenziaweb.it/gestionale-ristoranti";
-const title = "Sedia: il gestionale di prenotazioni per ristoranti";
-const description = "Sedia è il gestionale di prenotazione costruito sulla sala reale del tuo ristorante: mappa dei tavoli, prenotazioni, widget per il sito e rubrica clienti. Sviluppato da AB Web Agency.";
+const title = "Sedia – gestionale prenotazioni per ristoranti";
+const description = "Sedia è il gestionale prenotazioni per ristoranti costruito sulla sala reale del tuo locale: mappa dei tavoli, software di gestione sala, widget di prenotazione senza commissioni e rubrica clienti. Sviluppato da AB Web Agency.";
 const demoSubject = encodeURIComponent("Richiesta dimostrazione Sedia");
 const demoBody = encodeURIComponent(
   "Buongiorno AB Web Agency,\n\nvorrei richiedere una dimostrazione di Sedia per il mio ristorante.\n\nRistorante:\nCittà:\nTelefono:"
@@ -86,15 +87,15 @@ const serviceSchema = {
   url: canonical,
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map(([question, answer]) => ({
-    "@type": "Question",
-    name: question,
-    acceptedAnswer: { "@type": "Answer", text: answer },
-  })),
-};
+const faqSchema = faqPageSchema(faqItems.map(([question, answer]) => ({ question, answer })));
+
+const softwareSchema = softwareApplicationSchema({
+  name: "Sedia",
+  description,
+  url: canonical,
+  category: "BusinessApplication",
+  offers: { lowPrice: "45", highPrice: "120", priceCurrency: "EUR" },
+});
 
 export default function GestionaleRistoranti() {
   return (
@@ -102,7 +103,7 @@ export default function GestionaleRistoranti() {
       <SiteHeader />
       <main id="main-content" data-theme="sedia">
         <section className="page-hero shell">
-          <p className="eyebrow">SEDIA · GESTIONALE PER RISTORANTI</p>
+          <p className="eyebrow">SEDIA · GESTIONALE PRENOTAZIONI PER RISTORANTI</p>
           <h1>Il gestionale di prenotazione costruito sulla sala reale del tuo ristorante.</h1>
           <p>Sedia è il prodotto sviluppato da AB Web Agency per chi è stanco di un&apos;agenda generica: mappa dei tavoli, prenotazioni, widget per il sito e rubrica clienti in un unico ambiente.</p>
           <div className="hero-actions" style={{ marginTop: 32 }}>
@@ -118,7 +119,7 @@ export default function GestionaleRistoranti() {
           <div className="section-intro">
             <p className="eyebrow">PERCHÉ NON UN&apos;AGENDA GENERICA</p>
             <h2>Ogni ristorante ha una sala diversa. Il gestionale dovrebbe partire da lì.</h2>
-            <p>La maggior parte dei sistemi di prenotazione ignora la disposizione reale dei tavoli. Sedia parte dalla sala del locale: capienze, combinazioni per gruppi numerosi e disponibilità coerenti con lo spazio vero, non con una griglia astratta.</p>
+            <p>La maggior parte dei sistemi di prenotazione ignora la disposizione reale dei tavoli. Sedia parte dalla sala del locale: capienze, combinazioni per gruppi numerosi e disponibilità coerenti con lo spazio vero, non con una griglia astratta. È, a tutti gli effetti, un software di gestione tavoli pensato per il servizio reale, non un&apos;agenda generica adattata alla ristorazione.</p>
           </div>
           <div className="pillars">
             {features.map((f) => (
@@ -168,6 +169,18 @@ export default function GestionaleRistoranti() {
           </div>
         </section>
 
+        <section className="section shell">
+          <div className="section-intro">
+            <p className="eyebrow">SCOPRI DI PIÙ</p>
+            <h2>Prezzi, widget e confronto con i portali</h2>
+          </div>
+          <div className="hero-actions" style={{ marginTop: 20 }}>
+            <Link className="text-link" href="/gestionale-ristoranti/prezzi">Vedi i piani e i prezzi <span aria-hidden>→</span></Link>
+            <Link className="text-link" href="/gestionale-ristoranti/widget-prenotazioni">Il widget senza commissioni <span aria-hidden>→</span></Link>
+            <Link className="text-link" href="/gestionale-ristoranti/alternativa-thefork">Sedia come alternativa ai portali <span aria-hidden>→</span></Link>
+          </div>
+        </section>
+
         <section className="section shell editorial-related">
           <p className="eyebrow">APPROFONDISCI</p>
           <h2>Guide collegate a Sedia</h2>
@@ -175,6 +188,8 @@ export default function GestionaleRistoranti() {
             <Link className="text-link" href="/blog/quandoo-chiude-alternativa-sedia">Quandoo chiude: la guida al passaggio a Sedia <span>→</span></Link>
             <br /><br />
             <Link className="text-link" href="/blog/prenotazioni-ristorante-google-maps">Prenotazioni ristorante da Google: guida a link e profilo <span>→</span></Link>
+            <br /><br />
+            <Link className="text-link" href="/blog/funzioni-gestionale-prenotazioni-ristorante">Gestionale prenotazioni ristorante: quali funzioni deve avere <span>→</span></Link>
           </p>
         </section>
 
@@ -195,6 +210,7 @@ export default function GestionaleRistoranti() {
       </main>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   );

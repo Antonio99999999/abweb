@@ -12,6 +12,7 @@ import "./contacts.css";
 import "./sedia-card.css";
 import { ScrollEffects } from "@/components/scroll-effects";
 import { BUSINESS } from "@/lib/business";
+import { organizationSchema } from "@/lib/schema";
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -20,6 +21,10 @@ const websiteSchema = {
   url: BUSINESS.url,
   inLanguage: "it-IT",
 };
+
+// Organization/ProfessionalService una sola volta, sitewide: evita di ripetere provider/address
+// in ogni pagina di servizio (Fase SEO, task 7 "senza duplicazioni").
+const organization = organizationSchema();
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.abagenziaweb.it"),
@@ -40,5 +45,5 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="it" data-theme="agency"><body><a className="skip-link" href="#main-content">Salta al contenuto</a><ScrollEffects />{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /></body></html>;
+  return <html lang="it" data-theme="agency"><body><a className="skip-link" href="#main-content">Salta al contenuto</a><ScrollEffects />{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} /></body></html>;
 }

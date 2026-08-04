@@ -3,7 +3,8 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { blogPosts } from "@/lib/blog";
-import { BUSINESS } from "@/lib/business";
+import { AUTHOR } from "@/lib/author";
+import { articleSchema } from "@/lib/schema";
 
 type Section = { id: string; title: string; content: ReactNode };
 type Source = { label: string; url: string; note: string };
@@ -18,18 +19,7 @@ export function BlogArticle({
   const subject = encodeURIComponent(`Richiesta dal blog: ${title}`);
   const canonical = `https://www.abagenziaweb.it/blog/${currentSlug}`;
   const publishedISO = blogPosts.find((post) => post.slug === currentSlug)?.published ?? "2026-07-29";
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: title,
-    description: intro,
-    datePublished: publishedISO,
-    dateModified: publishedISO,
-    inLanguage: "it-IT",
-    mainEntityOfPage: canonical,
-    author: { "@type": "Organization", name: BUSINESS.name, url: BUSINESS.url },
-    publisher: { "@type": "Organization", name: BUSINESS.name, url: BUSINESS.url, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
-  };
+  const schema = articleSchema({ headline: title, description: intro, canonical, datePublished: publishedISO });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -50,6 +40,7 @@ export function BlogArticle({
           <div className="editorial-body">
             {sections.map((section) => <section id={section.id} key={section.id} data-reveal><h2>{section.title}</h2>{section.content}</section>)}
             <section className="editorial-sources" data-reveal><h2>Fonti e metodo</h2><p>Contenuto originale di AB Web Agency. Le fonti sono utilizzate per verificare fatti e indicazioni tecniche; non ne riproduciamo il testo.</p><ol>{sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <span aria-hidden>↗</span></a><p>{source.note}</p></li>)}</ol></section>
+            <AuthorBio />
           </div>
         </div>
         <section className="editorial-cta" data-reveal><div className="shell"><div><p className="eyebrow">DAL CONTENUTO AL SISTEMA</p><h2>Vuoi applicarlo al tuo ristorante?</h2><p>AB Web Agency può aiutarti a collegare sito, Google e prenotazioni in un percorso più semplice da trovare e da gestire.</p><p className="editorial-cta-links"><Link className="text-link" href="/servizi">Scopri i servizi <span aria-hidden>→</span></Link><span aria-hidden> · </span><Link className="text-link" href="/metodo-mastro">Guarda il caso studio <span aria-hidden>→</span></Link></p></div><a className="button button-light" href={`mailto:ab.agenziaweb@gmail.com?subject=${subject}`}>Parliamo del tuo ristorante <span aria-hidden>→</span></a></div></section>
@@ -60,6 +51,22 @@ export function BlogArticle({
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
   </>;
+}
+
+export function AuthorBio() {
+  const [first, ...rest] = AUTHOR.name.split(" ");
+  const initials = `${first[0]}${rest[rest.length - 1]?.[0] ?? ""}`;
+  return (
+    <aside className="author-bio" aria-label="Informazioni sull'autore">
+      <span className="author-bio-avatar" aria-hidden>{initials}</span>
+      <div>
+        <p className="author-bio-name">{AUTHOR.name}</p>
+        <p className="author-bio-role">{AUTHOR.role}</p>
+        <p className="author-bio-text">{AUTHOR.bio}</p>
+        <Link className="text-link" href="/chi-siamo">Scopri di più su chi siamo <span aria-hidden>→</span></Link>
+      </div>
+    </aside>
+  );
 }
 
 export function BlogCard({ post }: { post: (typeof blogPosts)[number] }) {
