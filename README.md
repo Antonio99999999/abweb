@@ -18,7 +18,7 @@ Il visitatore resta sempre sul sito. Una API del sito manda il lead a un Apps Sc
 Crea un foglio, rinomina la prima scheda `Lead` e incolla nella cella A1:
 
 ```tsv
-Ricevuto	Nome	Email	Telefono	Azienda	Servizi	Pagine	Contenuti	Logo	Extra	Modulo	SEO	Gestione social	Piano social	IA	Durata	Totale listino	Minimo stimato	Massimo stimato	Fascia	Obiettivo	Fonte
+Ricevuto	Nome	Email	Telefono	Azienda	Servizi	Pagine	Contenuti	Logo	Extra	Modulo	SEO	Gestione social	Piano social	IA	Durata	Totale listino	Minimo stimato	Massimo stimato	Fascia	Obiettivo	Fonte	Sedia	Canone mensile	Risparmio mensile	Risparmio primo anno
 ```
 
 ### 2. Crea il ponte Apps Script
@@ -38,7 +38,7 @@ function doPost(e) {
   const isMastroDownload = lead.kind === 'mastro';
   const row = isMastroDownload
     ? [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', '', '', 'Download Metodo Mastro', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', lead.source || 'www.abagenziaweb.it']
-    : [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', lead.phone || '', lead.company || '', join(lead.services), lead.pages || '', lead.texts || '', lead.logo || '', join(lead.extras), lead.module || '', lead.seo || '', lead.social || '', lead.socialPlan || '', lead.ai || '', lead.duration || '', lead.estimate || '', lead.minimum || '', lead.maximum || '', lead.tier || '', lead.note || '', lead.source || 'www.abagenziaweb.it'];
+    : [lead.receivedAt || new Date().toISOString(), lead.name || '', lead.email || '', lead.phone || '', lead.company || '', join(lead.services), lead.pages || '', lead.texts || '', lead.logo || '', join(lead.extras), lead.module || '', lead.seo || '', lead.social || '', lead.socialPlan || '', lead.ai || '', lead.duration || '', lead.estimate || '', lead.minimum || '', lead.maximum || '', lead.tier || '', lead.note || '', lead.source || 'www.abagenziaweb.it', lead.sedia || '', lead.monthly || '', lead.monthlySavings || '', lead.firstYearSavings || ''];
 
   SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Lead').appendRow(row);
   isMastroDownload ? sendMastroEmails(lead) : sendQuoteEmails(lead);
@@ -54,20 +54,21 @@ function sendQuoteEmails(lead) {
     ['Servizi', join(lead.services)], ['Pagine', lead.pages], ['Contenuti', lead.texts],
     ['Logo', lead.logo], ['Extra', join(lead.extras)], ['Modulo', lead.module],
     ['SEO', lead.seo], ['Gestione social', lead.social], ['Piano social', lead.socialPlan],
-    ['Automazione IA', lead.ai], ['Durata', lead.duration]
+    ['Sedia', lead.sedia], ['Durata', lead.duration], ['Canone mensile', lead.monthly ? money(lead.monthly) : ''],
+    ['Risparmio mensile', lead.monthlySavings ? money(lead.monthlySavings) : ''], ['Risparmio primo anno', lead.firstYearSavings ? money(lead.firstYearSavings) : '']
   ]);
 
   sendMail(ADMIN_EMAIL, 'Nuovo preventivo · ' + name, shell(
     'Nuova richiesta di preventivo',
     '<p><strong>' + name + '</strong> ha configurato un progetto.</p>' +
     detailRows([['Email', lead.email], ['Telefono', lead.phone], ['Azienda', lead.company], ['Fascia', lead.tier]]) +
-    priceBox(minimum, maximum, lead.tier) + '<h2>Configurazione</h2>' + summary
+    priceBox(minimum, maximum, lead.monthly, lead.firstYearSavings, lead.tier) + '<h2>Configurazione</h2>' + summary
   ));
 
   sendMail(lead.email, 'Abbiamo ricevuto la tua richiesta · AB Web Agency', shell(
     'Grazie, ' + name + '.',
     '<p>Abbiamo ricevuto la richiesta per <strong>' + company + '</strong>. Un consulente analizzerà la configurazione e ti contatterà per approfondire i dettagli utili.</p>' +
-    '<h2>Il tuo riepilogo</h2>' + summary + priceBox(minimum, maximum, lead.tier) +
+    '<h2>Il tuo riepilogo</h2>' + summary + priceBox(minimum, maximum, lead.monthly, lead.firstYearSavings, lead.tier) +
     '<p>Puoi rispondere direttamente a questa email per aggiungere informazioni al progetto.</p>'
   ));
 }
@@ -109,8 +110,11 @@ function detailRows(rows) {
   }).join('') + '</table>';
 }
 
-function priceBox(minimum, maximum, tier) {
-  return '<div style="margin:24px 0;padding:20px 22px;border-radius:12px;background:#d7e9f8;text-align:center"><div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#587087">' + esc(tier || 'Stima iniziale') + '</div><div style="font-family:Georgia,serif;font-weight:bold;font-size:25px;line-height:1.25;color:#14293d;margin-top:7px">Da ' + minimum + ' a ' + maximum + '</div><div style="font-size:12px;color:#587087;margin-top:6px">La proposta definitiva viene definita dopo il confronto.</div></div>';
+function priceBox(minimum, maximum, monthly, savings, tier) {
+  const initial = Number(minimum) || Number(maximum) ? '<div style="font-family:Georgia,serif;font-weight:bold;font-size:25px;line-height:1.25;color:#14293d;margin-top:7px">Investimento iniziale: da ' + minimum + ' a ' + maximum + '</div>' : '';
+  const recurring = Number(monthly) ? '<div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;line-height:1.25;color:#14293d;margin-top:7px">Canone: ' + money(monthly) + '/mese</div>' : '';
+  const bonus = Number(savings) ? '<div style="font-size:13px;font-weight:bold;color:#315d42;margin-top:8px">Bonus Sedia: risparmi ' + money(savings) + ' nel primo anno</div>' : '';
+  return '<div style="margin:24px 0;padding:20px 22px;border-radius:12px;background:#d7e9f8;text-align:center"><div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#587087">' + esc(tier || 'Stima iniziale') + '</div>' + initial + recurring + bonus + '<div style="font-size:12px;color:#587087;margin-top:6px">La proposta definitiva viene definita dopo il confronto.</div></div>';
 }
 
 function button(url, label) {
