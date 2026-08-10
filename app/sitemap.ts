@@ -10,7 +10,7 @@ const staticPages: { route: string; lastModified: string }[] = [
   { route: "/siti-web-ristoranti", lastModified: "2026-08-04" },
   { route: "/siti-web-ristoranti-torino", lastModified: "2026-08-04" },
   { route: "/automazioni-ristoranti", lastModified: "2026-07-31" },
-  { route: "/seo-locale-ristoranti", lastModified: "2026-07-31" },
+  { route: "/seo-locale-ristoranti", lastModified: "2026-08-04" },
   { route: "/casi-studio", lastModified: "2026-07-31" },
   { route: "/casi-studio/benvenuti-al-sud", lastModified: "2026-08-04" },
   { route: "/gestionale-ristoranti", lastModified: "2026-08-04" },
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `https://www.abagenziaweb.it/blog/${post.slug}`,
-    lastModified: post.published,
+    lastModified: post.updated ?? post.published,
     changeFrequency: "weekly",
     priority: 0.85,
   }));

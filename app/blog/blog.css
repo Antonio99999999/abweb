@@ -20,3 +20,11 @@
 .editorial-toc a.is-active,.qs-toc a.is-active{opacity:1;color:var(--orange-ink);font-weight:800;transform:scale(1.08);transform-origin:left center;text-shadow:0 0 14px color-mix(in srgb,var(--orange) 55%,transparent)}
 .editorial-toc a.is-active:before,.qs-toc a.is-active:before{opacity:1;transform:scale(1.4);box-shadow:0 0 9px 2px color-mix(in srgb,var(--orange) 70%,transparent)}
 @media(prefers-reduced-motion:reduce){.editorial-toc a,.qs-toc a,.editorial-toc a:before,.qs-toc a:before{transition:none}}
+
+/* FAQ dentro il corpo di un articolo (una colonna, a differenza di .faq che e' pensata per il
+   layout a due colonne delle pagine di servizio): stessa logica di apertura, niente griglia. */
+.editorial-faq{display:grid;gap:0}
+.editorial-faq details{padding:18px 0;border-top:1px solid var(--line)}
+.editorial-faq details:last-child{border-bottom:1px solid var(--line)}
+.editorial-faq details[open] summary span{transform:rotate(45deg)}
+.editorial-faq details p{max-width:640px;color:var(--muted);margin:10px 0 0}

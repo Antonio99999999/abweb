@@ -4,10 +4,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
+import { faqPageSchema } from "@/lib/schema";
 
 const canonical = "https://www.abagenziaweb.it/siti-web-ristoranti";
-const title = "Siti per ristoranti: strategia, design e SEO tecnico";
-const description = "Sviluppiamo siti per ristoranti pensati per trasformare le visite in richieste e prenotazioni: strategia, UX/UI, sviluppo performante e SEO tecnico.";
+const title = "Siti web per ristoranti: realizzazione, strategia e SEO tecnico";
+const description = "Realizziamo siti web per ristoranti pensati per trasformare le visite in prenotazioni dirette: mobile-first, menu consultabile, SEO locale, velocità e accessibilità.";
 
 export const metadata: Metadata = {
   title,
@@ -31,8 +32,27 @@ const serviceSchema = {
 const breadcrumb = breadcrumbSchema([
   { name: "Home", url: BUSINESS.url },
   { name: "Servizi", url: `${BUSINESS.url}/servizi` },
-  { name: "Siti per ristoranti", url: canonical },
+  { name: "Siti web per ristoranti", url: canonical },
 ]);
+
+const included = [
+  { num: "01", title: "Mobile-first", text: "La maggior parte delle ricerche “ristorante vicino a me” parte da smartphone: il sito è progettato prima per quello schermo, non adattato dopo." },
+  { num: "02", title: "Menù sempre consultabile", text: "Leggibile direttamente sul sito e aggiornabile, non un PDF pesante da scaricare per sapere cosa si mangia." },
+  { num: "03", title: "Prenotazioni dirette", text: <>Collegabile al <Link href="/gestionale-ristoranti/widget-prenotazioni">widget di Sedia</Link> o ad altri sistemi, senza far uscire il cliente dal sito del ristorante.</> },
+  { num: "04", title: "SEO locale", text: "Struttura, contenuti e dati tecnici pensati per le ricerche di chi cerca un ristorante nella tua zona." },
+  { num: "05", title: "Velocità e accessibilità", text: "Core Web Vitals, HTML semantico e navigazione da tastiera fanno parte del progetto, non sono una rifinitura finale." },
+  { num: "06", title: "Analytics", text: "Misuriamo il percorso reale del visitatore, non solo il numero di pagine viste." },
+];
+
+const faqItems = [
+  { question: "Il sito include hosting e dominio?", answer: "Dipende dal progetto: lo definiamo insieme in fase di preventivo, in base a cosa hai già attivo e cosa serve al tuo locale." },
+  { question: "In quanto tempo posso avere il sito online?", answer: "Un progetto focalizzato richiede tipicamente 4–8 settimane. Prima definiamo sempre obiettivi, priorità e materiale disponibile." },
+  { question: "Posso collegare le prenotazioni dirette al sito?", answer: "Sì, tramite il widget di Sedia, il gestionale sviluppato da AB Web Agency, oppure con altre soluzioni in base alle tue esigenze." },
+  { question: "Il sito include anche la SEO locale?", answer: "La realizzazione del sito comprende le basi tecniche di SEO (struttura, velocità, dati tecnici). Un lavoro continuativo su ricerche locali e Google Business Profile fa parte della consulenza SEO dedicata." },
+  { question: "Cosa succede al sito che ho già?", answer: "Analizziamo cosa funziona e cosa no prima di decidere se ripartire da zero o intervenire su quanto già esiste." },
+] as const;
+
+const faqSchema = faqPageSchema(faqItems.map(({ question, answer }) => ({ question, answer })));
 
 export default function SitiWebRistoranti() {
   return (
@@ -40,8 +60,8 @@ export default function SitiWebRistoranti() {
       <SiteHeader />
       <main id="main-content">
         <section className="page-hero shell">
-          <p className="eyebrow">SITI PER RISTORANTI</p>
-          <h1>Siti che trasformano interesse in azione</h1>
+          <p className="eyebrow">SITI WEB PER RISTORANTI</p>
+          <h1>Siti web per ristoranti che trasformano interesse in azione</h1>
           <p>Un sito non è una brochure. È il punto in cui posizionamento, contenuti, esperienza e conversione si incontrano.</p>
           <div className="case-proof-copy" style={{ marginTop: 8 }}>
             <ul>
@@ -67,6 +87,16 @@ export default function SitiWebRistoranti() {
             <article><span>01</span><h3>Presenza che non differenzia</h3><p>Un sito generico non racconta perché sceglierti né accompagna alla prenotazione.</p></article>
             <article><span>02</span><h3>Richieste che si disperdono</h3><p>Contatti, WhatsApp e social restano scollegati: rispondere bene diventa difficile.</p></article>
             <article><span>03</span><h3>Marketing senza sistema</h3><p>Si pubblica, si spende e si spera, senza una lettura chiara di ciò che genera valore.</p></article>
+          </div>
+        </section>
+
+        <section className="section shell">
+          <div className="section-intro">
+            <p className="eyebrow">COSA INCLUDE</p>
+            <h2>Realizzazione di siti web per ristoranti, non solo grafica</h2>
+          </div>
+          <div className="problem-grid">
+            {included.map((p) => <article key={p.num}><span>{p.num}</span><h3>{p.title}</h3><p>{p.text}</p></article>)}
           </div>
         </section>
 
@@ -122,6 +152,17 @@ export default function SitiWebRistoranti() {
           <div className="hero-actions" style={{ marginTop: 20 }}>
             <Link className="text-link" href="/siti-web-ristoranti-torino">Siti per ristoranti a Torino <span aria-hidden>→</span></Link>
             <Link className="text-link" href="/casi-studio">Guarda i casi studio <span aria-hidden>→</span></Link>
+            <Link className="text-link" href="/seo-locale-ristoranti">Scopri la consulenza SEO per ristoranti <span aria-hidden>→</span></Link>
+          </div>
+        </section>
+
+        <section className="section shell faq">
+          <div className="section-intro">
+            <p className="eyebrow">DOMANDE FREQUENTI</p>
+            <h2>Le risposte prima di scegliere.</h2>
+          </div>
+          <div>
+            {faqItems.map((item) => <details key={item.question}><summary>{item.question}<span>+</span></summary><p>{item.answer}</p></details>)}
           </div>
         </section>
 
@@ -136,6 +177,7 @@ export default function SitiWebRistoranti() {
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   );
 }

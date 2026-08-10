@@ -7,6 +7,9 @@ export type BlogPost = {
   publishedLabel: string;
   readingTime: string;
   accent: "orange" | "green" | "lime" | "navy";
+  // Data reale dell'ultimo aggiornamento sostanziale dei contenuti (non della sola correzione di
+  // refusi). Opzionale: se assente, sitemap e dati strutturati usano "published" come oggi.
+  updated?: string;
 };
 
 export const blogPosts: BlogPost[] = [
@@ -27,7 +30,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Come collegare il percorso di prenotazione al Profilo dell’attività, scegliere il link preferito e controllare che funzioni davvero.",
     published: "2026-07-29",
     publishedLabel: "29 luglio 2026",
-    readingTime: "8 min",
+    updated: "2026-08-04",
+    readingTime: "11 min",
     accent: "green",
   },
   {
@@ -37,7 +41,8 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Conferme, regole chiare, storico e organizzazione della sala: un metodo pratico per gestire le assenze senza trattare ogni cliente come un rischio.",
     published: "2026-07-29",
     publishedLabel: "29 luglio 2026",
-    readingTime: "9 min",
+    updated: "2026-08-04",
+    readingTime: "11 min",
     accent: "orange",
   },
   {

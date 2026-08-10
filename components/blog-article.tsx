@@ -19,8 +19,9 @@ export function BlogArticle({
   const related = blogPosts.filter((post) => post.slug !== currentSlug).slice(0, 3);
   const subject = encodeURIComponent(`Richiesta dal blog: ${title}`);
   const canonical = `https://www.abagenziaweb.it/blog/${currentSlug}`;
-  const publishedISO = blogPosts.find((post) => post.slug === currentSlug)?.published ?? "2026-07-29";
-  const schema = articleSchema({ headline: title, description: intro, canonical, datePublished: publishedISO });
+  const currentPost = blogPosts.find((post) => post.slug === currentSlug);
+  const publishedISO = currentPost?.published ?? "2026-07-29";
+  const schema = articleSchema({ headline: title, description: intro, canonical, datePublished: publishedISO, dateModified: currentPost?.updated });
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
