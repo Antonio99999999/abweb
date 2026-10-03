@@ -1,0 +1,43 @@
+# AB Web Agency
+
+> Agenzia di Torino specializzata in siti web, SEO locale e automazioni per ristoranti e attività locali. Sviluppa anche Sedia, un gestionale di prenotazioni per ristoranti costruito sulla mappa reale della sala.
+
+## Chi siamo
+- [Chi siamo](https://www.abagenziaweb.it/chi-siamo): presentazione di AB Web Agency e del fondatore Antonio Pio Brattoli, con esperienza diretta nella ristorazione oltre che nello sviluppo digitale.
+- [Contatti](https://www.abagenziaweb.it/contatti): modulo di contatto ed email diretta.
+
+## Servizi
+- [Servizi](https://www.abagenziaweb.it/servizi): panoramica di tutti i servizi offerti.
+- [Siti web per ristoranti](https://www.abagenziaweb.it/siti-web-ristoranti): realizzazione siti mobile-first con prenotazioni dirette, menù digitale, SEO locale, velocità e accessibilità.
+- [Siti web per ristoranti a Torino](https://www.abagenziaweb.it/siti-web-ristoranti-torino): la stessa proposta applicata ai ristoranti di Torino e provincia.
+- [Consulenza SEO per ristoranti](https://www.abagenziaweb.it/seo-locale-ristoranti): Google Business Profile, ricerche locali, contenuti del sito e misurazione in Search Console.
+- [Automazioni per ristoranti](https://www.abagenziaweb.it/automazioni-ristoranti): automazione di richieste, contatti e processi operativi.
+- [Preventivo](https://www.abagenziaweb.it/preventivo): configuratore guidato per stimare un progetto, nessun impegno.
+
+## Sedia — gestionale prenotazioni per ristoranti
+- [Sedia](https://www.abagenziaweb.it/gestionale-ristoranti): gestionale costruito sulla sala reale del ristorante — mappa dei tavoli, prenotazioni, widget per il sito, rubrica clienti. Prodotto sviluppato da AB Web Agency.
+- [Prezzi di Sedia](https://www.abagenziaweb.it/gestionale-ristoranti/prezzi): tre piani pubblici da 45 a 120 € al mese, senza commissioni per prenotazione.
+- [Widget di prenotazione](https://www.abagenziaweb.it/gestionale-ristoranti/widget-prenotazioni): come funziona il widget integrabile nel sito del ristorante.
+- [Sedia come alternativa a TheFork](https://www.abagenziaweb.it/gestionale-ristoranti/alternativa-thefork): differenza tra Sedia e i portali di prenotazione con commissione.
+
+## Casi studio
+- [Casi studio](https://www.abagenziaweb.it/casi-studio): progetti realizzati, con problema, soluzione e risultati dichiarati dal cliente.
+- [Benvenuti al Sud](https://www.abagenziaweb.it/casi-studio/benvenuti-al-sud): rebranding, sito e prenotazioni dirette per un ristorante di Torino.
+
+## Blog e guide
+- [Blog](https://www.abagenziaweb.it/blog): guide pratiche su siti, prenotazioni, Google e gestionali per ristoranti.
+- [Google prenotazioni ristoranti: guida a Prenota con Google](https://www.abagenziaweb.it/blog/prenotazioni-ristorante-google-maps): cos'è, come si attiva, vantaggi, limiti e differenza con la prenotazione diretta.
+- [Ridurre i no-show al ristorante](https://www.abagenziaweb.it/blog/ridurre-no-show-ristorante): conferme, lista d'attesa, politiche di cancellazione e caparra.
+- [Quandoo chiude: Sedia è l'alternativa](https://www.abagenziaweb.it/blog/quandoo-chiude-alternativa-sedia): date della cessazione e guida al passaggio.
+- [Sito per ristorante: come trasformarlo in un canale di prenotazione](https://www.abagenziaweb.it/blog/sito-ristorante-prenotazioni-dirette)
+- [Quanto costa un sito web per ristorante nel 2026?](https://www.abagenziaweb.it/blog/quanto-costa-sito-web-ristorante): cosa influenza davvero il prezzo, senza fasce inventate.
+- [Come aumentare le prenotazioni dirette di un ristorante](https://www.abagenziaweb.it/blog/aumentare-prenotazioni-dirette-ristorante)
+- [Gestionale prenotazioni ristorante: quali funzioni deve avere](https://www.abagenziaweb.it/blog/funzioni-gestionale-prenotazioni-ristorante)
+- [Sito web per ristorante a Torino: come farsi trovare dai clienti](https://www.abagenziaweb.it/blog/sito-web-ristorante-torino)
+
+## Domande frequenti
+- [FAQ](https://www.abagenziaweb.it/faq): domande comuni su costi, tempi e metodo per i siti e per Sedia.
+
+## Note
+- Sede: Torino, Italia. Contatto: ab.agenziaweb@gmail.com
+- AB Web Agency non pubblica recensioni, numero di clienti o percentuali di risultato non verificabili: i casi studio riportano solo dati dichiarati direttamente dal cliente.

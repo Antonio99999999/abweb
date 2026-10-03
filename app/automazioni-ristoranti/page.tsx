@@ -49,7 +49,7 @@ export default function AutomazioniRistoranti() {
         <section className="page-hero shell">
           <p className="eyebrow">AUTOMAZIONI PER RISTORANTI</p>
           <h1>Automazioni che lasciano spazio al servizio</h1>
-          <p>Progettiamo flussi concreti che collegano richieste, contatti e processi. Per rispondere meglio senza aggiungere lavoro invisibile.</p>
+          <p>Le automazioni per ristoranti collegano richieste, contatti e processi in un unico flusso, così nessuna richiesta si perde tra sito, WhatsApp ed e-mail e il team risponde senza lavoro ripetuto.</p>
           <div className="hero-actions" style={{ marginTop: 28 }}>
             <Link className="button" href="/preventivo">Calcola il tuo investimento <span aria-hidden>→</span></Link>
             <Link className="text-link" href="/siti-web-ristoranti">Abbinale a un sito nuovo <span aria-hidden>→</span></Link>
