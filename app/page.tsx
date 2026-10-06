@@ -3,11 +3,8 @@ import Image from "next/image";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SediaVideo } from "@/components/sedia-video";
-import { BUSINESS } from "@/lib/business";
 import { caseStudies } from "@/lib/case-studies";
 import "./home.css";
-
-const schema = { "@context": "https://schema.org", "@type": "ProfessionalService", name: BUSINESS.name, url: BUSINESS.url, email: BUSINESS.email, logo: BUSINESS.logo, description: BUSINESS.description, areaServed: BUSINESS.areaServed, address: BUSINESS.address, founder: BUSINESS.founder, sameAs: BUSINESS.sameAs };
 
 const benvenutiAlSud = caseStudies.find((study) => study.slug === "benvenuti-al-sud") ?? caseStudies[0];
 
@@ -37,4 +34,4 @@ export default function HomePage() { return <><SiteHeader /><main id="main-conte
   <section className="section shell faq"><div className="section-intro"><p className="eyebrow">PRIMA DI INIZIARE</p><h2>Le domande che meritano una risposta chiara.</h2></div><div>{homeFaq.map(([q, a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
 
   <section className="final-cta"><div className="shell"><p className="eyebrow">ESPLORA IL SITO</p><h2>C&apos;è ancora molto da scoprire.</h2><Link className="button button-light" href="/servizi">Scopri tutti i nostri servizi <span aria-hidden>→</span></Link></div></section>
-</main><SiteFooter /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></> }
+</main><SiteFooter /></> }

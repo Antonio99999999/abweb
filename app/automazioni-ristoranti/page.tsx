@@ -6,7 +6,7 @@ import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
 
 const canonical = "https://www.abagenziaweb.it/automazioni-ristoranti";
-const title = "Automazioni per ristoranti: lead, follow-up e dashboard";
+const title = "Automazioni per ristoranti: lead e follow-up";
 const description = "Flussi che collegano richieste, contatti e processi del ristorante: meno passaggi manuali, risposte più rapide, dati leggibili in un pannello semplice.";
 
 export const metadata: Metadata = {
@@ -57,6 +57,7 @@ export default function AutomazioniRistoranti() {
         </section>
 
         <section className="section shell">
+          <div className="section-intro"><p className="eyebrow">COSA AUTOMATIZZIAMO</p><h2>Quattro flussi, un unico punto di controllo.</h2></div>
           <div className="pillars">
             {pillars.map((p) => (
               <article key={p.num}><span>{p.num}</span><h3>{p.title}</h3><p>{p.text}</p></article>

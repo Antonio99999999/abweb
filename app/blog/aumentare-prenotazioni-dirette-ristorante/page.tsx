@@ -5,7 +5,7 @@ import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/aumentare-prenotazioni-dirette-ristorante";
 export const metadata: Metadata = {
-  title: "Come aumentare le prenotazioni dirette di un ristorante",
+  title: "Aumentare le prenotazioni dirette al ristorante",
   description: "Sito mobile, Google Business Profile, social e conferme: come ricevere più prenotazioni dirette e ridurre la dipendenza dai portali, senza abbandonarli.",
   alternates: { canonical },
   openGraph: {

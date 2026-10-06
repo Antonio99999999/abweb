@@ -4,8 +4,8 @@ import { BlogArticle } from "@/components/blog-article";
 import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/profilo-google-ristorante-checklist";
-const title = "Profilo Google di un ristorante: la checklist da controllare ogni settimana";
-const description = "Orari, categorie, nome e indirizzo, menù, link di prenotazione e recensioni: cosa controllare regolarmente nel Profilo Google di un ristorante, con le indicazioni ufficiali di Google.";
+const title = "Profilo Google di un ristorante: checklist settimanale";
+const description = "Orari, categorie, dati di contatto, menù, link di prenotazione e recensioni: cosa controllare ogni settimana nel Profilo Google del ristorante.";
 
 export const metadata: Metadata = {
   title,

@@ -5,7 +5,7 @@ import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/sito-web-ristorante-torino";
 export const metadata: Metadata = {
-  title: "Sito web per ristorante a Torino: come farsi trovare dai clienti",
+  title: "Sito web per ristorante a Torino: farsi trovare",
   description: "Ricerche locali, Google Maps, recensioni, fotografie e velocità mobile: cosa serve perché un ristorante di Torino emerga davvero nelle ricerche di zona.",
   alternates: { canonical },
   openGraph: {

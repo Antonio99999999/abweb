@@ -7,7 +7,7 @@ import "./blog.css";
 
 export const metadata: Metadata = {
   title: "Blog per ristoratori: siti, prenotazioni e crescita",
-  description: "Guide pratiche di AB Web Agency su siti per ristoranti, prenotazioni online, Google, gestionali e fidelizzazione.",
+  description: "Guide pratiche di AB Web Agency per ristoratori su siti, prenotazioni online, Google, menù digitale, gestionali e fidelizzazione da applicare al proprio locale.",
   alternates: { canonical: "https://www.abagenziaweb.it/blog" },
   openGraph: { title: "Blog per ristoratori | AB Web Agency", description: "Strategie e strumenti spiegati con chiarezza per rendere più solida la presenza digitale del ristorante.", url: "https://www.abagenziaweb.it/blog" },
 };

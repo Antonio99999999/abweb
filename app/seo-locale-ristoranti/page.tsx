@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/breadcrumb";
 import { faqPageSchema } from "@/lib/schema";
 
 const canonical = "https://www.abagenziaweb.it/seo-locale-ristoranti";
-const title = "Consulenza SEO per ristoranti: più clienti dalle ricerche locali";
+const title = "Consulenza SEO locale per ristoranti";
 const description = "Consulenza SEO per ristoranti: Google Business Profile, ricerche locali, contenuti del sito e prenotazioni dirette in un unico percorso, misurato in Search Console.";
 
 export const metadata: Metadata = {

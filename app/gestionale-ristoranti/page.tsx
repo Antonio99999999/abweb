@@ -10,7 +10,7 @@ import { faqPageSchema, softwareApplicationSchema } from "@/lib/schema";
 
 const canonical = "https://www.abagenziaweb.it/gestionale-ristoranti";
 const title = "Sedia – gestionale prenotazioni per ristoranti";
-const description = "Sedia è il gestionale prenotazioni per ristoranti costruito sulla sala reale del tuo locale: mappa dei tavoli, software di gestione sala, widget di prenotazione senza commissioni e rubrica clienti. Sviluppato da AB Web Agency.";
+const description = "Sedia è il gestionale prenotazioni per ristoranti: mappa della sala, widget senza commissioni e rubrica clienti. Sviluppato da AB Web Agency.";
 const demoSubject = encodeURIComponent("Richiesta dimostrazione Sedia");
 const demoBody = encodeURIComponent(
   "Buongiorno AB Web Agency,\n\nvorrei richiedere una dimostrazione di Sedia per il mio ristorante.\n\nRistorante:\nCittà:\nTelefono:"

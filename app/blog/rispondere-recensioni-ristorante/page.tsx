@@ -4,7 +4,7 @@ import { faqPageSchema } from "@/lib/schema";
 import "../blog.css";
 
 const slug = "rispondere-recensioni-ristorante";
-const title = "Rispondere alle recensioni del ristorante, anche le negative";
+const title = "Rispondere alle recensioni del ristorante";
 export const metadata = articleMetadata({
   slug,
   title,

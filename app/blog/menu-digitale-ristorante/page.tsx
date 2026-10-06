@@ -4,7 +4,7 @@ import { BlogArticle } from "@/components/blog-article";
 import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/menu-digitale-ristorante";
-const title = "Menù digitale per ristorante: PDF, pagina web o QR code?";
+const title = "Menù digitale: PDF, pagina web o QR code?";
 const description = "PDF, pagina web e QR code non sono tre alternative: svolgono compiti diversi. Come scegliere la versione principale del menù e come tenere allineate le copie.";
 
 export const metadata: Metadata = {

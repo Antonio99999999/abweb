@@ -4,7 +4,7 @@ import { BlogArticle } from "@/components/blog-article";
 import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/telefono-whatsapp-gestionale-prenotazioni";
-const title = "Telefono, WhatsApp o gestionale: come gestire le prenotazioni senza perdere richieste";
+const title = "Telefono, WhatsApp o gestionale per le prenotazioni";
 const description = "Telefono, WhatsApp e gestionale a confronto: dove si perdono le richieste, come usare WhatsApp senza farne un’agenda e un metodo di una settimana per decidere.";
 
 export const metadata: Metadata = {

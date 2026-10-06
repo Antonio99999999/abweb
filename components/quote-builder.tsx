@@ -72,7 +72,7 @@ export function QuoteBuilder() {
   ];
   const active = steps[Math.min(step, steps.length - 1)];
 
-  const selection: QuoteSelection = {
+  const selection = useMemo<QuoteSelection>(() => ({
     webServiceId,
     brandIdentity,
     pageId,
@@ -84,8 +84,8 @@ export function QuoteBuilder() {
     socialPlanId: wantsSocial ? socialPlanId : "social-none",
     sediaPlanId,
     durationId,
-  };
-  const quote = useMemo(() => calculateQuote(selection), [webServiceId, brandIdentity, pageId, textId, logoId, extraIds, moduleId, seoId, socialPlanId, wantsSocial, sediaPlanId, durationId]);
+  }), [webServiceId, brandIdentity, pageId, textId, logoId, extraIds, moduleId, seoId, socialPlanId, wantsSocial, sediaPlanId, durationId]);
+  const quote = useMemo(() => calculateQuote(selection), [selection]);
 
   const canContinue = active === "Servizi" ? !!webServiceId || brandIdentity || wantsSocial
     : active === "Sedia" ? !!sediaPlanId
@@ -114,7 +114,7 @@ export function QuoteBuilder() {
     setError("");
     const form = new FormData(event.currentTarget);
     const payload = {
-      name: form.get("name"), email: form.get("email"), phone: form.get("phone"), company: form.get("company"), note: form.get("note"), website: form.get("website"), startedAt,
+      name: form.get("name"), email: form.get("email"), phone: form.get("phone"), company: form.get("company"), note: form.get("note"), website: form.get("website"), consent: form.get("consent") === "on", startedAt,
       selection,
       other: other.trim(),
       services: quote.labels.services,
@@ -185,7 +185,7 @@ export function QuoteBuilder() {
       {quote.initial > 0 && <div><span>Investimento iniziale</span><strong>{euro(quote.initial)} – {euro(quote.initialMaximum)}</strong></div>}
       {quote.monthly > 0 && <div><span>Servizi mensili</span><strong>{euro(quote.monthly)}/mese</strong></div>}
       {hasSedia && <div className="saving-row"><span>Risparmio sul bundle</span><strong>{euro(quote.firstYearSavings)}</strong></div>}
-    </div><input className="trap-field" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" /><div className="form-grid"><label>Nome e cognome<input required name="name" autoComplete="name" /></label><label>Email<input required name="email" type="email" autoComplete="email" /></label><label>Telefono<input required name="phone" type="tel" autoComplete="tel" /></label><label>Azienda<input name="company" autoComplete="organization" /></label><label className="full">Note sul progetto<textarea name="note" rows={3} /></label></div><label className="consent"><input required type="checkbox" /><span>Ho letto la <Link href="/privacy" target="_blank">Privacy Policy</Link> e richiedo di essere ricontattato in merito al progetto.</span></label>{error && <p className="form-error" role="alert">{error}</p>}<div className="button-row"><button type="button" className="button button-secondary" onClick={() => setStep((current) => current - 1)}>Indietro</button><button className="button" disabled={loading}>{loading ? "Invio in corso…" : "Ricevi la stima"} <span>→</span></button></div></form>}
+    </div><input className="trap-field" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" /><div className="form-grid"><label>Nome e cognome<input required name="name" autoComplete="name" /></label><label>Email<input required name="email" type="email" autoComplete="email" /></label><label>Telefono<input required name="phone" type="tel" autoComplete="tel" /></label><label>Azienda<input name="company" autoComplete="organization" /></label><label className="full">Note sul progetto<textarea name="note" rows={3} /></label></div><label className="consent"><input required type="checkbox" name="consent" /><span>Ho letto la <Link href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link> e richiedo di essere ricontattato in merito al progetto.</span></label>{error && <p className="form-error" role="alert">{error}</p>}<div className="button-row"><button type="button" className="button button-secondary" onClick={() => setStep((current) => current - 1)}>Indietro</button><button className="button" disabled={loading}>{loading ? "Invio in corso…" : "Ricevi la stima"} <span>→</span></button></div></form>}
     {active !== "Contatto" && <><>{error && <p className="form-error" role="alert">{error}</p>}</><div className="button-row"><button type="button" className="button button-secondary" onClick={() => { setError(""); setStep((current) => Math.max(0, current - 1)); }} disabled={step === 0}>Indietro</button><button className="button" onClick={next}>{active === "Durata" ? "I tuoi dati" : "Continua"} <span>→</span></button></div></>}
   </section></div>;
 }

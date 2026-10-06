@@ -5,11 +5,11 @@ import { faqPageSchema } from "@/lib/schema";
 import "../blog.css";
 
 const slug = "quanto-costa-gestionale-ristorante";
-const title = "Gestionale per ristoranti: quanto costa e cosa confrontare";
+const title = "Gestionale ristoranti: quanto costa davvero";
 export const metadata = articleMetadata({
   slug,
   title,
-  description: "Canone, commissioni per prenotazione, configurazione e tempo del personale: come calcolare il costo reale di un gestionale di prenotazioni e cosa confrontare tra le offerte.",
+  description: "Canone, commissioni, configurazione e tempo del personale: come calcolare il costo reale di un gestionale di prenotazioni e confrontare le offerte.",
   ogDescription: "Come confrontare canoni, commissioni e costi nascosti di un gestionale per ristoranti.",
 });
 

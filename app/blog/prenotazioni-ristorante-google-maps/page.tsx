@@ -6,7 +6,7 @@ import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/prenotazioni-ristorante-google-maps";
 export const metadata: Metadata = {
-  title: "Google prenotazioni ristoranti: guida a Prenota con Google",
+  title: "Prenota con Google per ristoranti: guida",
   description: "Come funziona Prenota con Google per i ristoranti: cos'è, come si attiva, quali gestionali servono, vantaggi, limiti e differenza con la prenotazione diretta.",
   alternates: { canonical },
   openGraph: {

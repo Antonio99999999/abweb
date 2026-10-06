@@ -5,7 +5,7 @@ import "../blog.css";
 
 const canonical = "https://www.abagenziaweb.it/blog/funzioni-gestionale-prenotazioni-ristorante";
 export const metadata: Metadata = {
-  title: "Gestionale prenotazioni ristorante: quali funzioni deve avere",
+  title: "Gestionale prenotazioni: le funzioni che contano",
   description: "Mappa della sala, turni, unione tavoli, lista d'attesa, storico clienti, no-show, notifiche, report e widget: le funzioni che distinguono un gestionale operativo.",
   alternates: { canonical },
   openGraph: {

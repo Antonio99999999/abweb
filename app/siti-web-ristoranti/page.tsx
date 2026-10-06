@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/breadcrumb";
 import { faqPageSchema } from "@/lib/schema";
 
 const canonical = "https://www.abagenziaweb.it/siti-web-ristoranti";
-const title = "Siti web per ristoranti: realizzazione, strategia e SEO tecnico";
+const title = "Siti web per ristoranti: strategia, design e SEO";
 const description = "Realizziamo siti web per ristoranti pensati per trasformare le visite in prenotazioni dirette: mobile-first, menu consultabile, SEO locale, velocità e accessibilità.";
 
 export const metadata: Metadata = {

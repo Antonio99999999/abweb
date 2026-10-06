@@ -10,7 +10,7 @@ import "../../sedia-pages.css";
 
 const canonical = "https://www.abagenziaweb.it/gestionale-ristoranti/alternativa-thefork";
 const title = "Sedia come alternativa a TheFork per ristoranti";
-const description = "Perché un ristorante può scegliere Sedia al posto di un portale di prenotazione come TheFork: nessuna commissione per prenotazione, widget sul proprio sito, dati del cliente al locale.";
+const description = "Perché scegliere Sedia al posto di un portale come TheFork: nessuna commissione per prenotazione, widget sul tuo sito e dati del cliente al locale.";
 const demoBody = encodeURIComponent("Buongiorno AB Web Agency,\n\nutilizzo un portale di prenotazione e vorrei valutare il passaggio a Sedia.\n\nRistorante:\nCittà:\nTelefono:");
 const demoHref = `mailto:ab.agenziaweb@gmail.com?subject=${encodeURIComponent("Passaggio a Sedia")}&body=${demoBody}`;
 

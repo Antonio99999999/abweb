@@ -9,7 +9,7 @@ const title = "Senza glutine al ristorante: cosa scrivere sul menù";
 export const metadata = articleMetadata({
   slug,
   title,
-  description: "Come comunicare il glutine e gli allergeni sul menù del ristorante: cosa dicono le regole europee, cosa significa “senza glutine” e come gestire il rischio di contaminazione.",
+  description: "Come comunicare glutine e allergeni sul menù: cosa dicono le regole europee, cosa significa “senza glutine” e come dichiarare il rischio di contaminazione.",
   ogDescription: "Comunicare il glutine sul menù senza promettere ciò che la cucina non può garantire.",
 });
 

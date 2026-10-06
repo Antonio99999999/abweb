@@ -9,7 +9,7 @@ import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
 
 const canonical = "https://www.abagenziaweb.it/gestionale-ristoranti/widget-prenotazioni";
-const title = "Widget di prenotazione per ristoranti, senza commissioni";
+const title = "Widget di prenotazione senza commissioni";
 const description = "Il widget di Sedia si integra nel sito del ristorante: colori, testi, logo, lingua e regole personalizzabili, nessuna commissione per prenotazione.";
 const demoBody = encodeURIComponent("Buongiorno AB Web Agency,\n\nvorrei integrare il widget di prenotazione Sedia nel sito del mio ristorante.\n\nRistorante:\nCittà:\nTelefono:");
 const demoHref = `mailto:ab.agenziaweb@gmail.com?subject=${encodeURIComponent("Widget di prenotazione Sedia")}&body=${demoBody}`;
@@ -51,6 +51,7 @@ export default function WidgetPrenotazioni() {
         </section>
 
         <section className="section shell">
+          <div className="section-intro"><p className="eyebrow">PERCHÉ IL WIDGET</p><h2>Quattro scelte che rendono il widget un canale proprio.</h2></div>
           <div className="pillars">
             {pillars.map((p) => (
               <article key={p.num}><span>{p.num}</span><h3>{p.title}</h3><p>{p.text}</p></article>

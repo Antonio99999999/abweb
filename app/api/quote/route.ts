@@ -1,40 +1,56 @@
 import { NextResponse } from "next/server";
 import { calculateQuote, isValidQuoteSelection, QuoteSelection } from "@/lib/quote-pricing";
+import { cleanText, GENERIC_SEND_ERROR, isValidEmail, isValidPhone } from "@/lib/lead-validation";
 
 type Lead = {
-  name?: string; email?: string; phone?: string; company?: string; note?: string; other?: string;
-  website?: string; startedAt?: number; selection?: QuoteSelection;
+  name?: unknown; email?: unknown; phone?: unknown; company?: unknown; note?: unknown; other?: unknown;
+  website?: unknown; startedAt?: unknown; consent?: unknown; selection?: QuoteSelection;
 };
 
 export async function POST(request: Request) {
-  const lead = await request.json() as Lead;
-  if (lead.website || (lead.startedAt && Date.now() - lead.startedAt < 1000)) return NextResponse.json({ ok: true });
-  if (!lead.name || !lead.email || !lead.phone || !lead.selection || !isValidQuoteSelection(lead.selection)) {
-    return NextResponse.json({ error: "Dati incompleti o configurazione non valida" }, { status: 400 });
+  let lead: Lead;
+  try {
+    lead = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Richiesta non valida" }, { status: 400 });
+  }
+  if (cleanText(lead.website, 200) || (typeof lead.startedAt === "number" && Date.now() - lead.startedAt < 1000)) {
+    return NextResponse.json({ ok: true });
   }
 
-  const quote = calculateQuote(lead.selection);
+  const name = cleanText(lead.name, 100);
+  const email = cleanText(lead.email, 254);
+  const phone = cleanText(lead.phone, 30);
+  const company = cleanText(lead.company, 120);
+  const note = cleanText(lead.note, 2000);
+  const other = cleanText(lead.other, 300);
+  const selection = lead.selection;
+  if (!name || !isValidEmail(email) || !isValidPhone(phone) || lead.consent !== true || !selection || !isValidQuoteSelection(selection)) {
+    return NextResponse.json({ error: "Controlla i dati inseriti e riprova." }, { status: 400 });
+  }
+
+  const quote = calculateQuote(selection);
   if (!quote.labels.services.length && quote.labels.social === "Nessuna gestione social") {
     return NextResponse.json({ error: "Seleziona almeno un servizio" }, { status: 400 });
   }
-  if (!lead.selection.sediaPlanId || !lead.selection.socialPlanId) {
+  if (!selection.sediaPlanId || !selection.socialPlanId) {
     return NextResponse.json({ error: "Completa le opzioni di Sedia e social" }, { status: 400 });
   }
-  if (lead.selection.webServiceId && (!lead.selection.pageId || !lead.selection.textId || !lead.selection.seoId || (lead.selection.sediaPlanId === "sedia-none" && !lead.selection.moduleId))) {
+  if (selection.webServiceId && (!selection.pageId || !selection.textId || !selection.seoId || (selection.sediaPlanId === "sedia-none" && !selection.moduleId))) {
     return NextResponse.json({ error: "Completa le opzioni del sito" }, { status: 400 });
   }
-  if ((lead.selection.webServiceId || lead.selection.brandIdentity) && !lead.selection.logoId) {
+  if ((selection.webServiceId || selection.brandIdentity) && !selection.logoId) {
     return NextResponse.json({ error: "Completa le opzioni del logo" }, { status: 400 });
   }
-  const hasMonthly = lead.selection.sediaPlanId !== "sedia-none" || lead.selection.socialPlanId !== "social-none";
-  if (hasMonthly && !lead.selection.durationId) {
+  const hasMonthly = selection.sediaPlanId !== "sedia-none" || selection.socialPlanId !== "social-none";
+  if (hasMonthly && !selection.durationId) {
     return NextResponse.json({ error: "Seleziona la durata della collaborazione" }, { status: 400 });
   }
 
   const payload = {
-    name: lead.name, email: lead.email, phone: lead.phone, company: lead.company || "", note: lead.note || "",
+    name, email, phone, company, note,
     services: quote.labels.services, pages: quote.labels.pages, texts: quote.labels.texts, logo: quote.labels.logo,
-    extras: [...quote.labels.extras, ...(lead.other?.trim() ? [`Altro: ${lead.other.trim().slice(0, 300)}`] : [])],
+    extras: [...quote.labels.extras, ...(other ? [`Altro: ${other}`] : [])],
     module: quote.labels.module, seo: quote.labels.seo, social: quote.labels.social, socialPlan: quote.labels.social,
     sedia: quote.labels.sedia, ai: "", duration: quote.labels.duration,
     estimate: quote.initial, minimum: quote.initial, maximum: quote.initialMaximum, monthly: quote.monthly,
@@ -46,7 +62,7 @@ export async function POST(request: Request) {
   const secret = process.env.APPS_SCRIPT_SECRET;
   if (!endpoint || !secret) {
     console.error("Apps Script lead delivery is not configured");
-    return NextResponse.json({ error: "Il sistema di invio non è ancora configurato." }, { status: 503 });
+    return NextResponse.json({ error: GENERIC_SEND_ERROR }, { status: 503 });
   }
   try {
     const url = new URL(endpoint);
@@ -58,6 +74,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, quote });
   } catch (error) {
     console.error("Google Sheets lead delivery failed", error);
-    return NextResponse.json({ error: "Google Apps Script ha rifiutato la richiesta. Verifica URL webhook e LEAD_SECRET in Vercel." }, { status: 502 });
+    return NextResponse.json({ error: GENERIC_SEND_ERROR }, { status: 502 });
   }
 }

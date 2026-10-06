@@ -5,11 +5,11 @@ import { faqPageSchema } from "@/lib/schema";
 import "../blog.css";
 
 const slug = "migrare-gestionale-prenotazioni";
-const title = "Migrare da un gestionale di prenotazioni senza perdere dati";
+const title = "Migrare da un gestionale senza perdere dati";
 export const metadata = articleMetadata({
   slug,
   title,
-  description: "Come cambiare gestionale di prenotazioni senza perdere clienti, storico e consensi: inventario, esportazione verificata, convivenza dei sistemi e checklist di passaggio.",
+  description: "Come cambiare gestionale di prenotazioni senza perdere clienti, storico e consensi: inventario, esportazione verificata e checklist di passaggio.",
   ogDescription: "Come cambiare gestionale di prenotazioni senza perdere dati, clienti e consensi.",
 });
 

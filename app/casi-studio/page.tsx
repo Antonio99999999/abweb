@@ -9,7 +9,7 @@ import "../case-studies.css";
 
 const canonical = "https://www.abagenziaweb.it/casi-studio";
 const title = "Casi studio: progetti reali per ristoranti";
-const description = "Casi studio di AB Web Agency: problema, soluzione e consegne del progetto, senza percentuali di risultato.";
+const description = "Casi studio di AB Web Agency per ristoranti e attività locali: problema, soluzione e consegne di ogni progetto, senza percentuali di risultato non verificate.";
 
 export const metadata: Metadata = {
   title,

@@ -42,6 +42,7 @@ export default function SediaPrezzi() {
         </section>
 
         <section className="section shell">
+          <div className="section-intro"><p className="eyebrow">I PIANI</p><h2>Scegli il piano per il tuo locale</h2></div>
           <div className="pricing-grid">
             {SEDIA_PLANS.map((plan) => (
               <div key={plan.id} className={`pricing-card${plan.highlighted ? " is-featured" : ""}`}>
