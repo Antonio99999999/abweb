@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { RelatedGuides } from "@/components/related-guides";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
 import { faqPageSchema } from "@/lib/schema";
@@ -173,7 +174,8 @@ export default function SitiWebRistoranti() {
             <Link className="button button-light" href="/preventivo">Calcola il tuo investimento <span aria-hidden>→</span></Link>
           </div>
         </section>
-      </main>
+      <RelatedGuides slugs={["sito-ristorante-prenotazioni-dirette", "menu-digitale-ristorante", "domande-clienti-prima-di-prenotare"]} />
+</main>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />

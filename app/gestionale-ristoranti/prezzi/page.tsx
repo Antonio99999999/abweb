@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { RelatedGuides } from "@/components/related-guides";
 import { SediaIcon } from "@/components/sedia-icon";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
@@ -82,7 +83,8 @@ export default function SediaPrezzi() {
             </div>
           </div>
         </section>
-      </main>
+      <RelatedGuides slugs={["quanto-costa-gestionale-ristorante", "migrare-gestionale-prenotazioni"]} />
+</main>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
     </>

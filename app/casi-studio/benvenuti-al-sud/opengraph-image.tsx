@@ -8,7 +8,7 @@ export default function Image() {
   return createOgImage({
     eyebrow: "CASO STUDIO · RISTORAZIONE · TORINO",
     title: "Benvenuti al Sud",
-    subtitle: "Rebranding, menu digitale, prenotazioni proprietarie",
+    subtitle: "Rebranding, menu digitale e prenotazioni",
     theme: "agency",
   });
 }

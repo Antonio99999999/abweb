@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { RelatedGuides } from "@/components/related-guides";
 import { SediaIcon } from "@/components/sedia-icon";
 import { SediaVideo } from "@/components/sedia-video";
 import { SEDIA_URL } from "@/lib/sedia";
@@ -207,7 +208,8 @@ export default function GestionaleRistoranti() {
             <Link className="text-link" href="/servizi#gestionale" style={{ display: "inline-block", marginTop: 18 }}>Sedia tra i servizi di AB Web Agency <span aria-hidden>→</span></Link>
           </div>
         </section>
-      </main>
+      <RelatedGuides slugs={["funzioni-gestionale-prenotazioni-ristorante", "quanto-costa-gestionale-ristorante", "migrare-gestionale-prenotazioni", "capienza-tavoli-gestionale-ristorante"]} />
+</main>
       <SiteFooter />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />

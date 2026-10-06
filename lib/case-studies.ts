@@ -23,7 +23,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Benvenuti al Sud",
     sector: "Ristorazione",
     location: "Torino",
-    summary: "Rebranding, menu digitale in quattro lingue, prenotazioni proprietarie e strumenti operativi per un ristorante di cucina del Sud Italia e pizza napoletana a Torino.",
+    summary: "Rebranding, menu digitale in quattro lingue, prenotazioni gestite con uno strumento dedicato e strumenti operativi per un ristorante di cucina del Sud Italia e pizza napoletana a Torino.",
     problem: "Il locale aveva bisogno di un'identità più riconoscibile e di ridurre la dipendenza dai portali di prenotazione esterni.",
     goals: [
       "Rendere l'identità del locale coerente su menu, materiali stampati e comunicazione",
@@ -34,7 +34,7 @@ export const caseStudies: CaseStudy[] = [
     technologies: ["Next.js", "Design system proprietario"],
     features: [
       "Menu digitale in quattro lingue",
-      "Sistema di prenotazione proprietario",
+      "Gestione prenotazioni con uno strumento dedicato",
       "Strumenti per turni e proposta vini",
     ],
     process: [

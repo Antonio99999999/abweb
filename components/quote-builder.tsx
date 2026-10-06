@@ -59,6 +59,7 @@ export function QuoteBuilder() {
 
   const hasSedia = !!sediaPlanId && sediaPlanId !== "sedia-none";
   const hasMonthly = hasSedia || wantsSocial;
+  const bundleMonths = ({ "duration-3": 3, "duration-6": 6, "duration-12": 12 } as Record<string, number>)[durationId ?? ""] ?? 0;
   const steps = [
     "Servizi", "Sedia",
     ...(webServiceId ? ["Pagine", "Contenuti"] : []),
@@ -150,7 +151,7 @@ export function QuoteBuilder() {
     <p className="eyebrow">RICHIESTA INVIATA</p><h1>Perfetto, iniziamo da qui.</h1>
     {quote.initial > 0 && <p>Il tuo investimento iniziale indicativo è <strong>da {euro(quote.initial)} a {euro(quote.initialMaximum)}</strong>.</p>}
     {quote.monthly > 0 && <p>Il canone dei servizi scelti è <strong>{euro(quote.monthly)}/mese</strong>.</p>}
-    {hasSedia && <p>Con il pacchetto Sedia risparmi fino a <strong>{euro(quote.firstYearSavings)} nel primo anno</strong>.</p>}
+    {hasSedia && quote.initialSavings > 0 && <p>Con il pacchetto Sedia hai uno sconto iniziale di <strong>{euro(quote.initialSavings)}</strong>.</p>}{hasSedia && quote.monthlySavings > 0 && <p>Con il bundle social risparmi <strong>{euro(quote.monthlySavings)}/mese</strong>.</p>}
     <p>Ti contatteremo entro un giorno lavorativo per verificare obiettivi e priorità.</p>
   </section>;
 
@@ -161,7 +162,7 @@ export function QuoteBuilder() {
       {quote.initial > 0 && <strong>{euro(quote.initial)} – {euro(quote.initialMaximum)}</strong>}
       {quote.monthly > 0 && <strong>{euro(quote.monthly)}<small>/mese</small></strong>}
       {!quote.initial && !quote.monthly && <strong>—</strong>}
-      {hasSedia && quote.firstYearSavings > 0 && <b>Risparmio sul bundle: {euro(quote.firstYearSavings)}</b>}
+      {hasSedia && quote.initialSavings > 0 && <b>Sconto iniziale: {euro(quote.initialSavings)}</b>}{hasSedia && quote.monthlySavings > 0 && <b>Risparmio sul bundle: {euro(quote.monthlySavings)}/mese</b>}
       <small>Pacchetto {quote.tier} · stima non vincolante</small>
     </div>
   </aside><section className="quote-main">
@@ -184,7 +185,7 @@ export function QuoteBuilder() {
     {active === "Contatto" && <form onSubmit={submit}><p className="eyebrow">CONTATTO</p><h1>Ricevi la tua stima.</h1><div className="quote-final-summary">
       {quote.initial > 0 && <div><span>Investimento iniziale</span><strong>{euro(quote.initial)} – {euro(quote.initialMaximum)}</strong></div>}
       {quote.monthly > 0 && <div><span>Servizi mensili</span><strong>{euro(quote.monthly)}/mese</strong></div>}
-      {hasSedia && <div className="saving-row"><span>Risparmio sul bundle</span><strong>{euro(quote.firstYearSavings)}</strong></div>}
+      {hasSedia && quote.initialSavings > 0 && <div className="saving-row"><span>Sconto iniziale sul sito e widget</span><strong>{euro(quote.initialSavings)}</strong></div>}{hasSedia && quote.monthlySavings > 0 && <div className="saving-row"><span>{bundleMonths > 0 ? "Risparmio sul bundle nella durata scelta" : "Risparmio sul bundle al mese"}</span><strong>{euro(bundleMonths > 0 ? quote.monthlySavings * bundleMonths : quote.monthlySavings)}</strong></div>}
     </div><input className="trap-field" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" /><div className="form-grid"><label>Nome e cognome<input required name="name" autoComplete="name" /></label><label>Email<input required name="email" type="email" autoComplete="email" /></label><label>Telefono<input required name="phone" type="tel" autoComplete="tel" /></label><label>Azienda<input name="company" autoComplete="organization" /></label><label className="full">Note sul progetto<textarea name="note" rows={3} /></label></div><label className="consent"><input required type="checkbox" name="consent" /><span>Ho letto la <Link href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link> e richiedo di essere ricontattato in merito al progetto.</span></label>{error && <p className="form-error" role="alert">{error}</p>}<div className="button-row"><button type="button" className="button button-secondary" onClick={() => setStep((current) => current - 1)}>Indietro</button><button className="button" disabled={loading}>{loading ? "Invio in corso…" : "Ricevi la stima"} <span>→</span></button></div></form>}
     {active !== "Contatto" && <><>{error && <p className="form-error" role="alert">{error}</p>}</><div className="button-row"><button type="button" className="button button-secondary" onClick={() => { setError(""); setStep((current) => Math.max(0, current - 1)); }} disabled={step === 0}>Indietro</button><button className="button" onClick={next}>{active === "Durata" ? "I tuoi dati" : "Continua"} <span>→</span></button></div></>}
   </section></div>;

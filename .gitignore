@@ -3,3 +3,6 @@ node_modules/
 .npm-cache/
 .env.local
 *.log
+
+# Artefatto del build TypeScript, rigenerato a ogni build
+tsconfig.tsbuildinfo
