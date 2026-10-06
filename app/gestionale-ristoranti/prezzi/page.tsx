@@ -6,6 +6,7 @@ import { SediaIcon } from "@/components/sedia-icon";
 import { SEDIA_URL } from "@/lib/sedia";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema } from "@/lib/breadcrumb";
+import { SEDIA_ANNUAL_FREE_MONTHS, SEDIA_INCLUDED_IN_ALL_PLANS, SEDIA_PLANS, annualMonthlyPrice } from "@/lib/sedia-plans";
 import "../../sedia-pages.css";
 
 const canonical = "https://www.abagenziaweb.it/gestionale-ristoranti/prezzi";
@@ -28,14 +29,6 @@ const breadcrumb = breadcrumbSchema([
   { name: "Prezzi", url: canonical },
 ]);
 
-const plans = [
-  { name: "Base", price: "45", featured: false },
-  { name: "Standard", price: "75", featured: true },
-  { name: "Avanzato", price: "120", featured: false },
-];
-
-const coreFeatures = ["Mappa reale della sala e gestione dei tavoli", "Prenotazioni con conferma automatica o su richiesta", "Widget di prenotazione integrabile nel sito, senza commissioni", "Rubrica clienti con storico e consensi"];
-
 export default function SediaPrezzi() {
   return (
     <>
@@ -44,23 +37,26 @@ export default function SediaPrezzi() {
         <section className="page-hero shell">
           <p className="eyebrow">SEDIA · PREZZI</p>
           <h1>Piani semplici, senza commissioni per prenotazione</h1>
-          <p>Tre piani, da 45 a 120 € al mese: la differenza riguarda il numero di sale e tavoli e il livello di supporto nella configurazione iniziale, non le funzioni di base.</p>
+          <p>Tre piani, da 45 a 120 € al mese. Base include prenotazioni, mappa della sala, widget e clienti; Pro aggiunge più sale, report, segmenti clienti e la scelta tra conferma automatica o su richiesta; Premium aggiunge la gestione di più ristoranti dallo stesso account.</p>
           <p className="pricing-note" style={{ marginTop: 12 }}>Prezzi finali: IVA non applicata (regime forfettario, art. 1 commi 54-89 L. 190/2014).</p>
         </section>
 
         <section className="section shell">
           <div className="pricing-grid">
-            {plans.map((plan) => (
-              <div key={plan.name} className={`pricing-card${plan.featured ? " is-featured" : ""}`}>
+            {SEDIA_PLANS.map((plan) => (
+              <div key={plan.id} className={`pricing-card${plan.highlighted ? " is-featured" : ""}`}>
                 <h3>{plan.name}</h3>
-                <p className="pricing-value">{plan.price} € <small>/ mese</small></p>
+                <p className="pricing-value">{plan.monthlyPrice} € <small>/ mese</small></p>
+                <p className="pricing-note">oppure {annualMonthlyPrice(plan).toLocaleString("it-IT", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} € al mese con pagamento annuale ({SEDIA_ANNUAL_FREE_MONTHS} mesi gratis)</p>
+                <p>{plan.tagline}</p>
                 <ul>
-                  {coreFeatures.map((feature) => <li key={feature}>{feature}</li>)}
+                  {plan.features.map((feature) => <li key={feature}>{feature}</li>)}
                 </ul>
                 <a className="button" href={demoHref}>Richiedi informazioni</a>
               </div>
             ))}
           </div>
+          <p className="pricing-note">In tutti i piani: {SEDIA_INCLUDED_IN_ALL_PLANS.join(". ")}.</p>
           <p className="pricing-note">Il piano più adatto dipende dalla sala, dal numero di coperti e dagli strumenti già in uso: lo definiamo insieme durante la demo, senza sorprese sul contratto.</p>
         </section>
 

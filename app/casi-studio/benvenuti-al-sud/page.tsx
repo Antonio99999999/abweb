@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { CaseMetrics } from "@/components/case-metrics";
 import { BUSINESS } from "@/lib/business";
 import { caseStudies } from "@/lib/case-studies";
 import { blogPosts } from "@/lib/blog";
@@ -99,17 +98,13 @@ export default function BenvenutiAlSudCaseStudy() {
 
         <section className="section shell case-proof">
           <div className="case-proof-copy">
-            <p className="eyebrow">COSA HA CAMBIATO</p>
-            <h2>Un sistema più riconoscibile e diretto.</h2>
+            <p className="eyebrow">COSA È STATO REALIZZATO</p>
+            <h2>Le consegne del progetto.</h2>
             <ul>
               {study.features.map((feature) => <li key={feature}>{feature}</li>)}
             </ul>
+            <p>Questo caso studio non riporta percentuali di risultato.</p>
           </div>
-          <aside className="impact-card" aria-label={`Risultati del caso studio ${study.client}`}>
-            <div className="impact-head"><span>RISULTATI</span><b>{study.client} · {study.location}</b></div>
-            <CaseMetrics className="impact-metrics" />
-            <p>{study.resultsDisclaimer}</p>
-          </aside>
         </section>
 
         {relatedArticles.length > 0 && (

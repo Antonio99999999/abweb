@@ -1,3 +1,5 @@
+import { SEDIA_PLANS } from "@/lib/sedia-plans";
+
 export type PriceOption = { id: string; label: string; price: number };
 
 export const webServices = [
@@ -58,10 +60,8 @@ export const socialPlans = [
 
 export const sediaPlans = [
   { id: "sedia-none", label: "Non utilizzo Sedia", price: 0, level: -1 },
-  { id: "sedia-base", label: "Sedia Base", price: 45, level: 0 },
-  { id: "sedia-standard", label: "Sedia Standard", price: 75, level: 1 },
-  { id: "sedia-advanced", label: "Sedia Avanzato", price: 120, level: 2 },
-] as const;
+  ...SEDIA_PLANS.map((plan, level) => ({ id: `sedia-${plan.id}`, label: `Sedia ${plan.name}`, price: plan.monthlyPrice, level })),
+];
 
 export const durations = [
   { id: "duration-single", label: "Progetto singolo" },
@@ -124,14 +124,14 @@ export function calculateQuote(selection: QuoteSelection): QuoteCalculation {
   const selectedExtras = extras.filter((item) => selection.extraIds.includes(item.id));
   const sedia = find(sediaPlans, selection.sediaPlanId) ?? sediaPlans[0];
   const hasSedia = sedia.level >= 0;
-  const module = web && !hasSedia ? find(modules, selection.moduleId) : undefined;
+  const moduleOption = web && !hasSedia ? find(modules, selection.moduleId) : undefined;
   const seo = web ? find(seoOptions, selection.seoId) : undefined;
   const social = find(socialPlans, selection.socialPlanId) ?? socialPlans[0];
-  const duration = hasSedia ? durations[3] : find(durations, selection.durationId);
+  const duration = find(durations, selection.durationId);
 
   const initialBase = (web?.price ?? 0) + (selection.brandIdentity ? standaloneServices[0].price : 0) +
     (page?.price ?? 0) + (text?.price ?? 0) + (logo?.price ?? 0) +
-    selectedExtras.reduce((sum, item) => sum + item.price, 0) + (module?.price ?? 0) + (seo?.price ?? 0);
+    selectedExtras.reduce((sum, item) => sum + item.price, 0) + (moduleOption?.price ?? 0) + (seo?.price ?? 0);
   const siteDiscount = hasSedia ? (web?.sediaDiscount ?? 0) : 0;
   const widgetValue = hasSedia ? 350 : 0;
   const initial = Math.max(0, initialBase - siteDiscount);
@@ -162,7 +162,7 @@ export function calculateQuote(selection: QuoteSelection): QuoteCalculation {
       texts: text?.label ?? "",
       logo: logo?.label ?? "",
       extras: selectedExtras.map((item) => item.label),
-      module: hasSedia ? "Widget Sedia incluso" : module?.label ?? "",
+      module: hasSedia ? "Widget Sedia incluso" : moduleOption?.label ?? "",
       seo: seo?.label ?? "",
       social: social.label,
       sedia: sedia.label,

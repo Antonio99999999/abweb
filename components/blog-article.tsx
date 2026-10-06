@@ -11,17 +11,17 @@ type Section = { id: string; title: string; content: ReactNode };
 type Source = { label: string; url: string; note: string };
 
 export function BlogArticle({
-  category, title, intro, date, readingTime, sections, sources, currentSlug,
+  category, title, intro, date, readingTime, sections, sources, currentSlug, summary,
 }: {
   category: string; title: string; intro: string; date: string; readingTime: string;
-  sections: Section[]; sources: Source[]; currentSlug: string;
+  sections: Section[]; sources: Source[]; currentSlug: string; summary?: string[];
 }) {
   const related = blogPosts.filter((post) => post.slug !== currentSlug).slice(0, 3);
   const subject = encodeURIComponent(`Richiesta dal blog: ${title}`);
   const canonical = `https://www.abagenziaweb.it/blog/${currentSlug}`;
   const currentPost = blogPosts.find((post) => post.slug === currentSlug);
   const publishedISO = currentPost?.published ?? "2026-07-29";
-  const schema = articleSchema({ headline: title, description: intro, canonical, datePublished: publishedISO, dateModified: currentPost?.updated });
+  const schema = { ...articleSchema({ headline: title, description: intro, canonical, datePublished: publishedISO, dateModified: currentPost?.updated }), image: `${canonical}/opengraph-image` };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -37,6 +37,7 @@ export function BlogArticle({
       <nav className="shell editorial-breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/blog">Blog</Link><span>/</span><span aria-current="page">{category}</span></nav>
       <article>
         <header className="editorial-hero"><div className="shell editorial-hero-inner"><p className="eyebrow">{category}</p><h1>{title}</h1><p className="editorial-lead">{intro}</p><div className="editorial-meta"><time dateTime={publishedISO}>{date}</time><span>·</span><span>{readingTime} di lettura</span></div></div></header>
+        {summary && summary.length > 0 && <div className="shell"><aside className="editorial-summary" aria-label="Sintesi dell’articolo"><p className="eyebrow">IN SINTESI</p><ul>{summary.map((item) => <li key={item}>{item}</li>)}</ul></aside></div>}
         <ArticleProgress tocSelector=".editorial-toc" />
         <div className="shell editorial-layout">
           <aside className="editorial-toc"><p>In questo articolo</p>{sections.map((section) => <a key={section.id} href={`#${section.id}`}>{section.title}</a>)}</aside>

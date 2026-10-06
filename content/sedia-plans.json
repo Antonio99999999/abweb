@@ -1,0 +1,52 @@
+{
+  "annualFreeMonths": 2,
+  "includedInAllPlans": [
+    "Nessuna commissione per prenotazione",
+    "Assistenza diretta di AB Web Agency inclusa",
+    "Widget di prenotazione integrabile nel sito"
+  ],
+  "plans": [
+    {
+      "id": "base",
+      "name": "Base",
+      "monthlyPrice": 45,
+      "tagline": "Per chi vuole digitalizzare le prenotazioni e lasciare l'agenda cartacea.",
+      "features": [
+        "Prenotazioni e calendario",
+        "Mappa della sala con un editor visuale",
+        "Combinazioni di tavoli per i gruppi numerosi",
+        "Widget di prenotazione integrabile nel tuo sito",
+        "Rubrica clienti con storico visite",
+        "Conferma automatica via email",
+        "Ruoli proprietario e staff di sala"
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 75,
+      "tagline": "Per chi vuole leggere l'andamento del locale e lavorare sui clienti giusti.",
+      "features": [
+        "Tutto il piano Base",
+        "Più sale",
+        "Filtri e segmenti clienti avanzati",
+        "Report, statistiche e provenienza prenotazioni",
+        "Scelta tra conferma automatica o su richiesta",
+        "Ruolo amministratore ed export dei dati"
+      ],
+      "highlighted": true
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "monthlyPrice": 120,
+      "tagline": "Per chi gestisce più locali e vuole un supporto dedicato.",
+      "features": [
+        "Tutto il piano Pro",
+        "Gestione di più ristoranti dallo stesso account",
+        "Account manager dedicato",
+        "Onboarding e formazione dedicati"
+      ]
+    }
+  ]
+}

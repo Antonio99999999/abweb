@@ -1,13 +1,3 @@
-// Modello dati per future pagine "case study" (proposta: /case-study/[slug]).
-// Non ancora collegato a nessuna route pubblica: nessuna pagina lo importa. Serve come struttura
-// pronta per quando Antonio fornirà i contenuti reali dei progetti (vedi SEO-IMPROVEMENTS-PHASE-2.md).
-//
-// L'unica voce compilata è "Benvenuti al Sud", perché gli unici dati riusabili qui sono già
-// pubblicati e verificabili in app/metodo-mastro/page.tsx e components/case-metrics.tsx: nessun
-// dato nuovo è stato inventato. "Denis Cars" e "La Lanterna" restano fuori finché non arrivano
-// problema, soluzione e risultati reali da Antonio: pubblicare una scheda con questi campi vuoti
-// o genericizzati sarebbe una pagina incompleta/fuorviante, esplicitamente da evitare.
-
 export type CaseStudy = {
   slug: string;
   client: string;
@@ -20,8 +10,6 @@ export type CaseStudy = {
   technologies: string[];
   features: string[];
   process: { title: string; description: string }[];
-  results: { value: string; label: string }[];
-  resultsDisclaimer: string;
   images: { src: string; alt: string }[];
   testimonial?: { quote: string; author: string; role: string };
   relatedServiceIds: string[]; // ancore in /servizi, es. "siti", "gestionale"
@@ -55,12 +43,6 @@ export const caseStudies: CaseStudy[] = [
       { title: "Operatività", description: "Gestionali per vini, turni e prenotazioni per ridurre passaggi manuali e dispersioni." },
       { title: "Comunicazione", description: "Contenuti costruiti sui valori del locale per raccontare qualità, tradizione e accoglienza." },
     ],
-    results: [
-      { value: "+45%", label: "visibilità online" },
-      { value: "+35%", label: "prenotazioni" },
-      { value: "−30%", label: "tempo di gestione" },
-    ],
-    resultsDisclaimer: "Dati dichiarati nel caso studio: non costituiscono una promessa di risultato.",
     images: [{ src: "/clients/benvenuti-al-sud.svg", alt: "Benvenuti al Sud" }],
     relatedServiceIds: ["siti", "automazioni"],
     relatedArticleSlugs: ["ridurre-no-show-ristorante", "sito-ristorante-prenotazioni-dirette"],

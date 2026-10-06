@@ -26,11 +26,9 @@ export async function POST(request: Request) {
   if ((lead.selection.webServiceId || lead.selection.brandIdentity) && !lead.selection.logoId) {
     return NextResponse.json({ error: "Completa le opzioni del logo" }, { status: 400 });
   }
-  if (lead.selection.sediaPlanId !== "sedia-none" && lead.selection.durationId !== "duration-12") {
-    return NextResponse.json({ error: "Il Bonus Sedia richiede una collaborazione di 12 mesi" }, { status: 400 });
-  }
-  if (lead.selection.socialPlanId !== "social-none" && lead.selection.sediaPlanId === "sedia-none" && !lead.selection.durationId) {
-    return NextResponse.json({ error: "Seleziona la durata della collaborazione social" }, { status: 400 });
+  const hasMonthly = lead.selection.sediaPlanId !== "sedia-none" || lead.selection.socialPlanId !== "social-none";
+  if (hasMonthly && !lead.selection.durationId) {
+    return NextResponse.json({ error: "Seleziona la durata della collaborazione" }, { status: 400 });
   }
 
   const payload = {

@@ -83,7 +83,7 @@ export function QuoteBuilder() {
     seoId,
     socialPlanId: wantsSocial ? socialPlanId : "social-none",
     sediaPlanId,
-    durationId: hasSedia ? "duration-12" : durationId,
+    durationId,
   };
   const quote = useMemo(() => calculateQuote(selection), [webServiceId, brandIdentity, pageId, textId, logoId, extraIds, moduleId, seoId, socialPlanId, wantsSocial, sediaPlanId, durationId]);
 
@@ -95,7 +95,7 @@ export function QuoteBuilder() {
     : active === "Interazione" ? !!moduleId
     : active === "SEO" ? !!seoId
     : active === "Social" ? !!socialPlanId && socialPlanId !== "social-none"
-    : active === "Durata" ? hasSedia || !!durationId
+    : active === "Durata" ? !!durationId
     : true;
 
   function next() {
@@ -161,7 +161,7 @@ export function QuoteBuilder() {
       {quote.initial > 0 && <strong>{euro(quote.initial)} – {euro(quote.initialMaximum)}</strong>}
       {quote.monthly > 0 && <strong>{euro(quote.monthly)}<small>/mese</small></strong>}
       {!quote.initial && !quote.monthly && <strong>—</strong>}
-      {hasSedia && quote.firstYearSavings > 0 && <b>Bonus Sedia: risparmi {euro(quote.firstYearSavings)} il primo anno</b>}
+      {hasSedia && quote.firstYearSavings > 0 && <b>Risparmio sul bundle: {euro(quote.firstYearSavings)}</b>}
       <small>Pacchetto {quote.tier} · stima non vincolante</small>
     </div>
   </aside><section className="quote-main">
@@ -170,7 +170,7 @@ export function QuoteBuilder() {
         <button type="button" aria-pressed={brandIdentity} className={`choice ${brandIdentity ? "selected" : ""}`} onClick={() => setBrandIdentity((old) => !old)}><span className="choice-mark">{brandIdentity ? "✓" : "+"}</span><strong>{standaloneServices[0].label}</strong><small>da {euro(standaloneServices[0].price)}</small></button>
         <button type="button" aria-pressed={wantsSocial} className={`choice ${wantsSocial ? "selected" : ""}`} onClick={() => { setWantsSocial((old) => !old); if (wantsSocial) setSocialPlanId(undefined); }}><span className="choice-mark">{wantsSocial ? "✓" : "+"}</span><strong>Gestione Social</strong><small>da €250/mese</small></button>
       </div></>}
-    {active === "Sedia" && <><p className="eyebrow">PRENOTAZIONI DIRETTE</p><h1>Vuoi far lavorare il progetto con Sedia?</h1><p className="lead">Con un piano annuale ottieni il widget incluso, uno sconto sul sito e un prezzo speciale sui pacchetti social.</p><Choice items={sediaPlans} value={sediaPlanId} onChange={(item) => setSediaPlanId(item.id)} monthly/>
+    {active === "Sedia" && <><p className="eyebrow">PRENOTAZIONI DIRETTE</p><h1>Vuoi far lavorare il progetto con Sedia?</h1><p className="lead">Con Sedia ottieni il widget incluso, uno sconto sul sito e un prezzo speciale sui pacchetti social.</p><Choice items={sediaPlans} value={sediaPlanId} onChange={(item) => setSediaPlanId(item.id)} monthly/>
       {hasSedia && <div className="sedia-saving"><strong>Bonus Sedia attivo</strong><span>Fino a {euro(quote.initialSavings)} sui costi iniziali e {euro(quote.monthlySavings)}/mese sul bundle social.</span></div>}</>}
     {active === "Pagine" && <><p className="eyebrow">PAGINE</p><h1>Quante pagine avrà il sito?</h1><Choice items={pages} value={pageId} onChange={(item) => setPageId(item.id)}/></>}
     {active === "Contenuti" && <><p className="eyebrow">CONTENUTI</p><h1>Hai bisogno di supporto per i testi?</h1><Choice items={texts} value={textId} onChange={(item) => setTextId(item.id)}/></>}
@@ -180,11 +180,11 @@ export function QuoteBuilder() {
     {active === "SEO" && <><p className="eyebrow">VISIBILITÀ</p><h1>Quanto vuoi lavorare sulla visibilità locale?</h1><Choice items={seoOptions} value={seoId} onChange={(item) => setSeoId(item.id)}/></>}
     {active === "Social" && <><p className="eyebrow">SOCIAL</p><h1>Scegli il livello di gestione.</h1><p className="lead">Con Sedia i contenuti e le call to action possono portare direttamente al sistema di prenotazione.</p><Choice items={socialPlans.filter((item) => item.id !== "social-none")} value={socialPlanId} onChange={(item) => setSocialPlanId(item.id)} monthly/>
       {hasSedia && socialPlanId && <div className="sedia-saving"><strong>Prezzo bundle: {euro(quote.monthly)}/mese</strong><span>Separatamente pagheresti {euro(quote.monthlyBase)}/mese. Risparmi {euro(quote.monthlySavings)}/mese.</span></div>}</>}
-    {active === "Durata" && (hasSedia ? <><p className="eyebrow">COLLABORAZIONE</p><h1>Il Bonus Sedia richiede 12 mesi.</h1><div className="commitment-card"><strong>Collaborazione 12 mesi</strong><span>Il prezzo agevolato resta valido per tutta la durata concordata.</span></div></> : <><p className="eyebrow">COLLABORAZIONE</p><h1>Per quanto tempo vuoi collaborare?</h1><Choice items={durations.slice(1)} value={durationId} onChange={(item) => setDurationId(item.id)}/></>)}
+    {active === "Durata" && <><p className="eyebrow">COLLABORAZIONE</p><h1>Per quanto tempo vuoi collaborare?</h1><Choice items={durations.slice(1)} value={durationId} onChange={(item) => setDurationId(item.id)}/></>}
     {active === "Contatto" && <form onSubmit={submit}><p className="eyebrow">CONTATTO</p><h1>Ricevi la tua stima.</h1><div className="quote-final-summary">
       {quote.initial > 0 && <div><span>Investimento iniziale</span><strong>{euro(quote.initial)} – {euro(quote.initialMaximum)}</strong></div>}
       {quote.monthly > 0 && <div><span>Servizi mensili</span><strong>{euro(quote.monthly)}/mese</strong></div>}
-      {hasSedia && <div className="saving-row"><span>Risparmio primo anno</span><strong>{euro(quote.firstYearSavings)}</strong></div>}
+      {hasSedia && <div className="saving-row"><span>Risparmio sul bundle</span><strong>{euro(quote.firstYearSavings)}</strong></div>}
     </div><input className="trap-field" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" /><div className="form-grid"><label>Nome e cognome<input required name="name" autoComplete="name" /></label><label>Email<input required name="email" type="email" autoComplete="email" /></label><label>Telefono<input required name="phone" type="tel" autoComplete="tel" /></label><label>Azienda<input name="company" autoComplete="organization" /></label><label className="full">Note sul progetto<textarea name="note" rows={3} /></label></div><label className="consent"><input required type="checkbox" /><span>Ho letto la <Link href="/privacy" target="_blank">Privacy Policy</Link> e richiedo di essere ricontattato in merito al progetto.</span></label>{error && <p className="form-error" role="alert">{error}</p>}<div className="button-row"><button type="button" className="button button-secondary" onClick={() => setStep((current) => current - 1)}>Indietro</button><button className="button" disabled={loading}>{loading ? "Invio in corso…" : "Ricevi la stima"} <span>→</span></button></div></form>}
     {active !== "Contatto" && <><>{error && <p className="form-error" role="alert">{error}</p>}</><div className="button-row"><button type="button" className="button button-secondary" onClick={() => { setError(""); setStep((current) => Math.max(0, current - 1)); }} disabled={step === 0}>Indietro</button><button className="button" onClick={next}>{active === "Durata" ? "I tuoi dati" : "Continua"} <span>→</span></button></div></>}
   </section></div>;

@@ -16,19 +16,31 @@
 
 ## Sedia — gestionale prenotazioni per ristoranti
 - [Sedia](https://www.abagenziaweb.it/gestionale-ristoranti): gestionale costruito sulla sala reale del ristorante — mappa dei tavoli, prenotazioni, widget per il sito, rubrica clienti. Prodotto sviluppato da AB Web Agency.
-- [Prezzi di Sedia](https://www.abagenziaweb.it/gestionale-ristoranti/prezzi): tre piani pubblici da 45 a 120 € al mese, senza commissioni per prenotazione.
+- [Prezzi di Sedia](https://www.abagenziaweb.it/gestionale-ristoranti/prezzi): tre piani pubblici senza commissioni per prenotazione: Base a 45 € al mese (prenotazioni, mappa della sala, widget, clienti); Pro a 75 € al mese (più sale, report, scelta tra conferma automatica o su richiesta, export); Premium a 120 € al mese (più ristoranti dallo stesso account, account manager dedicato). Con pagamento annuale ci sono due mesi gratis: 37,50 €, 62,50 € e 100 € al mese equivalenti.
 - [Widget di prenotazione](https://www.abagenziaweb.it/gestionale-ristoranti/widget-prenotazioni): come funziona il widget integrabile nel sito del ristorante.
 - [Sedia come alternativa a TheFork](https://www.abagenziaweb.it/gestionale-ristoranti/alternativa-thefork): differenza tra Sedia e i portali di prenotazione con commissione.
 
 ## Casi studio
-- [Casi studio](https://www.abagenziaweb.it/casi-studio): progetti realizzati, con problema, soluzione e risultati dichiarati dal cliente.
+- [Casi studio](https://www.abagenziaweb.it/casi-studio): progetti realizzati, con problema, soluzione e consegne.
 - [Benvenuti al Sud](https://www.abagenziaweb.it/casi-studio/benvenuti-al-sud): rebranding, sito e prenotazioni dirette per un ristorante di Torino.
 
 ## Blog e guide
 - [Blog](https://www.abagenziaweb.it/blog): guide pratiche su siti, prenotazioni, Google e gestionali per ristoranti.
+- [Misurare le prenotazioni che arrivano dal sito](https://www.abagenziaweb.it/blog/misurare-prenotazioni-sito-ristorante): Visita, click sul pulsante di prenotazione e prenotazione confermata: come misurare i tre passaggi con Google Analytics 4 e Search Console.
+- [Turni, durata dei tavoli e lista d’attesa](https://www.abagenziaweb.it/blog/turni-durata-tavoli-lista-attesa): Regole semplici per turni, durata dei tavoli e lista d’attesa, da verificare sul servizio reale per evitare overbooking e tavoli vuoti.
+- [Migrare da un gestionale di prenotazioni senza perdere dati](https://www.abagenziaweb.it/blog/migrare-gestionale-prenotazioni): Inventario, esportazione verificata, convivenza dei sistemi e checklist per cambiare gestionale senza perdere clienti e consensi.
+- [Senza glutine al ristorante: cosa scrivere sul menù](https://www.abagenziaweb.it/blog/senza-glutine-menu-ristorante): Cosa dicono le regole europee su allergeni e “senza glutine”, e come comunicare il rischio di contaminazione senza promettere troppo.
+- [Gestionale per ristoranti: quanto costa e cosa confrontare](https://www.abagenziaweb.it/blog/quanto-costa-gestionale-ristorante): Canone, commissioni, configurazione e tempo del personale: come calcolare il costo reale di un gestionale e confrontare le offerte.
+- [Le domande dei clienti prima di prenotare](https://www.abagenziaweb.it/blog/domande-clienti-prima-di-prenotare): Quali domande si fanno i clienti prima di prenotare, dove scrivere le risposte nel sito e come evitare promesse non mantenibili.
+- [Dati strutturati per ristoranti: cosa dichiarare](https://www.abagenziaweb.it/blog/dati-strutturati-ristorante): Quali dati strutturati usare per un ristorante, come dichiarare menù, orari e prenotazioni, e perché il markup deve descrivere solo ciò che si vede.
+- [Rispondere alle recensioni del ristorante, anche le negative](https://www.abagenziaweb.it/blog/rispondere-recensioni-ristorante): Un metodo breve e non difensivo per rispondere alle recensioni Google, anche quelle negative, con una routine settimanale sostenibile.
+- [Capienza e combinazioni dei tavoli nel gestionale](https://www.abagenziaweb.it/blog/capienza-tavoli-gestionale-ristorante): Come registrare la capienza reale dei tavoli e le combinazioni per i gruppi, evitando overbooking e tavoli che non si possono unire.
+- [Telefono, WhatsApp o gestionale per le prenotazioni](https://www.abagenziaweb.it/blog/telefono-whatsapp-gestionale-prenotazioni): dove si perdono le richieste nei tre canali e un metodo di una settimana per decidere.
+- [Profilo Google di un ristorante: la checklist settimanale](https://www.abagenziaweb.it/blog/profilo-google-ristorante-checklist): orari, categorie, dati coerenti, menù, link di prenotazione e recensioni.
+- [Menù digitale per ristorante: PDF, pagina web o QR code?](https://www.abagenziaweb.it/blog/menu-digitale-ristorante): come scegliere la versione principale del menù e tenere allineate le copie.
 - [Google prenotazioni ristoranti: guida a Prenota con Google](https://www.abagenziaweb.it/blog/prenotazioni-ristorante-google-maps): cos'è, come si attiva, vantaggi, limiti e differenza con la prenotazione diretta.
 - [Ridurre i no-show al ristorante](https://www.abagenziaweb.it/blog/ridurre-no-show-ristorante): conferme, lista d'attesa, politiche di cancellazione e caparra.
-- [Quandoo chiude: Sedia è l'alternativa](https://www.abagenziaweb.it/blog/quandoo-chiude-alternativa-sedia): date della cessazione e guida al passaggio.
+- [Quandoo non è più disponibile: alternative e passaggio a Sedia](https://www.abagenziaweb.it/blog/quandoo-chiude-alternativa-sedia): stato del servizio secondo il comunicato ufficiale, criteri di scelta e checklist di passaggio.
 - [Sito per ristorante: come trasformarlo in un canale di prenotazione](https://www.abagenziaweb.it/blog/sito-ristorante-prenotazioni-dirette)
 - [Quanto costa un sito web per ristorante nel 2026?](https://www.abagenziaweb.it/blog/quanto-costa-sito-web-ristorante): cosa influenza davvero il prezzo, senza fasce inventate.
 - [Come aumentare le prenotazioni dirette di un ristorante](https://www.abagenziaweb.it/blog/aumentare-prenotazioni-dirette-ristorante)
@@ -40,4 +52,4 @@
 
 ## Note
 - Sede: Torino, Italia. Contatto: ab.agenziaweb@gmail.com
-- AB Web Agency non pubblica recensioni, numero di clienti o percentuali di risultato non verificabili: i casi studio riportano solo dati dichiarati direttamente dal cliente.
+- AB Web Agency non pubblica recensioni, numero di clienti o percentuali di risultato: i casi studio descrivono problema, soluzione e consegne.

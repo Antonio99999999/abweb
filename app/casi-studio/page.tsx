@@ -9,7 +9,7 @@ import "../case-studies.css";
 
 const canonical = "https://www.abagenziaweb.it/casi-studio";
 const title = "Casi studio: progetti reali per ristoranti";
-const description = "Casi studio di AB Web Agency: problema, soluzione e risultati dichiarati dai clienti, senza numeri inventati.";
+const description = "Casi studio di AB Web Agency: problema, soluzione e consegne del progetto, senza percentuali di risultato.";
 
 export const metadata: Metadata = {
   title,
@@ -32,7 +32,7 @@ export default function CasiStudio() {
         <section className="page-hero shell">
           <p className="eyebrow">CASI STUDIO</p>
           <h1>Progetti reali, non promesse generiche</h1>
-          <p>Ogni caso studio racconta un problema vero, cosa abbiamo costruito insieme al cliente e i risultati che ha dichiarato — senza percentuali inventate.</p>
+          <p>Ogni caso studio racconta un problema reale, cosa abbiamo costruito insieme al cliente e cosa è stato consegnato — senza percentuali di risultato.</p>
         </section>
         <section className="section shell">
           <div className="case-index-grid">

@@ -185,7 +185,7 @@ export default function GestionaleRistoranti() {
           <p className="eyebrow">APPROFONDISCI</p>
           <h2>Guide collegate a Sedia</h2>
           <p style={{ color: "var(--muted)", maxWidth: 640, marginTop: 12 }}>
-            <Link className="text-link" href="/blog/quandoo-chiude-alternativa-sedia">Quandoo chiude: la guida al passaggio a Sedia <span>→</span></Link>
+            <Link className="text-link" href="/blog/quandoo-chiude-alternativa-sedia">Quandoo non è più disponibile: la guida al passaggio a Sedia <span>→</span></Link>
             <br /><br />
             <Link className="text-link" href="/blog/prenotazioni-ristorante-google-maps">Prenotazioni ristorante da Google: guida a link e profilo <span>→</span></Link>
             <br /><br />

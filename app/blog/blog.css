@@ -28,3 +28,10 @@
 .editorial-faq details:last-child{border-bottom:1px solid var(--line)}
 .editorial-faq details[open] summary span{transform:rotate(45deg)}
 .editorial-faq details p{max-width:640px;color:var(--muted);margin:10px 0 0}
+
+.editorial-summary{margin:0 0 56px;padding:28px 32px;border-radius:18px;border:1px solid #fed7aa;border-left:4px solid #f97316;background:#fff7ed}
+.editorial-summary .eyebrow{margin:0 0 12px;color:#c2410c}
+.editorial-summary ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.editorial-summary li{position:relative;padding-left:22px;color:#1e293b;line-height:1.6}
+.editorial-summary li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:#f97316}
+@media(max-width:620px){.editorial-summary{padding:22px 20px}}

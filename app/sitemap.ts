@@ -22,7 +22,7 @@ const staticPages: { route: string; lastModified: string }[] = [
   { route: "/metodo-mastro", lastModified: "2026-07-19" },
   { route: "/preventivo", lastModified: "2026-07-19" },
   { route: "/contatti", lastModified: "2026-07-31" },
-  { route: "/blog", lastModified: "2026-08-04" },
+  { route: "/blog", lastModified: "2026-10-06" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

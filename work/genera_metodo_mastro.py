@@ -9,7 +9,6 @@ from PIL import Image
 ROOT = Path(r"C:\Users\anton\Documents\Codex\2026-07-19\va")
 ASSETS = ROOT / "work" / "metodo-assets"
 OUT = ROOT / "outputs" / "Metodo-Mastro-Benvenuti-al-Sud.pdf"
-PUBLIC = ROOT / "public" / "downloads" / "metodo-mastro-benvenuti-al-sud.pdf"
 
 pdfmetrics.registerFont(TTFont("Title", r"C:\Windows\Fonts\georgiab.ttf"))
 pdfmetrics.registerFont(TTFont("Body", r"C:\Windows\Fonts\segoeui.ttf"))
@@ -178,19 +177,16 @@ def page9(c):
     footer(c, 9); c.showPage()
 
 def page10(c):
-    header(c, 10, "09 / Risultati e obiettivi", "Una crescita più leggibile, per il team e per il locale.", "I segnali raccolti nel progetto descrivono una direzione: più visibilità, più richieste e meno tempo sottratto alla gestione. Gli obiettivi mantengono il sistema focalizzato.")
+    header(c, 10, "10 / Consegne e obiettivi", "Un lavoro concreto, con obiettivi chiari.", "Il progetto ha consegnato strumenti operativi e un'identità coerente. Non riportiamo percentuali di risultato.")
     # Chart - no decorative numeral
     rect(c, M, 220, 286, 246, fog, 14)
     label(c, "Indicatori del progetto", M+18, 438)
-    metrics=[("Visibilità online", "+45%", 0.90, orange), ("Prenotazioni", "+35%", 0.70, sky), ("Tempo di gestione", "-30%", 0.60, "#6C99B9")]
+    consegne=["Menu digitale in quattro lingue", "Sistema di prenotazione proprietario", "Strumenti per turni e proposta vini"]
     yy=381
-    for name,val,ratio,col in metrics:
-        c.setFillColor(C(ink)); c.setFont("Title", 10); c.drawString(M+18, yy, name)
-        c.setFillColor(C(col)); c.setFont("Title", 15); c.drawRightString(M+264, yy-3, val)
-        rect(c, M+18, yy-25, 240, 10, "#D3E3ED", 5)
-        rect(c, M+18, yy-25, 240*ratio, 10, col, 5)
-        yy -= 68
-    c.setFillColor(C(muted)); c.setFont("Body", 7.6); c.drawString(M+18, 202, "Valori di sintesi del caso studio, utili per leggere la direzione del progetto.")
+    for item in consegne:
+        c.setFillColor(C(ink)); c.setFont("Body", 10); c.drawString(M+18, yy, item)
+        yy -= 28
+    c.setFillColor(C(muted)); c.setFont("Body", 7.6); c.drawString(M+18, 202, "Questo caso studio non riporta percentuali di risultato.")
     # Decorative goals table
     rect(c, 349, 220, 204, 246, cream, 14)
     label(c, "Obiettivi del sistema", 365, 438)
@@ -229,11 +225,10 @@ def page12(c):
     footer(c, 12); c.showPage()
 
 def main():
-    OUT.parent.mkdir(parents=True, exist_ok=True); PUBLIC.parent.mkdir(parents=True, exist_ok=True)
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     c=canvas.Canvas(str(OUT), pagesize=A4, pageCompression=1, title="Metodo Mastro | Benvenuti al Sud", author="AB Web Agency")
     for fn in [page1,page2,page3,page4,page5,page6,page7,page8,page9,page10,page11,page12]: fn(c)
     c.save()
-    PUBLIC.write_bytes(OUT.read_bytes())
     print(OUT)
 
 if __name__ == '__main__': main()
