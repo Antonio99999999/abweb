@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -95,7 +94,9 @@ export function SiteHeader() {
 
   return <header className={`site-header${scrolled ? " is-scrolled" : ""}`} data-theme="agency"><div className="shell nav">
     <span className="nav-scroll-glow" aria-hidden />
-    <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><Image src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={246} height={284} priority /></Link>
+    {/* next/image passa dall'ottimizzatore a pagamento di Vercel: il logo è nell'header di ogni pagina, non rischiamo un 402 lì */}
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <Link className="brand logo-brand" href="/" aria-label="AB Web Agency, home" onClick={close}><img src="/brand/abwebagency-logo.png" alt="AB Web Agency" width={246} height={284} fetchPriority="high" /></Link>
     <nav ref={navRef} id="mobile-navigation" className={`primary-nav ${open ? "open" : ""}`} aria-label="Navigazione principale">
       <span className={`nav-glow${glow.visible ? " is-visible" : ""}`} aria-hidden style={{ transform: `translate(${glow.left}px,-50%)`, width: glow.width }} />
       {navItems.map((item) => {
