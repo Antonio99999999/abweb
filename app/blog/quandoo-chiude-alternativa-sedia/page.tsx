@@ -7,6 +7,7 @@ import { AuthorBio } from "@/components/blog-article";
 import { ArticleProgress } from "@/components/article-progress";
 import { BUSINESS } from "@/lib/business";
 import { AUTHOR } from "@/lib/author";
+import { ORGANIZATION_ID, PERSON_ID } from "@/lib/schema";
 import { SEDIA_PLANS } from "@/lib/sedia-plans";
 import "../blog.css";
 import "./quandoo-sedia.css";
@@ -70,8 +71,8 @@ const articleSchema = {
   dateModified: "2026-10-06",
   inLanguage: "it-IT",
   mainEntityOfPage: canonical,
-  author: { "@type": "Person", name: AUTHOR.name, url: AUTHOR.url },
-  publisher: { "@type": "Organization", name: BUSINESS.name, url: BUSINESS.url, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
+  author: { "@type": "Person", "@id": PERSON_ID, name: AUTHOR.name, url: AUTHOR.url },
+  publisher: { "@type": "Organization", "@id": ORGANIZATION_ID, name: BUSINESS.name, url: BUSINESS.url, logo: { "@type": "ImageObject", url: BUSINESS.logo } },
 };
 
 const faqSchema = {

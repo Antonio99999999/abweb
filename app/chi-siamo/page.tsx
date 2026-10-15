@@ -32,7 +32,7 @@ export default function ChiSiamo() {
         <section className="page-hero shell">
           <p className="eyebrow">CHI SIAMO</p>
           <h1>Un&apos;agenzia che conosce la sala, non solo il codice.</h1>
-          <p>AB Web Agency progetta siti, automazioni e strumenti digitali per ristoranti partendo da un punto di vista diretto sul lavoro di sala, non da un&apos;idea astratta di cosa serva a un locale.</p>
+          <p>AB Web Agency è un&apos;agenzia di Torino che progetta siti, automazioni e strumenti digitali per ristoranti, partendo da un punto di vista diretto sul lavoro di sala, non da un&apos;idea astratta di cosa serva a un locale.</p>
         </section>
 
         <section className="section shell">
