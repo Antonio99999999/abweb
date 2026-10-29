@@ -63,7 +63,7 @@ export default function CorteHouseCaseStudy() {
         </section>
 
         <section className="section shell">
-          <div className="section-intro">
+          <div className="section-intro section-intro-compact">
             <p className="eyebrow">IL PROBLEMA</p>
             <h2>{study.problem}</h2>
           </div>
@@ -75,7 +75,7 @@ export default function CorteHouseCaseStudy() {
         </section>
 
         <section className="section shell">
-          <div className="section-intro">
+          <div className="section-intro section-intro-compact">
             <p className="eyebrow">LA SOLUZIONE</p>
             <h2>{study.solution}</h2>
           </div>
@@ -90,7 +90,7 @@ export default function CorteHouseCaseStudy() {
         </section>
 
         <section className="section shell">
-          <div className="section-intro">
+          <div className="section-intro section-intro-compact">
             <p className="eyebrow">IL GESTIONALE</p>
             <h2>Non un prodotto preconfezionato: uno strumento costruito su questa casa.</h2>
             <p>Le immagini qui sotto mostrano il gestionale con dati dimostrativi, non prenotazioni reali di ospiti.</p>

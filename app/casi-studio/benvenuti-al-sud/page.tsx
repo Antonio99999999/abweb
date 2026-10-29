@@ -70,7 +70,7 @@ export default function BenvenutiAlSudCaseStudy() {
         </section>
 
         <section className="section shell">
-          <div className="section-intro">
+          <div className="section-intro section-intro-compact">
             <p className="eyebrow">IL PROBLEMA</p>
             <h2>{study.problem}</h2>
           </div>
@@ -82,7 +82,7 @@ export default function BenvenutiAlSudCaseStudy() {
         </section>
 
         <section className="section shell">
-          <div className="section-intro">
+          <div className="section-intro section-intro-compact">
             <p className="eyebrow">LA SOLUZIONE</p>
             <h2>{study.solution}</h2>
           </div>
