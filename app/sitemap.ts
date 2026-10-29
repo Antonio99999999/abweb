@@ -13,6 +13,7 @@ const staticPages: { route: string; lastModified: string }[] = [
   { route: "/seo-locale-ristoranti", lastModified: "2026-08-04" },
   { route: "/casi-studio", lastModified: "2026-07-31" },
   { route: "/casi-studio/benvenuti-al-sud", lastModified: "2026-08-04" },
+  { route: "/casi-studio/corte-house", lastModified: "2026-10-29" },
   { route: "/gestionale-ristoranti", lastModified: "2026-08-04" },
   { route: "/gestionale-ristoranti/prezzi", lastModified: "2026-07-31" },
   { route: "/gestionale-ristoranti/widget-prenotazioni", lastModified: "2026-07-31" },

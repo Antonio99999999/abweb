@@ -10,3 +10,10 @@
 .case-tech-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;list-style:none}
 .case-tech-list li{padding:6px 14px;border-radius:999px;border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
 .case-disclaimer{margin-top:14px;color:var(--muted);font-size:12px}
+
+.case-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:24px;margin-top:28px}
+.case-gallery figure{margin:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.case-gallery img{display:block;width:100%;height:auto;border-bottom:1px solid var(--border)}
+.case-gallery figcaption{padding:16px 18px}
+.case-gallery figcaption strong{display:block;margin-bottom:4px;color:var(--ink);font-size:15px}
+.case-gallery figcaption span{color:var(--muted);font-size:14px;line-height:1.55}
